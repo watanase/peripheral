@@ -1,0 +1,17 @@
+.header
+  .header__title
+    =link_to root_path do
+      title
+  .search-bar
+    = form_with url: "#", local: true, method: :get do |f|
+      = f.text_field :search, class: 'search-form', placeholder: "検索ワードを入力してください"
+      = button_tag type: 'submit', class: "search-btn" do
+        = icon('fas', 'search')
+  .nav
+    %ul.nav-bar
+      %li.nav-login
+        = link_to "#" do
+          Login
+      %li.nav-sign
+        = link_to "#" do
+          Signin

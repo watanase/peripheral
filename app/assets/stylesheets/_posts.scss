@@ -1,0 +1,118 @@
+* {
+  box-sizing: border-box;
+}
+
+.wrapper{
+}
+
+.header{
+  background-color: white;
+  height: 100px;
+  width: 100%;
+  position: fixed;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  &__title{
+    line-height: 60px;
+    font-size: 30px;
+    padding-left: 20px;
+    a{
+      text-decoration: none;
+      color: black;
+    }
+  }
+  .search-bar{
+    line-height: 60px;
+    form{
+      position: relative;
+      .search-form{
+        height: 40px;
+        width: 300px;
+        border-radius: 9px;
+        outline: 0;
+        border: 1px solid #808080;
+        padding-left: 10px;
+      }
+      .search-btn{
+        position: absolute;
+        width: 2.5em;
+        top: 18px;
+        right: 0;
+        border: none;
+        background: none;
+        font-size: 20px;
+        outline: 0;
+        cursor: pointer;
+      }
+    }
+  }
+  .nav{
+    .nav-bar{
+      padding-top: 10px;
+      li{
+        margin: 0 10px;
+        display: inline;
+        a{
+          color: black;
+          text-decoration: none;
+          border: 1px solid black;
+          display: inline-block;
+          text-align: left;
+          font-size: 16px;
+          padding: 8px 16px;
+          font-weight: bold;
+          transition: .4s;
+          &:hover {
+            background-color: black;
+            border-color: white;
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}
+
+.main-content{
+  padding: 100px 0 0 50px;
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  .post-list-box{
+    width: 80%;
+    float: left;
+    background-color: #f0f8ff;
+    height: calc(100vh - 100px);
+    display: flex;
+    flex-wrap: wrap;
+    align-content: stretch;
+    overflow: scroll;
+    .post-list{
+      height: 250px;
+      margin: 20px;
+      background-color: red;
+      width: 20%;
+      .post-item{
+        display: block;
+        text-align: center;
+        h2{
+          height: 50px;
+          line-height: 50px;
+          background-color: blue;
+        }
+      }
+    }
+  }
+  .info{
+    width: 20%;
+    float: right;
+    background-color: white;
+  }
+}
+
+.footer{
+  height: 20px;
+  background-color: #cce6ff;
+  width: 100%;
+}
