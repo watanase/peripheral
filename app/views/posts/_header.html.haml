@@ -1,7 +1,7 @@
 .header
   .header__title
     =link_to root_path do
-      title
+      Title
   .search-bar
     = form_with url: "#", local: true, method: :get do |f|
       = f.text_field :search, class: 'search-form', placeholder: "検索ワードを入力してください"
@@ -9,9 +9,17 @@
         = icon('fas', 'search')
   .nav
     %ul.nav-bar
-      %li.nav-login
-        = link_to "#" do
-          Login
-      %li.nav-sign
-        = link_to "#" do
-          Signin
+      - if user_signed_in?
+        %li.nav-mypage
+          = link_to "#" do
+            = current_user.name
+        %li.nav-logout
+          = link_to '#' do
+            Logout
+      - else
+        %li.nav-login
+          = link_to new_user_session_path do
+            Login
+        %li.nav-sign
+          = link_to new_user_registration_path do
+            Signin

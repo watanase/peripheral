@@ -62,3 +62,5 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'haml-rails'
 gem 'font-awesome-sass'
+gem 'devise'
+gem 'carrierwave'
