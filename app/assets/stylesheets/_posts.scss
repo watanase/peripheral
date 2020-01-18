@@ -92,7 +92,7 @@
       height: 250px;
       margin: 20px;
       background-color: red;
-      width: 20%;
+      width: 200px;
       .post-item{
         display: block;
         text-align: center;
@@ -112,7 +112,16 @@
 }
 
 .footer{
-  height: 20px;
+  height: 40px;
   background-color: #cce6ff;
   width: 100%;
+}
+
+.new-post{
+  padding-top: 100px;
+  form{
+    background-color: blue;
+    height: 100px;
+    width: 300px;
+  }
 }

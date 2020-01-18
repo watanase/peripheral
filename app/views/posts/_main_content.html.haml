@@ -1,79 +1,13 @@
 .main-content
   .post-list-box
-    .post-list
-      .post-item
-        %h2.post-text
-        = link_to "#" do
-          post
-    .post-list
-      .post-item
-        %h2.post-text
-        = link_to "#" do
-          post
-    .post-list
-      .post-item
-        %h2.post-text
-        = link_to "#" do
-          post
-    .post-list
-      .post-item
-        %h2.post-text
-        = link_to "#" do
-          post
-    .post-list
-      .post-item
-        %h2.post-text
-        = link_to "#" do
-          post
-    .post-list
-      .post-item
-        %h2.post-text
-        = link_to "#" do
-          post
-    .post-list
-      .post-item
-        %h2.post-text
-        = link_to "#" do
-          post
-    .post-list
-      .post-item
-        %h2.post-text
-        = link_to "#" do
-          post
-    .post-list
-      .post-item
-        %h2.post-text
-        = link_to "#" do
-          post
-    .post-list
-      .post-item
-        %h2.post-text
-        = link_to "#" do
-          post
-    .post-list
-      .post-item
-        %h2.post-text
-        = link_to "#" do
-          post
-    .post-list
-      .post-item
-        %h2.post-text
-        = link_to "#" do
-          post
-    .post-list
-      .post-item
-        %h2.post-text
-        = link_to "#" do
-          post
-    .post-list
-      .post-item
-        %h2.post-text
-        = link_to "#" do
-          post
+    - @posts.each do |post|
+      = post.title
+      = post.image.to_s
     .post-list
       .post-item
         %h2.post-text
         = link_to "#" do
           post
   .info
-    info
+    = link_to new_post_path do
+      投稿
