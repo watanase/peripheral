@@ -1,8 +1,10 @@
 = render "header"
 .new-post
   = form_with(model: @post, local: true) do |f|
-    = f.text_field :title
-    = f.text_field :text
-    = f.label :image
-    = f.file_field :image
+    .add-image
+    = f.file_field :images
+    .add-title
+    = f.text_field :title, placeholder: "タイトルを入力してください"
+    .add-content
+    = f.text_field :content, placeholder: "本文を入力してください"
     = f.submit "SEND"
