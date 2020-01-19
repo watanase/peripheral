@@ -2,9 +2,22 @@
 .new-post
   = form_with(model: @post, local: true) do |f|
     .add-image
-    = f.file_field :images
+      .images
+        = f.label :images do
+          = icon("far", "file-image", class: "icon")
+          = f.file_field :images, class: "image", id: :post_img
+            - if @post.images.present? do
+              = image_tag @post.images, id: :img_prev
+            - else
+              = image_tag "sample.jpg", id: :img_prev
     .add-title
     = f.text_field :title, placeholder: "タイトルを入力してください"
     .add-content
     = f.text_field :content, placeholder: "本文を入力してください"
     = f.submit "SEND"
+%h2.Ajax#index
+%p#hoge赤色になるよ
+
+<script>
+  $("#hoge").css("color","red")
+</script>

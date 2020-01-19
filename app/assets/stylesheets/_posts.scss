@@ -13,6 +13,7 @@
   padding: 20px;
   display: flex;
   justify-content: space-between;
+  z-index: 1;
   &__title{
     line-height: 60px;
     font-size: 30px;
@@ -138,9 +139,32 @@
   padding-top: 100px;
   form{
     background-color: blue;
-    height: 1300px;
     width: 1000px;
     margin: 0 auto;
     padding: 50px;
+    .add-image{
+      height: 300px;
+      background-color: green;
+      width: 100%;
+      position: relative;
+      .images{
+        height: 200px;
+        width: 250px;
+        display: inline-block;
+        text-align: center;
+        position: absolute;
+        top: 50px;
+        left: 30px;
+        .icon{
+          font-size: 180px;
+          text-align: center;
+          cursor: pointer;
+          line-height: 200px;
+        }
+        .image{
+          display: none;
+        }
+      }
+    }
   }
 }
