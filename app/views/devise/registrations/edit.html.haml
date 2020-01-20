@@ -2,6 +2,23 @@
   Edit #{resource_name.to_s.humanize}
 = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
   = render "devise/shared/error_messages", resource: resource
+  .circle-avatar
+    %img#avatar_img_prev.hidden
+    -if current_user.persisted? && current_user.avatar?
+      = image_tag current_user.avatar.to_s, class: "avatar_present_img"
+      = f.check_box :remove_avatar do
+        画像を削除
+    -else
+      = image_tag 'no_image.png', class: "avatar_present_img"
+      = f.hidden_field :avatar_cache
+      = f.file_field :avatar, id: "post_img"
+  .field
+    = f.label :name
+    %br/
+    = f.text_field :name, autofocus: true, autocomplete: "name"
+  - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+    %div
+      Currently waiting confirmation for: #{resource.unconfirmed_email}
   .field
     = f.label :email
     %br/
@@ -33,4 +50,5 @@
 %h3 Cancel my account
 %p
   Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
-= link_to "Back", :back
+  = link_to user_path(current_user) do
+    back

@@ -1,0 +1,37 @@
+.mypage{
+  padding-top: 100px;
+  height: 500px;
+}
+
+.circle-avatar{
+  img{
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+}
+
+.signin{
+  width: 100%;
+  background-color: palegoldenrod;
+  height: 100vh;
+  .left-page{
+    width: 400px;
+    background-color: paleturquoise;
+    float: left;
+    height: 100%;
+    .title-name{
+      a{
+        font-size: 30px;
+        text-decoration: none;
+      }
+    }
+  }
+  .right-page{
+    width: calc(100vw - 400px);
+    float: right;
+    background-color: palevioletred;
+    height: 100%;
+  }
+}
