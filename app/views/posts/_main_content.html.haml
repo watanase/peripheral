@@ -2,7 +2,7 @@
   .post-list-box
     - @posts.each do |post|
       .post-list
-        = link_to "#" do
+        = link_to "/posts/#{post.id}", method: :get do
           .post-item
             .post-images
               = image_tag post.images.url, size: "180x150"
