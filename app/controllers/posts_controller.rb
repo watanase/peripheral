@@ -8,7 +8,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = Post.create(post_params)
     @post.user_id = current_user.id
     redirect_to root_path
   end
@@ -20,13 +20,21 @@ class PostsController < ApplicationController
   end
 
   def edit
+    @post = Post.find(params[:id])
   end
 
   def update
+    post = Post.find(params[:id])
+  end
+
+  def destroy
+    post = Post.find(params[:id])
+    post.destroy
+    redirect_to root_path
   end
 
   private
   def post_params
-    params.require(:post).permit(:title, :content, :images)
+    params.require(:post).permit(:title, :content, :images).merge(user_id: current_user.id)
   end
 end

@@ -3,7 +3,9 @@
   = image_tag @post.images.url
   = @post.title
   = @post.content
-
+  .post-edit
+    = link_to "/posts/#{@post.id}", method: :delete do
+      削除
 .comment-space
   .comment-create
     = form_with model:[@post, @comment], local: true, id: "new-comment" do |f|
