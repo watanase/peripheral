@@ -1,4 +1,17 @@
+= render "header"
 .show-details
   = image_tag @post.images.url
   = @post.title
   = @post.content
+
+.comment-space
+  .comment-list
+    %h2 コメント一覧
+    - @comments.each do |c|
+      %p 
+        = c.content     
+  .comment-create
+    = form_with model:[@post, @comment], local: true do |f|
+      = f.text_field :content 
+      %br/
+      = f.submit 'コメントする'
