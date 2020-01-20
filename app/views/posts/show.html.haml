@@ -5,13 +5,14 @@
   = @post.content
 
 .comment-space
-  .comment-list
-    %h2 コメント一覧
-    - @comments.each do |c|
-      %p 
-        = c.content     
   .comment-create
-    = form_with model:[@post, @comment], local: true do |f|
-      = f.text_field :content 
+    = form_with model:[@post, @comment], local: true, id: "new-comment" do |f|
+      = f.text_area :content, class: "comment-area"
       %br/
       = f.submit 'コメントする'
+  -if @comments
+    .comment-list
+      %h2 コメント一覧
+      - @comments.each do |c|
+        %p 
+          = c.content
