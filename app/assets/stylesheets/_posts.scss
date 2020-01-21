@@ -181,14 +181,19 @@
 
 .show-details{
   padding-top: 100px;
-  height: 350px;
+  height: 400px;
   background-color: bisque;
   width: 100%;
 }
 
+.like-button{
+  color: pink;
+  font-size: 19px
+}
+
 .comment-space{
   .comment-create{
-    background-color: cadetblue;
+    background-color: skyblue;
     height: 60px;
     width: 100%;
   }
