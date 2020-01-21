@@ -9,6 +9,8 @@
         削除
   %div{:id => "likes_buttons_#{@post.id}"}
     = render partial: 'likes/like', locals: { post: @post, likes: @likes}
+  = link_to user_path(@post.user.id) do
+    = @post.user.name
 .comment-space
   .comment-create
     = form_with model:[@post, @comment], local: true, id: "new-comment" do |f|

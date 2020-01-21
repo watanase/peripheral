@@ -1,0 +1,18 @@
+- if user_signed_in?
+  - unless current_user == user
+    - if current_user.following?(user)
+      = form_for(current_user.relationships.find_by(follow_id: user.id), html: { method: :delete }) do |f|
+        = f.hidden_field :follow_id, value: user.id
+        = f.submit 'フォロー中', class: 'follow-now'
+    - else
+      = form_for(current_user.relationships.build) do |f|
+        = f.hidden_field :follow_id, value: user.id
+        = f.submit 'フォロー', class: 'follows'
+
+        <% if board.follow_user(current_user.id) %>
+    <%= link_to board_follow_path(board_id: board.id, id: board.follow_user(current_user.id).id), method: :delete, remote: true do %>
+        <i class='fas fa-star'>
+<% else %>
+    <%= link_to board_follows_path(board.id), method: :post, remote: true do %>
+        <i class='far fa-star'>
+<% end %>

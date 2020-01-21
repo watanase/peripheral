@@ -9,7 +9,7 @@
   - else
     = button_to post_likes_path(post.id), method: :post, remote: true do
       .vertical_like
-        %i.fas.fa-heart
+        %i.far.fa-heart
         %span いいね！
         %span
           = post.likes_count
