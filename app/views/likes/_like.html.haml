@@ -1,0 +1,21 @@
+- if user_signed_in?
+  - unless post.like_user(current_user.id).blank?
+    = button_to post_like_path(post_id: post.id ,id: post.likes[0].id), method: :delete, remote: true do
+      .vertical_like
+        %i.fas.fa-heart
+        %span いいね！
+        %span
+          = post.likes_count
+  - else
+    = button_to post_likes_path(post.id), method: :post, remote: true do
+      .vertical_like
+        %i.fas.fa-heart
+        %span いいね！
+        %span
+          = post.likes_count
+- else
+  .vertical_like
+    %i.fas.fa-heart
+    %span いいね！
+    %span
+      = post.likes_count

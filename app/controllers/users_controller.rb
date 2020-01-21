@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
-  def new
-    @user = User.find(session[:user_id])
+  def edit
   end
 
-  def edit
+  def show
+    @user = User.find(params[:id])
   end
 end

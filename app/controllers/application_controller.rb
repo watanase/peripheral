@@ -5,6 +5,12 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :avatar, :avatar_cache, :remove_avatar])
+
+  end
+
+  def after_update_path_for(resource)
+    user_path(current_user)
   end
 
 end
