@@ -1,15 +1,18 @@
 = render "posts/header"
-.mypage
-  = current_user.name
+.user-page
+  = @user.name
+- if user_signed_in? && current_user.id == @user.id
   .maypage-edit
   = link_to edit_user_registration_path do
     編集
-  .circle-avatar
-    -if current_user.persisted? && current_user.avatar?
-      = image_tag current_user.avatar.to_s
-      = f.check_box :remove_avatar do
-        画像を削除
-    -else
-      = image_tag 'no_image.png'
-      -# = f.hidden_field :avatar_cache
-      -# = f.file_field :avatar
+.circle-avatar
+  -# -if current_user.persisted? && current_user.avatar?
+  -#   = image_tag current_user.avatar.to_s
+  -#   = f.check_box :remove_avatar do
+  -#     画像を削除
+  -# -else
+    -# = image_tag 'no_image.png'
+    -# = f.hidden_field :avatar_cache
+    -# = f.file_field :avatar
+.follow
+  = render partial: 'relationships/follow_form', locals: { user: @user}

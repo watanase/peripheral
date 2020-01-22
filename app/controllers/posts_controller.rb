@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all
+    @posts = Post.all.includes(:user)
+    @all_ranks = Post.create_all_ranks
   end
 
   def new
@@ -15,6 +16,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @favorite = Favorite.new
     @comment = Comment.new
     @comments = @post.comments.order(id: "DESC")
   end
@@ -31,6 +33,10 @@ class PostsController < ApplicationController
     post = Post.find(params[:id])
     post.destroy
     redirect_to root_path
+  end
+
+  def bookmarks
+    @posts = current_user.bookmark_posts.includes(:user).recent
   end
 
   private
