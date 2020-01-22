@@ -16,3 +16,9 @@
     -# = f.file_field :avatar
 .follow
   = render partial: 'relationships/follow_form', locals: { user: @user}
+.favorite-item
+  - if current_user == @user
+    - @user.liked_posts.each do |post|
+      %p
+        = link_to post_path(post.id) do
+          = post.title
