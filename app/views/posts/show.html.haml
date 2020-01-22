@@ -7,10 +7,11 @@
     .post-edit
       = link_to "/posts/#{@post.id}", method: :delete do
         削除
-  %div{:id => "likes_buttons_#{@post.id}"}
+  %div{id: "likes_buttons_#{@post.id}"}
     = render partial: 'likes/like', locals: { post: @post, likes: @likes}
   = link_to user_path(@post.user.id) do
     = @post.user.name
+  = render partial: 'favorites/favorite', locals: { post: @post, favorites: @favorites}
 .comment-space
   .comment-create
     = form_with model:[@post, @comment], local: true, id: "new-comment" do |f|

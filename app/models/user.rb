@@ -5,13 +5,16 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   mount_uploader :avatar, AvatarUploader
 
-  has_many :posts
+  has_many :posts, dependent: :destroy
+  has_many :favorites, dependent: :destroy
+  has_many :favorited_posts, through: :favorites, source: :post
   has_many :comments
   has_many :likes
   has_many :relationships
   has_many :followings, through: :relationships, source: :follow
   has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id'
   has_many :followers, through: :reverse_of_relationships, source: :user
+
 
   def follow(other_user)
     unless self == other_user
@@ -28,6 +31,10 @@ class User < ApplicationRecord
     self.followings.include?(other_user)
   end
   
+  def already_favorited?(post)
+    self.favorites.exists?(post_id: post.id)
+  end
+
   def like(post)
     favorites.find_or_create_by(post_id: post.id)
   end

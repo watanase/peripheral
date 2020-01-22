@@ -1,0 +1,4 @@
+- if current_user.already_favorited?(@post)
+  = button_to 'お気に入り解除', post_favorite_path(@post), method: :delete
+- else
+  = button_to 'お気に入り登録', post_favorites_path(@post)
