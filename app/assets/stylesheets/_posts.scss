@@ -99,7 +99,7 @@
       .post-item{
         display: block;
         .post-title{
-          height: 50px;
+          height: 40px;
           background-color: blue;
           font-size: 14px;
           color: white;
@@ -113,11 +113,15 @@
           padding: 10px;
         }
         p{
-          height: 60px;
+          height: 50px;
           background-color: green;
           overflow-wrap: break-word;
           padding: 5px;
           font-size: 11px;
+        }
+        div{
+          height: 20px;
+          background-color: cadetblue;
         }
       }
     }

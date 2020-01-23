@@ -35,7 +35,8 @@ class PostsController < ApplicationController
   end
 
   def search
-    @posts = Post.search(params[:keyword])
+    @posts = Post.search(params[:keyword]).page(params[:page]).per(5)
+    @all_ranks = Post.create_all_ranks
   end
 
   private

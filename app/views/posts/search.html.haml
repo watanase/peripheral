@@ -1,6 +1,6 @@
-= form_with(url: search_posts_path, local: true, method: :get, class: "search-area") do |form|
-  = form.text_field :keyword, placeholder: "検索ワードを入力してください", class: "search-form"
-  = form.submit "submit", class: "search-btn"
-.contents.row
-  - @posts.each do |post|
-    = render partial: "post", locals: { post: post }
+.main-content
+  .post-list-box
+    - @posts.each do |post|
+      = render partial: "post", locals: { post: post }
+    = paginate @posts
+  = render "main-right"

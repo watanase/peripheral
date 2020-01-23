@@ -1,27 +1,6 @@
 .main-content
   .post-list-box
     - @posts.each do |post|
-      .post-list
-        = link_to "/posts/#{post.id}", method: :get do
-          .post-item
-            .post-images
-              = image_tag post.images.url, size: "180x150"
-            %h2.post-title
-              = post.title
-            %p.post-content
-              = post.content.truncate(45)
-            %span いいね！
-            %span
-              = post.likes_count
-  .info
-    - if user_signed_in?
-      = link_to new_post_path do
-        投稿
-    %h2 いいねランキング
-    - @all_ranks.each_with_index do |post, i|
-      %p
-        = link_to post_path(post.id) do
-          = i + 1
-          = post.title
-  .page-nation
-    = paginate @posts
+      = render partial: 'post', locals: { post: post}
+    .page-nation
+      = paginate @posts

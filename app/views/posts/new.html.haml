@@ -1,15 +1,14 @@
-= render "header"
 .new-post
   = form_with(model: @post, local: true) do |f|
     .add-image
       .images
         = f.label :images do
           = icon("far", "image", class: "icon")
-          = f.file_field :images, class: "image", id: "post_images"
+          = f.file_field :images, :multiple => true, class: "image", id: "post_images"
       .previe
         = image_tag @post.images.url, id: "images_prev" if @post.images?
     .add-title
-      = f.text_field :title, placeholder: "タイトルを入力してください"
+      = f.text_field :title, placeholder: "タイトル"
     .add-content
-      = f.text_field :content, placeholder: "本文を入力してください"
-      = f.submit "SEND"
+      = f.text_field :content, placeholder: "本文"
+      = f.submit "投稿する"
