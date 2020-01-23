@@ -25,5 +25,10 @@ class Post < ApplicationRecord
     Post.find(Like.group(:post_id).order('count(post_id) desc').limit(10).pluck(:post_id))
   end
 
+  def self.search(search)
+    return Post.all unless search
+    Post.where('title LIKE(?)', "%#{search}%")
+  end
+
   validates :title, :content, :images, presence: true
 end

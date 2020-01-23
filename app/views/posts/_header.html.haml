@@ -3,7 +3,7 @@
     =link_to root_path do
       Title
   .search-bar
-    = form_with url: "#", local: true, method: :get do |f|
+    = form_with url: search_posts_path, local: true, method: :get, class: "search-area" do |f|
       = f.text_field :search, class: 'search-form', placeholder: "検索ワードを入力してください"
       = button_tag type: 'submit', class: "search-btn" do
         = icon('fas', 'search')
