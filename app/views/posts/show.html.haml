@@ -16,12 +16,12 @@
 .comment-space
   .comment-create
     = form_with model:[@post, @comment], local: true, id: "new-comment" do |f|
-      = f.text_area :content, class: "comment-area"
+      = f.text_area :content, placeholder: "コメント入力欄", class: "comment-area"
       %br/
-      = f.submit 'コメントする'
+      = f.submit 'コメントする', class: "comment-submit"
   -if @comments
+    %h2 コメント一覧
     .comment-list
-      %h2 コメント一覧
       - @comments.each do |c|
         %p 
           = c.content

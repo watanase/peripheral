@@ -1,28 +1,31 @@
 $(function(){
   function buildHTML(comment){
-    let html = `
-                <div class = "comment-list>
-                <h2>コメント一覧</h2>
+    let html = `<p>
                   ${comment.content}
-                </div>`
+                </p>`
     return html;
   }
   $("#new-comment").on("submit",function(e){
     e.preventDefault();
 
-    let formData = new FormData(this)
+    let formData = new FormData(this);
     let url = $(this).attr("action");
     $.ajax({
-      type: "POST",
       url: url,
-      datatype: "json",
+      type: "POST",
       data: formData,
+      dataType: "json",
       processData: false,
       contentType: false
     })
-    .done(function(data){
-      let html = buildHTML(data);
-      $('comment-area').val('');
+    .done(function(comment){
+      let html = buildHTML(comment);
+      $('.comment-list').prepend(html);
+      $('.comment-area').val('');
+      $('.comment-submit').prop('disabled', false);
+    })
+    .fail(function(){
+      alert("error");
     })
   })
 })

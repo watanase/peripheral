@@ -12,7 +12,7 @@
               = post.content.truncate(45)
             %span いいね！
             %span
-              = post.likes_count        
+              = post.likes_count
   .info
     - if user_signed_in?
       = link_to new_post_path do
@@ -23,3 +23,5 @@
         = link_to post_path(post.id) do
           = i + 1
           = post.title
+  .page-nation
+    = paginate @posts

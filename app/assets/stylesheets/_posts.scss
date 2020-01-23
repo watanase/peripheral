@@ -79,7 +79,7 @@
   padding: 100px 0 0 50px;
   height: 100vh;
   display: flex;
-  flex-wrap: wrap;
+  // flex-wrap: wrap;
   .post-list-box{
     width: 80%;
     float: left;
@@ -121,6 +121,8 @@
         }
       }
     }
+  }
+  .page-nation{
   }
   .info{
     width: 20%;

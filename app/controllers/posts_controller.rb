@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all.includes(:user)
+    @posts = Post.all.includes(:user).page(params[:page]).per(5)
     @all_ranks = Post.create_all_ranks
   end
 
