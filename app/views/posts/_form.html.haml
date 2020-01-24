@@ -7,7 +7,7 @@
             - @post.images.each_with_index do |image, i|
               = image_tag image.src.url, data: { index: i }, width: "300", height: '200'
         = f.fields_for :images do |image|
-          .js-file_group{"data-index" => "#{image.index}"}
+          .js-file_group{"data-index": "#{image.index}"}
             = image.file_field :src, class: 'js-file'
             %br/
             %span.js-remove 削除

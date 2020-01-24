@@ -4,14 +4,15 @@
       .post-images
         -post.images.each do |image|
           = image_tag image.src.url, size: "180x150"
+          - break
       %h2.post-title
         = post.title
       %p.post-content
         = post.content.truncate(45)
       %div.jarnal
         = post.user.name
-        %i.far.fa-heart 
         %span
           = post.likes_count
+        %i.far.fa-heart 
         %span
           =post.created_at.to_s(:datetime)
