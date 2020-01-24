@@ -2,7 +2,8 @@
   = link_to "/posts/#{post.id}", method: :get do
     .post-item
       .post-images
-        = image_tag post.images.url, size: "180x150"
+        -post.images.each do |image|
+          = image_tag image.src.url, size: "180x150"
       %h2.post-title
         = post.title
       %p.post-content
@@ -12,3 +13,5 @@
         %i.far.fa-heart 
         %span
           = post.likes_count
+        %span
+          =post.created_at.to_s(:datetime)

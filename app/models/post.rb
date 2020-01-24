@@ -1,8 +1,9 @@
 class Post < ApplicationRecord
-  mount_uploader :images, ImagesUploader
-
   # ユーザー
   belongs_to :user
+  # 画像
+  has_many :images, dependent: :destroy
+  accepts_nested_attributes_for :images, allow_destroy: true
   # お気に入り
   has_many :favorites, dependent: :destroy
   has_many :favorited_users, through: :favorites, source: :user
@@ -30,5 +31,5 @@ class Post < ApplicationRecord
     Post.where('title LIKE(?)', "%#{search}%")
   end
 
-  validates :title, :content, :images, presence: true
+  validates :title, :content, presence: true
 end

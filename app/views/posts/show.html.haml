@@ -1,17 +1,20 @@
 .show-details
-  = image_tag @post.images.url
+  -@post.images.each do |image|
+    = image_tag image.src.url
   = @post.title
   = @post.content
   - if user_signed_in? && current_user.id == @post.user_id
     .post-edit
-      = link_to "/posts/#{@post.id}", method: :delete do
+      = link_to post_path(@post), method: :delete do
         削除
+      = link_to edit_post_path, method: :get do
+        編集
   %div#likes_buttons{ id: @post.id }
     = render partial: 'likes/like', locals: { post: @post, likes: @likes}
   = link_to user_path(@post.user.id) do
     = @post.user.name
   %dev#favorites_buttons{ id: @post.id }
-    = render partial: 'favorites/favorite', locals: { post: @post, favorites: @favorites}
+    = render partial: 'favorites/favorite', locals: { post: @post, favorites: @favorites}    
 .comment-space
   .comment-create
     = form_with model:[@post, @comment], local: true, id: "new-comment" do |f|
