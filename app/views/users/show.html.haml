@@ -1,4 +1,3 @@
-= render "posts/header"
 .user-page
   = @user.name
 - if user_signed_in? && current_user.id == @user.id
@@ -15,10 +14,11 @@
     -# = f.hidden_field :avatar_cache
     -# = f.file_field :avatar
 .follow
-  = render partial: 'relationships/follow_form', locals: { user: @user}
+  %div#follows_buttons{ id: @user.id }
+    = render partial: 'relationships/follow', locals: { user: @user}
 .favorite-item
   - if current_user == @user
-    - @user.liked_posts.each do |post|
+    - @user.favorited_posts.each do |post|
       %p
         = link_to post_path(post.id) do
           = post.title

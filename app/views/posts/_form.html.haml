@@ -1,0 +1,25 @@
+.new-post
+  = form_with(model: @post, local: true) do |f|
+    .add-image
+      #image-box
+        #previews
+          - if @post.persisted?
+            - @post.images.each_with_index do |image, i|
+              = image_tag image.src.url, data: { index: i }, width: "300", height: '200'
+        = f.fields_for :images do |image|
+          .js-file_group{"data-index" => "#{image.index}"}
+            = image.file_field :src, class: 'js-file'
+            %br/
+            %span.js-remove 削除
+          - if @post.persisted?
+            = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+        - if @post.persisted?
+          .js-file_group{"data-index" => "#{@post.images.count}"}
+            = file_field_tag :src, name: "post[images_attributes][#{@post.images.count}][src]", class: 'js-file'
+            .js-remove 削除
+    .add-title
+      = f.text_field :title, placeholder: "タイトルを入力してください"
+    .add-content
+      = f.text_field :content, placeholder: "本文を入力してください"
+  
+    = f.submit "投稿する"

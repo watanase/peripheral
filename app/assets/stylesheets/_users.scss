@@ -1,5 +1,5 @@
 .user-page{
-  padding-top: 100px;
+  padding-top: 80px;
   height: 200px;
 }
 
@@ -13,6 +13,7 @@
 }
 
 .signin{
+  padding-top: 80px;
   width: 100%;
   background-color: palegoldenrod;
   height: 100vh;
@@ -34,4 +35,9 @@
     background-color: palevioletred;
     height: 100%;
   }
+}
+
+
+.login{
+  padding-top: 100px;
 }

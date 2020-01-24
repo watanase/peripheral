@@ -1,0 +1,10 @@
+.info
+  - if user_signed_in?
+    = link_to new_post_path do
+      投稿
+  %h2 いいねランキング
+  - @all_ranks.each_with_index do |post, i|
+    %p
+      = link_to post_path(post.id) do
+        = i + 1
+        = post.title
