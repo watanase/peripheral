@@ -1,5 +1,8 @@
 .user-page
-  = image_tag @user.avatar.url
+  -if @user.avatar.url
+    = image_tag @user.avatar.url
+  - else
+    = image_tag "no_image.png"
   %div
   = @user.name
   %div

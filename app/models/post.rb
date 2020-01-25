@@ -31,5 +31,7 @@ class Post < ApplicationRecord
     Post.where('title LIKE(?)', "%#{search}%")
   end
 
-  validates :title, :content, presence: true
+  validates :title, :content, :images,presence: true
+  validates_associated :images
+
 end
