@@ -1,3 +1,4 @@
+// 画像の追加削除処理
 $(function(){
   //DataTransferオブジェクトで、データを格納する箱を作る
   let dataBox = new DataTransfer();
@@ -17,7 +18,7 @@ $(function(){
       let num = $('.item-image').length + 1 + i
       fileReader.readAsDataURL(file);
           //画像が10枚になったら超えたらドロップボックスを削除する
-      if (num == 3){
+      if (num == 4){
         $('#image-box__container').css('display', 'none')   
       }
       //読み込みが完了すると、imageにfileのURLを格納

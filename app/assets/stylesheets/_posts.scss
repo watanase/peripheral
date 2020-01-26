@@ -2,9 +2,7 @@
   box-sizing: border-box;
 }
 
-.wrapper{
-}
-
+// 共有ヘッダー項目
 .header{
   background-color: hotpink;
   height: 50px;
@@ -74,6 +72,7 @@
   }
 }
 
+// ホーム画面に表示する投稿一覧
 .main-content{
   padding: 100px 0 0 50px;
   height: 100vh;
@@ -133,31 +132,35 @@
     background-color: white;
   }
 }
-
+// 共有表示するフッター
 .footer{
   height: 40px;
   background-color: #cce6ff;
   width: 100%;
 }
-
+// 新規投稿画面
 .new-post{
   padding-top: 100px;
   form{
     background-color: blue;
-    width: 1000px;
+    width: 100vw;
     margin: 0 auto;
-    padding: 30px;
+    padding: 50px;
     .add-image{
+      width: 100%;
       #image-box{
         display: flex;
         .previews-0{
-          width: 800px;
+          width: 100%;
         }
         .previews-1{
-          width: 67%;
+          width: 75%;
         }
         .previews-2{
-          width: 33%;
+          width: 50%;
+        }
+        .previews-3{
+          width: 25%;
         }
         .item-image{
           font-size: 130px;
@@ -188,23 +191,51 @@
     }
   }
 }
-
-.show-details{
-  padding-top: 100px;
-  height: 400px;
-  background-color: bisque;
-  width: 100%;
+// 投稿詳細画面
+.show{
+  &__details{
+    padding-top: 100px;
+    height: 100vh;
+    background-color: bisque;
+    width: 80%;
+    margin: 0 auto;
+    a{
+      text-decoration: none;
+    }
+    &__image{
+      text-align: center;
+      .view-image{
+        width: 410px;
+        height: 410px;
+        object-fit: contain;
+        background-color: whitesmoke;
+      }
+      .show-images{
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        padding: 3px;
+        background-color: white;
+        margin-left: 5px;
+      }
+    }
+  }
+  .comment-space{
+    .comment-create{
+      background-color: skyblue;
+      height: 60px;
+      width: 100%;
+    }
+  }
 }
-
+// いいねボタン
 .like-button{
   color: pink;
   font-size: 19px
 }
 
-.comment-space{
-  .comment-create{
-    background-color: skyblue;
-    height: 60px;
-    width: 100%;
-  }
+
+// 画像拡大を最前列へ
+.lum-lightbox{
+  z-index: 10;
 }

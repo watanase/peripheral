@@ -2,9 +2,7 @@
   = link_to "/posts/#{post.id}", method: :get do
     .post-item
       .post-images
-        -post.images.each do |image|
-          = image_tag image.src.url, size: "180x150"
-          - break
+        = image_tag post.images[0].src.to_s, size: "180x150"
       %h2.post-title
         = post.title
       %p.post-content
