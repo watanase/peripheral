@@ -6,16 +6,15 @@
 }
 
 .header{
-  background-color: white;
-  height: 80px;
+  background-color: hotpink;
+  height: 50px;
   width: 100%;
   position: fixed;
-  padding: 20px;
   display: flex;
   justify-content: space-between;
   z-index: 1;
   &__title{
-    line-height: 40px;
+    line-height: 50px;
     font-size: 30px;
     padding-left: 20px;
     a{
@@ -24,7 +23,7 @@
     }
   }
   .search-bar{
-    line-height: 40px;
+    line-height: 50px;
     form{
       position: relative;
       .search-form{
@@ -38,8 +37,8 @@
       .search-btn{
         position: absolute;
         width: 2.5em;
-        top: 9px;
-        right: -1px;
+        top: 12px;
+        right: -3px;
         border: none;
         background: none;
         font-size: 20px;
@@ -50,7 +49,7 @@
   }
   .nav{
     .nav-bar{
-      padding-top: 10px;
+      padding-top: 7px;
       li{
         margin: 0 10px;
         display: inline;
@@ -152,40 +151,38 @@
       #image-box{
         display: flex;
         .previews-0{
-          width: 100%;
-          .input-area{
-            height: 300px;
-            width: 800px;
-            background-color: white;
-            label{
-              font-size: 100px;
-              cursor: pointer;
-              line-height: 300px;
-              text-align: center;
-              i{
-                height: 100%;
-                width: 100%;
-              }
-            }
-          }
-          .item-image{
-            font-size: 130px;
-            position: relative;
-            margin: 10px;
-            .far{
-            font-size: 40px;
-            position: absolute;
-            top: 0;
-            cursor: pointer;
-            color: gray;
-            }
-          }
+          width: 800px;
         }
-        #previews-1{
+        .previews-1{
           width: 67%;
         }
-        #previews-2{
+        .previews-2{
           width: 33%;
+        }
+        .item-image{
+          font-size: 130px;
+          position: relative;
+          margin: 10px;
+          .far{
+          font-size: 40px;
+          position: absolute;
+          top: 0;
+          cursor: pointer;
+          color: gray;
+          }
+        }
+        .input-area{
+          background-color: white;
+          label{
+            font-size: 100px;
+            cursor: pointer;
+            line-height: 300px;
+            text-align: center;
+            display: block;
+            i{
+              width: 100%;
+            }
+          }
         }
       }
     }

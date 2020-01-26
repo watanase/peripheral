@@ -1,6 +1,7 @@
 .show-details
   -@post.images.each do |image|
-    = image_tag image.src.url
+    = link_to image.src.url, class: "luminous" do
+      = image_tag image.src.url, size: "400x300"
   = @post.title
   = @post.content
   - if user_signed_in? && current_user.id == @post.user_id
