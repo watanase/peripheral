@@ -2,20 +2,24 @@
   box-sizing: border-box;
 }
 
-.wrapper{
+body {
+    margin: 0;
+    display: flex;
+    flex-flow: column;
+    min-height: 100vh;
 }
 
+// 共有ヘッダー項目
 .header{
-  background-color: white;
-  height: 80px;
+  background-color: #fff;
+  height: 50px;
   width: 100%;
   position: fixed;
-  padding: 20px;
   display: flex;
   justify-content: space-between;
   z-index: 1;
   &__title{
-    line-height: 40px;
+    line-height: 50px;
     font-size: 30px;
     padding-left: 20px;
     a{
@@ -24,7 +28,7 @@
     }
   }
   .search-bar{
-    line-height: 40px;
+    line-height: 50px;
     form{
       position: relative;
       .search-form{
@@ -38,8 +42,8 @@
       .search-btn{
         position: absolute;
         width: 2.5em;
-        top: 9px;
-        right: -1px;
+        top: 12px;
+        right: -3px;
         border: none;
         background: none;
         font-size: 20px;
@@ -50,7 +54,7 @@
   }
   .nav{
     .nav-bar{
-      padding-top: 10px;
+      padding-top: 7px;
       li{
         margin: 0 10px;
         display: inline;
@@ -75,132 +79,226 @@
   }
 }
 
-.main-content{
-  padding: 100px 0 0 50px;
-  height: 100vh;
+
+
+// ホーム画面に表示する投稿一覧
+.wrapper{
   display: flex;
-  // flex-wrap: wrap;
-  .post-list-box{
+  justify-content: space-between;
+  width: 100%;
+  padding-top: 50px;
+  .main-content{
     width: 80%;
-    float: left;
-    background-color: #f0f8ff;
-    height: calc(100vh - 100px);
-    display: flex;
-    flex-wrap: wrap;
-    align-content: stretch;
-    overflow: scroll;
-    .post-list{
-      height: 280px;
-      margin: 20px;
-      width: 200px;
-      a{
-        text-decoration: none;
+    // display: flex;
+    .post-list-box{
+      overflow: scroll;
+      display: flex;
+      flex-wrap: wrap;
+      // justify-content: space-around;
+      .post-list{
+        width: 250px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px #ccc;
+        margin: 20px 10px;
+        a{
+          text-decoration: none;
+        }
+        a:hover{
+          color: #0090aa;
+        }
+        .post-item{
+          display: block;
+          .item-img{
+            border-radius: 5px 5px 0 0;
+            max-width: 100%;
+            height: 200px;
+          }
+          .post-jarnal{
+            padding: 20px;
+            .post-title{
+              font-size: 20px;
+              margin-bottom: 20px;
+              text-align: center;
+              color: #333;
+            }
+            .post-content{
+              font-size: 14px;
+              line-height: 1.5;
+              color: #777;
+              overflow: hidden;
+              white-space: normal;
+              text-overflow: ellipsis;
+            }
+          }
+          .post-user{
+            border-top: 1px solid #eee;
+            padding: 10px;
+            color: #777;
+          }
+        }
       }
-      .post-item{
-        display: block;
-        .post-title{
-          height: 40px;
-          background-color: blue;
-          font-size: 14px;
-          color: white;
-          overflow-wrap: break-word;
-          padding: 5px;
-          font-weight: bold;
-        }
-        .post-images{
-          height: 170px;
-          background-color: gray;
-          padding: 10px;
-        }
-        p{
-          height: 50px;
-          background-color: green;
-          overflow-wrap: break-word;
-          padding: 5px;
-          font-size: 11px;
-        }
-        div{
-          height: 20px;
-          background-color: cadetblue;
-        }
+    } 
+    .pagination{
+      display: flex;
+      justify-content: space-around;
       }
-    }
-  }
-  .page-nation{
   }
   .info{
-    width: 20%;
-    float: right;
-    background-color: white;
+    width: 20%;;
+    background-color: wheat;
+    position: fixed;
+    right: 0;
   }
 }
 
+// 共有表示するフッター
 .footer{
   height: 40px;
   background-color: #cce6ff;
   width: 100%;
 }
-
+// 新規投稿画面
 .new-post{
   padding-top: 100px;
   form{
     background-color: blue;
-    width: 1000px;
+    width: 100vw;
     margin: 0 auto;
     padding: 50px;
     .add-image{
-      height: 300px;
-      background-color: green;
       width: 100%;
-      position: relative;
-      display: flex;
-      .images{
-        height: 200px;
-        width: 250px;
-        background-color: gray;
-        text-align: center;
-        position: absolute;
-        top: 50px;
-        left: 30px;
-        .icon{
-          font-size: 180px;
-          text-align: center;
-          cursor: pointer;
-          line-height: 200px;
+      #image-box{
+        display: flex;
+        .previews-0{
+          width: 100%;
         }
-        .image{
-          display: none;
+        .previews-1{
+          width: 75%;
         }
-      }
-      .previe{
-        height: 200px;
-        width: 250px;
-        background-color: #e6e6fa;
-        text-align: center;
-        position: absolute;
-        top: 50px;
-        left: 330px;
+        .previews-2{
+          width: 50%;
+        }
+        .previews-3{
+          width: 25%;
+        }
+        .item-image{
+          font-size: 130px;
+          position: relative;
+          margin: 10px;
+          svg{
+            font-size: 40px;
+            position: absolute;
+            top: 0;
+            cursor: pointer;
+            color: gray;
+          }
+        }
+        .input-area{
+          background-color: white;
+          label{
+            font-size: 100px;
+            cursor: pointer;
+            line-height: 300px;
+            text-align: center;
+            display: block;
+            i{
+              width: 100%;
+            }
+          }
+        }
       }
     }
   }
 }
-
-.show-details{
-  padding-top: 100px;
-  height: 400px;
-  background-color: bisque;
-  width: 100%;
-}
-
-.like-button{
-  color: pink;
-  font-size: 19px
-}
-
-.comment-space{
-  .comment-create{
-    background-color: skyblue;
-    height: 60px;
-    width: 100%;
+// 投稿詳細画面
+.show{
+  &__details{
+    padding-top: 80px;
+    height: 100vh;
+    background-color: bisque;
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    a{
+      text-decoration: none;
+    }
+    &__image{
+      background-color: red;
+      display: flex;
+      &__list{
+        display: flex;
+        flex-direction: column;
+        height: 410vh;
+        width: 100px;
+        .show-images{
+          width: 100px;
+          height: 100px;
+          object-fit: cover;
+          padding: 2px;
+          background-color: white;
+          border: 1px solid gray ;
+        }
+      }
+      &__picup{
+        margin: 0 30px;
+         .view-image{
+          width: 410px;
+          height: 410px;
+          object-fit: contain;
+          background-color: whitesmoke;
+        }
+      }
+    }
+    &__string{
+      &__user{
+        display: flex;
+        .show-avatar{
+          border-radius: 50%;
+          height: 80px;
+          width: 80px;
+        }
+      }
+      &__title{
+        border-bottom: 3px solid #66d9ff;
+        font-size: 30px;
+        width: 100%px;
+        padding: 6px;
+        background-color: green;
+        margin-bottom: 10px;
+      }
+      &__content{
+        background-color: indigo;
+        font-size: 20px;
+        height: 300px;
+        width: 650px;
+        padding: 20px;
+        border-bottom: 1px solid white;
+      }
+      &__jarnal{
+        display: flex;
+      }
+    }
   }
+  .comment-space{
+    .comment-create{
+      background-color: skyblue;
+      height: 60px;
+      width: 100%;
+    }
+  }
+}
+// いいねボタン
+.vertical_like{
+  font-size: 20px;
+  .heart0{
+  }
+  .heart1{
+  }
+}
+
+
+// 画像拡大を最前列へ
+.lum-lightbox{
+  z-index: 10;
 }

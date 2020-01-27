@@ -1,25 +1,22 @@
 .new-post
+  - if @post.errors.any?
+    .chat-group-form__errors
+      %h2="#{@post.errors.full_messages.count}件のエラーが発生しました。"
+      %ul
+        - @post.errors.full_messages.each do |message|
+          %li= message
   = form_with(model: @post, local: true) do |f|
     .add-image
       #image-box
-        #previews
-          - if @post.persisted?
-            - @post.images.each_with_index do |image, i|
-              = image_tag image.src.url, data: { index: i }, width: "300", height: '200'
-        = f.fields_for :images do |image|
-          .js-file_group{"data-index" => "#{image.index}"}
-            = image.file_field :src, class: 'js-file'
-            %br/
-            %span.js-remove 削除
-          - if @post.persisted?
-            = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
-        - if @post.persisted?
-          .js-file_group{"data-index" => "#{@post.images.count}"}
-            = file_field_tag :src, name: "post[images_attributes][#{@post.images.count}][src]", class: 'js-file'
-            .js-remove 削除
+        .previews-0#image-box__container
+          = f.fields_for :images do |i|
+            .input-area
+              = i.file_field :src, type: 'file', name: "post[images_attributes][][src]", value:"", style: "display:none", id:"img-file"
+              %label{for: "img-file"}
+                %i.fas.fa-images
     .add-title
       = f.text_field :title, placeholder: "タイトルを入力してください"
     .add-content
       = f.text_field :content, placeholder: "本文を入力してください"
-  
-    = f.submit "投稿する"
+    .add-btn
+      = f.submit "投稿する"

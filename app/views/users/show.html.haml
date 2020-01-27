@@ -1,18 +1,16 @@
 .user-page
+  -if @user.avatar.url
+    = image_tag @user.avatar.url
+  - else
+    = image_tag "no_image.png"
+  %div
   = @user.name
-- if user_signed_in? && current_user.id == @user.id
-  .maypage-edit
-  = link_to edit_user_registration_path do
-    編集
-.circle-avatar
-  -# -if current_user.persisted? && current_user.avatar?
-  -#   = image_tag current_user.avatar.to_s
-  -#   = f.check_box :remove_avatar do
-  -#     画像を削除
-  -# -else
-    -# = image_tag 'no_image.png'
-    -# = f.hidden_field :avatar_cache
-    -# = f.file_field :avatar
+  %div
+  = @user.profile
+  - if user_signed_in? && current_user.id == @user.id
+    .maypage-edit
+    = link_to edit_user_registration_path do
+      編集
 .follow
   %div#follows_buttons{ id: @user.id }
     = render partial: 'relationships/follow', locals: { user: @user}
