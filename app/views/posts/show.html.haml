@@ -1,29 +1,38 @@
 .show
   .show__details
     .show__details__image
-      .show__details__image_list
+      .show__details__image__list
         -@post.images.each do |image|
           = link_to image.src.url, class: "luminous" do
             = image_tag image.src.url, class: "show-images"
-      .show__details__image__point
-        %ul
-          = image_tag @post.images[0].src.to_s, class: "view-image"
-    .show__details__title
-      = @post.title
-    .show__details__content
-      = @post.content
-    - if user_signed_in? && current_user.id == @post.user_id
-      .post-edit
-        = link_to post_path(@post), method: :delete do
-          削除
-        = link_to edit_post_path, method: :get do
-          編集
-    %div#likes_buttons{ id: @post.id }
-      = render partial: 'likes/like', locals: { post: @post, likes: @likes}
-    = link_to user_path(@post.user.id) do
-      = @post.user.name
-    %dev#favorites_buttons{ id: @post.id }
-      = render partial: 'favorites/favorite', locals: { post: @post, favorites: @favorites}    
+      .show__details__image__picup
+        = image_tag @post.images[0].src.to_s, class: "view-image"
+    .show__details__string
+      .show__details__string__user
+        = link_to user_path(@post.user.id) do
+          -if @post.user.avatar.url
+            = image_tag @post.user.avatar.url, class: "show-avatar"
+          - else
+            = image_tag "no_image.png", class: "show-avatar"
+          %div
+            = @post.user.name
+      .show__details__string__title
+        %h2
+          = @post.title
+      .show__details__string__content
+        %p
+          = @post.content
+      .show__details__string__jarnal
+        %div#likes_buttons{ id: @post.id }
+          = render partial: 'likes/like', locals: { post: @post, likes: @likes}
+        %dev#favorites_buttons{ id: @post.id }
+          = render partial: 'favorites/favorite', locals: { post: @post, favorites: @favorites}
+      -# - if user_signed_in? && current_user.id == @post.user_id
+      -#   .post-edit
+      -#     = link_to post_path(@post), method: :delete do
+      -#       削除
+      -#     = link_to edit_post_path, method: :get do
+      -#       編集
   .comment-space
     .comment-create
       = form_with model:[@post, @comment], local: true, id: "new-comment" do |f|

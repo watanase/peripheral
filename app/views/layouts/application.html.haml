@@ -19,6 +19,7 @@
             = icon('fas', 'search')
       .nav
         %ul.nav-bar
+          %li はじめての方へ
           - if user_signed_in?
             %li.nav-mypage
               = link_to user_path(current_user) do

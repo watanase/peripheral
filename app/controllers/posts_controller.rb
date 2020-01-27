@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :set_product, except: [:index, :new, :create, :search]
 
   def index
-    @posts = Post.includes(:images).order(id: "DESC").page(params[:page]).per(5)
+    @posts = Post.includes(:images).order(id: "DESC").page(params[:page]).per(20)
     @all_ranks = Post.create_all_ranks
   end
 
