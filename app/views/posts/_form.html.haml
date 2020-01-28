@@ -6,6 +6,7 @@
         - @post.errors.full_messages.each do |message|
           %li= message
   = form_with(model: @post, local: true) do |f|
+    %span.post-action 新規投稿
     .add-image
       #image-box
         .previews-0#image-box__container
@@ -14,6 +15,8 @@
               = i.file_field :src, type: 'file', name: "post[images_attributes][][src]", value:"", style: "display:none", id:"img-file"
               %label{for: "img-file"}
                 %i.fas.fa-images
+      %p  上記をクリック、又は枠内にドラッグドロップして投稿する画像を選択してください。
+      %p  ※画像は４枚まで投稿できます。
     .text-area
       .text-area__title
         %h2 タイトル（２０文字以内）:

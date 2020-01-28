@@ -219,33 +219,58 @@ body {
 }
 // 新規投稿画面
 .new-post{
-  padding-top: 100px;
-  text-align: center;
+  padding-top: 50px;
+  display: block;
+  position: relative;
+  margin: 15px auto;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.14);
   form{
     width: 100vw;
-    margin: 0 auto;
     padding: 50px;
+    text-align: center;
+    .post-action{
+      margin-top: 20px;
+      display: inline-block;
+      padding: 12px 0;
+      width: 160px;
+      text-align: center;
+      font-size: 21px;
+      line-height: 16px;
+      background: #777;
+      color: #fff;
+      letter-spacing: 0.15em;
+      -webkit-transform: rotate(45deg);
+      transform: rotate(-30deg);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      border-radius: 2px;
+      position: absolute;
+      top: 35px;
+      left: 6px;
+      overflow: hidden;
+    }
     .add-image{
-      width: 80%;
+      width: 60%;
+      margin: 0 auto;
       #image-box{
         display: flex;
+        margin-bottom: 30px;
         .previews-0{
-          width: 80%;
+          width: 100%;
         }
         .previews-1{
-          width: 60%;
+          width: 75%;
         }
         .previews-2{
-          width: 40%;
+          width: 50%;
         }
         .previews-3{
-          width: 20%;
+          width: 25%;
         }
         .item-image{
           position: relative;
           margin: 10px;
           svg{
-            font-size: 40px;
+            font-size: 20px;
             position: absolute;
             top: 0;
             left: 0;
@@ -254,41 +279,62 @@ body {
           }
         }
         .input-area{
-          background-color: gray;
           border: 1px solid #777;
-          border-radius: 1%;
+          width: 100%;
+          height: 115px;
+          background-color: #616160;
+          background-image: repeating-linear-gradient(45deg,
+          #424242, #424242 3px,
+          transparent 0, transparent 6px);
           label{
             font-size: 60px;
             cursor: pointer;
-            line-height: 300px;
-            text-align: center;
+            line-height: 115px;
             display: block;
-            i{
-              width: 100%;
-            }
           }
         }
         .input-area:hover{
-          opacity: 0.7;
+          opacity: 0.9;
         }
       }
     }
     .text-area{
+      margin: 50px 0 0 100px;
+      font-size: 18px;
       &__title{
         display: flex;
         margin: 20px;
+        line-height: 40px;
+        h2{
+          margin-right: 20px;
+        }
+        .input-title{
+          height: 40px;
+          width: 350px;
+          padding: 10px;
+          border: 2px solid #777;
+          border-radius: 5px;
+          font-size: 18px;
+        }
       }
       &__content{
         display: flex;
         margin: 20px;
+        line-height: 40px;
+        h2{
+          margin-right: 174px;
+        }
         .input-text{
-          width: 800px;
+          width: 600px;
           height: 200px;
-          margin: 20px;
-          font-size: 16px;
+          font-size: 18px;
+          padding: 10px;
+          border: 2px solid #777;
+          border-radius: 5px;
         }
       }
       &__btn{
+        margin: 30px 150px 0 0;
         .btn{
           align-self:center;
           background:transparent;
@@ -301,7 +347,7 @@ body {
           outline:none;
           box-shadow: 20px 38px 34px -26px hsla(0,0%,0%,.2);
           border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
-          border:solid 4px #41403E;
+          border:dashed 2px #41403E
         }
         .btn:hover{
           box-shadow:2px 8px 4px -6px hsla(0,0%,0%,.3);
