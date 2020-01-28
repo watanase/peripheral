@@ -8,7 +8,7 @@
   = form_with(model: @post, local: true) do |f|
     %span.post-action 新規投稿
     .add-image
-      #image-box
+      #image-box-1
         .previews-0#image-box__container
           = f.fields_for :images do |i|
             .input-area

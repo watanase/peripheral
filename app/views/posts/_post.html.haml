@@ -8,9 +8,9 @@
         %p.post-content
           = post.content.truncate(45)
       .post-user
-        = post.user.name
-        %span
-          = post.likes_count
+        .name
+          = post.user.name
+        .like
           - if user_signed_in?
             - unless post.like_user(current_user.id).blank?
               %i.fas.fa-heart{:style => "color: red;"}
@@ -18,5 +18,6 @@
               %i.far.fa-heart
           - else
             %i.far.fa-heart
-          %span
-            =post.created_at.to_s(:datetime)
+          = post.likes_count
+        -# .date
+        -#   =post.created_at.to_s(:date)
