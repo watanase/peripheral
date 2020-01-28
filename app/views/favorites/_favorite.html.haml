@@ -1,10 +1,10 @@
 - if user_signed_in?
   - unless current_user == post.user
     - unless post.favorite_user(current_user.id).blank?
-      = button_to post_favorite_path(post_id: post.id, id: post.favorites[0].id), method: :delete, remote: true do
+      = link_to post_favorite_path(post_id: post.id, id: post.favorites[0].id), method: :delete, remote: true do
         .favorite
-          %span お気に入り解除
+          %span ピン留め解除
     - else
-      = button_to post_favorites_path(post.id), method: :post, remote: true do
+      = link_to post_favorites_path(post.id), method: :post, remote: true do
         .favorite
-          %span お気に入り登録
+          %span ピン留め

@@ -1,5 +1,5 @@
 .post-list
-  = link_to "/posts/#{post.id}", method: :get do
+  = link_to post_path(post.id), method: :get do
     .post-item
       = image_tag post.images[0].src.to_s, class: "item-img"
       .post-jarnal
@@ -11,6 +11,12 @@
         = post.user.name
         %span
           = post.likes_count
-        %i.far.fa-heart 
-        %span
-          =post.created_at.to_s(:datetime)
+          - if user_signed_in?
+            - unless post.like_user(current_user.id).blank?
+              %i.fas.fa-heart{:style => "color: red;"}
+            - else
+              %i.far.fa-heart
+          - else
+            %i.far.fa-heart
+          %span
+            =post.created_at.to_s(:datetime)

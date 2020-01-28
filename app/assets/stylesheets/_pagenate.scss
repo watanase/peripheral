@@ -9,19 +9,19 @@
 /* 表示しているページ番号のデザイン */
 .pagination>.active>a {     
   border-radius: 50%;
-  padding-top: 0.2em;
-  padding-bottom: 0.2em;
-  padding-left: 0.8em;
-  padding-right: 0.8em;
-  background-color:rgba(0,153,255,0.3);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  background-color:#dcdcdc;
 }
 
 /*ホバー時のデザイン*/
 .pagination>li>a:hover {        
   border-radius: 50%;
-  padding-top: 0.2em;
-  padding-bottom: 0.2em;
-  padding-left: 0.8em;
-  padding-right: 0.8em;
-  background-color: #ffd0cc;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  background-color: #c0c0c0;
 }

@@ -14,25 +14,26 @@
             = image_tag @post.user.avatar.url, class: "show-avatar"
           - else
             = image_tag "no_image.png", class: "show-avatar"
-          %div
+          .user-name
             = @post.user.name
       .show__details__string__title
         %h2
+          %i.fas.fa-angle-double-right
           = @post.title
       .show__details__string__content
         %p
-          = @post.content
+          = simple_format(@post.content)
       .show__details__string__jarnal
         %div#likes_buttons{ id: @post.id }
           = render partial: 'likes/like', locals: { post: @post, likes: @likes}
         %dev#favorites_buttons{ id: @post.id }
           = render partial: 'favorites/favorite', locals: { post: @post, favorites: @favorites}
-      -# - if user_signed_in? && current_user.id == @post.user_id
-      -#   .post-edit
-      -#     = link_to post_path(@post), method: :delete do
-      -#       削除
-      -#     = link_to edit_post_path, method: :get do
-      -#       編集
+      - if user_signed_in? && current_user.id == @post.user_id
+        .post-edit
+          = link_to post_path(@post), method: :delete do
+            削除
+          = link_to edit_post_path, method: :get do
+            編集
   .comment-space
     .comment-create
       = form_with model:[@post, @comment], local: true, id: "new-comment" do |f|

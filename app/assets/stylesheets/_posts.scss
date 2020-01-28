@@ -7,17 +7,19 @@ body {
     display: flex;
     flex-flow: column;
     min-height: 100vh;
+    background: whitesmoke;
 }
 
 // 共有ヘッダー項目
 .header{
-  background-color: #fff;
+  background-color: whitesmoke;
   height: 50px;
   width: 100%;
   position: fixed;
   display: flex;
   justify-content: space-between;
   z-index: 1;
+  border-bottom: 2px solid #777;
   &__title{
     line-height: 50px;
     font-size: 30px;
@@ -84,17 +86,16 @@ body {
 // ホーム画面に表示する投稿一覧
 .wrapper{
   display: flex;
-  justify-content: space-between;
   width: 100%;
   padding-top: 50px;
+  margin-top: 10px;
   .main-content{
     width: 80%;
-    // display: flex;
     .post-list-box{
       overflow: scroll;
       display: flex;
       flex-wrap: wrap;
-      // justify-content: space-around;
+      padding: 0 30px;
       .post-list{
         width: 250px;
         background-color: #fff;
@@ -105,7 +106,7 @@ body {
           text-decoration: none;
         }
         a:hover{
-          color: #0090aa;
+          opacity: 0.6;
         }
         .post-item{
           display: block;
@@ -113,14 +114,19 @@ body {
             border-radius: 5px 5px 0 0;
             max-width: 100%;
             height: 200px;
+            border-bottom: 1px solid #eef;
           }
           .post-jarnal{
-            padding: 20px;
+            padding: 10px;
             .post-title{
               font-size: 20px;
-              margin-bottom: 20px;
+              margin-bottom: 10px;
               text-align: center;
               color: #333;
+              overflow: hidden;
+              white-space: normal;
+              // text-overflow: ellipsis;
+              height: 30px;
             }
             .post-content{
               font-size: 14px;
@@ -129,12 +135,14 @@ body {
               overflow: hidden;
               white-space: normal;
               text-overflow: ellipsis;
+              height: 40px;
             }
           }
           .post-user{
             border-top: 1px solid #eee;
             padding: 10px;
             color: #777;
+            // height: auto;
           }
         }
       }
@@ -142,67 +150,115 @@ body {
     .pagination{
       display: flex;
       justify-content: space-around;
-      margin: 20px 100px;
+      margin: 20px 450px;
       }
   }
   .info{
+    padding-top: 20px;
     width: 20%;;
-    background-color: wheat;
     position: fixed;
     right: 0;
-    .post-button{
-      text-align: center;
-      font-size: 20px;
+    border-left: 1px solid #777;
+    height: 90%;
+    a{
+      text-decoration: none;
     }
+    .post-button{
+      margin-bottom: 30px;
+      .push{
+        border:dashed 5px #41403E;
+        text-align: center;
+        align-self:center;
+        background:transparent;
+        padding:0.7rem 0.7rem;
+        margin:0 3rem;
+        transition:all .5s ease;
+        color:#41403E;
+        font-size:1.3rem;
+        letter-spacing:1px;
+        outline:none;
+        box-shadow: 20px 38px 34px -26px hsla(0,0%,0%,.2);
+        border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+        &:hover{
+          box-shadow:2px 8px 4px -6px hsla(0,0%,0%,.3);
+        } 
+      }
+    }
+    h2{
+      font-size: 20px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    table{
+      margin: 0 auto;
+      padding: 10px;
+      table-layout: fixed;
+      width: 80%;
+      td{
+        padding: 10px;
+        border: 1px solid #ccc;
+      }
+      .id, .count{
+        text-align: center;
+        width: 30px;
+      }
+      .title{
+        width: 120px;
+        overflow: hidden;
+        white-space: normal;
+        text-overflow: ellipsis;;
+     }
+   }
   }
 }
 
 // 共有表示するフッター
 .footer{
   height: 40px;
-  background-color: #cce6ff;
   width: 100%;
 }
 // 新規投稿画面
 .new-post{
   padding-top: 100px;
+  text-align: center;
   form{
-    background-color: blue;
     width: 100vw;
     margin: 0 auto;
     padding: 50px;
     .add-image{
-      width: 100%;
+      width: 80%;
       #image-box{
         display: flex;
         .previews-0{
-          width: 100%;
+          width: 80%;
         }
         .previews-1{
-          width: 75%;
+          width: 60%;
         }
         .previews-2{
-          width: 50%;
+          width: 40%;
         }
         .previews-3{
-          width: 25%;
+          width: 20%;
         }
         .item-image{
-          font-size: 130px;
           position: relative;
           margin: 10px;
           svg{
             font-size: 40px;
             position: absolute;
             top: 0;
+            left: 0;
             cursor: pointer;
             color: gray;
           }
         }
         .input-area{
-          background-color: white;
+          background-color: gray;
+          border: 1px solid #777;
+          border-radius: 1%;
           label{
-            font-size: 100px;
+            font-size: 60px;
             cursor: pointer;
             line-height: 300px;
             text-align: center;
@@ -212,16 +268,54 @@ body {
             }
           }
         }
+        .input-area:hover{
+          opacity: 0.7;
+        }
+      }
+    }
+    .text-area{
+      &__title{
+        display: flex;
+        margin: 20px;
+      }
+      &__content{
+        display: flex;
+        margin: 20px;
+        .input-text{
+          width: 800px;
+          height: 200px;
+          margin: 20px;
+          font-size: 16px;
+        }
+      }
+      &__btn{
+        .btn{
+          align-self:center;
+          background:transparent;
+          padding:0.3rem 0.7rem;
+          margin:0 1rem;
+          transition:all .5s ease;
+          color:#41403E;
+          font-size:1.5rem;
+          letter-spacing:1px;
+          outline:none;
+          box-shadow: 20px 38px 34px -26px hsla(0,0%,0%,.2);
+          border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+          border:solid 4px #41403E;
+        }
+        .btn:hover{
+          box-shadow:2px 8px 4px -6px hsla(0,0%,0%,.3);
+        } 
       }
     }
   }
 }
 // 投稿詳細画面
 .show{
+  height: 100vh;
   &__details{
     padding-top: 80px;
     height: 100vh;
-    background-color: bisque;
     width: 90%;
     margin: 0 auto;
     display: flex;
@@ -229,19 +323,17 @@ body {
       text-decoration: none;
     }
     &__image{
-      background-color: red;
       display: flex;
       &__list{
         display: flex;
         flex-direction: column;
-        height: 410vh;
-        width: 100px;
+        height: auto;
+        max-width: 100px;
         .show-images{
-          width: 100px;
+          max-width: 100px;
           height: 100px;
           object-fit: cover;
           padding: 2px;
-          background-color: white;
           border: 1px solid gray ;
         }
       }
@@ -251,34 +343,49 @@ body {
           width: 410px;
           height: 410px;
           object-fit: contain;
-          background-color: whitesmoke;
         }
       }
     }
     &__string{
       &__user{
-        display: flex;
         .show-avatar{
+          float: left;
           border-radius: 50%;
           height: 80px;
           width: 80px;
+          margin: 0 auto;
+        }
+        .user-name{
+          padding: 5px;
+          text-align: left;
+          font-size: 18px;
+          padding-left: 100px;
+          color: dimgrey;
         }
       }
       &__title{
-        border-bottom: 3px solid #66d9ff;
+        border-bottom: 2px solid #777;
         font-size: 30px;
-        width: 100%px;
+        max-width: 100%;
         padding: 6px;
-        background-color: green;
         margin-bottom: 10px;
+        padding: 20px;
+        padding-left: 100px;
+        i{
+          color: dimgrey;
+        }
       }
       &__content{
-        background-color: indigo;
         font-size: 20px;
         height: 300px;
-        width: 650px;
+        width: 750px;
         padding: 20px;
         border-bottom: 1px solid white;
+        border: 4px solid #777;
+        border-radius: 240px 15px 185px 15px / 15px 200px 15px 185px;
+        margin: 2em 0;
+        padding: 2em;
+        line-height: normal;
       }
       &__jarnal{
         display: flex;

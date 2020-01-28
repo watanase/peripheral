@@ -11,33 +11,35 @@
     object-fit: cover;
   }
 }
-
+// 新規登録画面
 .signin{
-  padding-top: 80px;
-  width: 100%;
-  background-color: palegoldenrod;
+  padding-top: 50px;
+  display: flex;
   height: 100vh;
   .left-page{
-    width: 400px;
-    background-color: paleturquoise;
-    float: left;
-    height: 100%;
-    .title-name{
-      a{
-        font-size: 30px;
-        text-decoration: none;
-      }
-    }
+    width: 45%;
+    background-image:url(background１.jpg);
+    background-repeat:  no-repeat;
   }
   .right-page{
-    width: calc(100vw - 400px);
-    float: right;
-    background-color: palevioletred;
-    height: 100%;
+    width: 55%;
+    text-align: center;
   }
 }
 
-
+// ログイン画面
 .login{
-  padding-top: 100px;
+  padding-top: 50px;
+  display: flex;
+  height: 100vh;
+  .left-page{
+    width: 55%;
+    text-align: center;
+  }
+  .right-page{
+    width: 45%;
+    background-image: url(background１.jpg);
+    background-repeat:  no-repeat;
+  }
+
 }
