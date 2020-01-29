@@ -1,6 +1,12 @@
 .my-page{
-  padding-top: 80px;
-  height: 200px;
+  padding-top: 50px;
+  display: flex;
+  .user-left{
+    width: 50%;
+  }
+  .user-right{
+    width: 50%;
+  }
 }
 
 .circle-avatar{

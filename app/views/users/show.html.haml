@@ -18,8 +18,13 @@
         -#       = link_to post_path(post) do
         -#         = post.title
         .follow
-        = link_to post_path(@post)
-          = 
+          - @favorite_posts.each do |post|
+            = link_to post_path(post) do
+              %p
+              = post.title
+        .favorite
+        = link_to followers_user_path(@user) do
+          link
   .user-right
     .user-name
       = @user.name
@@ -31,7 +36,6 @@
         = link_to post_path(post) do
           %p
           = post.title
-
     - if user_signed_in? && current_user.id == @user.id
       .maypage-edit
       = link_to edit_user_registration_path do
