@@ -1,22 +1,38 @@
-.user-page
-  -if @user.avatar.url
-    = image_tag @user.avatar.url
-  - else
-    = image_tag "no_image.png"
-  %div
-  = @user.name
-  %div
-  = @user.profile
-  - if user_signed_in? && current_user.id == @user.id
-    .maypage-edit
-    = link_to edit_user_registration_path do
-      編集
-.follow
-  %div#follows_buttons{ id: @user.id }
-    = render partial: 'relationships/follow', locals: { user: @user}
-.favorite-item
-  - if current_user == @user
-    - @user.favorited_posts.each do |post|
-      %p
-        = link_to post_path(post.id) do
+.my-page
+  .user-left
+    .back-ground
+      -# = image_tag
+      .user-image
+      -if @user.avatar.url
+        = image_tag @user.avatar.url
+      - else
+        = image_tag "no_image.png"
+      .rink-button
+        -# .follow
+        -#   %div#follows_buttons{ id: @user.id }
+        -#     = render partial: 'relationships/follow', locals: { user: @user}
+        -# .fivorite
+        -# - if current_user == @user
+        -#   - @user.favorited_posts.each do |post|
+        -#     %p
+        -#       = link_to post_path(post) do
+        -#         = post.title
+        .follow
+        = link_to post_path(@post)
+          = 
+  .user-right
+    .user-name
+      = @user.name
+    .user-profile
+      = @user.profile
+    .user-post
+      %h2 最近の投稿
+      - @posts.each do |post|
+        = link_to post_path(post) do
+          %p
           = post.title
+
+    - if user_signed_in? && current_user.id == @user.id
+      .maypage-edit
+      = link_to edit_user_registration_path do
+        編集

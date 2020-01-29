@@ -5,7 +5,7 @@ $(function () {
   //querySelectorでfile_fieldを取得
   let file_field = document.querySelector('input[type=file]')
   //fileが選択された時に発火するイベント
-  var dropArea = document.getElementById("image-box-1");
+  let dropArea = document.getElementById("image-box-1");
 
   //loadイベント発生時に発火するイベント
   window.onload = function (e) {
@@ -25,20 +25,20 @@ $(function () {
     dropArea.addEventListener("drop", function (e) {
       e.preventDefault();
       $(this).children('#image-box__container').css({ 'border': '1px dashed rgb(204, 204, 204)', 'box-shadow': '0px 0px 0px' });
-      var files = e.dataTransfer.files;
+      let files = e.dataTransfer.files;
       //ドラッグアンドドロップで取得したデータについて、プレビューを表示
       $.each(files, function (i, file) {
         //アップロードされた画像を元に新しくfilereaderオブジェクトを生成
-        var fileReader = new FileReader();
+        let fileReader = new FileReader();
         //dataTransferオブジェクトに値を追加
         dataBox.items.add(file)
         file_field.files = dataBox.files
         //lengthで要素の数を取得
-        var num = $('.item-image').length + i + 1
+        let num = $('.item-image').length + i + 1
         //指定されたファイルを読み込む
         fileReader.readAsDataURL(file);
         // 10枚プレビューを出したらドロップボックスが消える
-        if (num == 4) {
+        if (num == 6) {
           $('#image-box__container').css('display', 'none')
         }
         //image fileがロードされた時に発火するイベント
@@ -76,7 +76,7 @@ $(function () {
       let num = $('.item-image').length + 1 + i
       fileReader.readAsDataURL(file);
       //画像が10枚になったら超えたらドロップボックスを削除する
-      if (num == 4) {
+      if (num == 6) {
         $('#image-box__container').css('display', 'none')
       }
       //読み込みが完了すると、imageにfileのURLを格納

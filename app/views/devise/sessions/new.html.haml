@@ -3,10 +3,6 @@
     %h2 ログイン
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
       .field
-        = f.label :name
-        %br/
-        = f.text_field :name, autofoucus: true, autocomplete: "名前"
-      .field
         = f.label :email
         %br/
         = f.email_field :email, autofocus: true, autocomplete: "Eメール"
@@ -20,5 +16,4 @@
           = f.label :remember_me
       .actions
         = f.submit "ログイン"
-    = render "devise/shared/links"
   .right-page

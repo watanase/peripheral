@@ -3,11 +3,13 @@
 }
 
 body {
-    margin: 0;
-    display: flex;
-    flex-flow: column;
-    min-height: 100vh;
-    background: whitesmoke;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
+  width: 100vw;
+  background: whitesmoke;
 }
 
 // 共有ヘッダー項目
@@ -55,6 +57,7 @@ body {
     }
   }
   .nav{
+    line-height: 20px;
     .nav-bar{
       padding-top: 7px;
       li{
@@ -147,8 +150,6 @@ body {
             .like{
               line-height: 25px;
             }
-            .date{
-            }
           }
         }
       }
@@ -220,8 +221,8 @@ body {
 
 // 共有表示するフッター
 .footer{
-  height: 40px;
-  width: 100%;
+  // height: 40px;
+  // width: 100%;
 }
 // 新規投稿画面
 .new-post{
@@ -264,13 +265,19 @@ body {
           width: 100%;
         }
         .previews-1{
-          width: 75%;
+          width : calc(100% / 6 * 5) ;
         }
         .previews-2{
-          width: 50%;
+          width : calc(100% / 6 * 4) ;
         }
         .previews-3{
-          width: 25%;
+          width : 50%;
+        }
+        .previews-4{
+          width : calc(100%  / 6 * 2) ;
+        }
+        .previews-5{
+          width : 20%;
         }
         .item-image{
           position: relative;
@@ -320,7 +327,7 @@ body {
         }
         .input-title{
           height: 40px;
-          width: 350px;
+          width: 390px;
           padding: 10px;
           border: 2px solid #777;
           border-radius: 5px;
@@ -367,102 +374,183 @@ body {
   }
 }
 // 投稿詳細画面
+
 .show{
-  height: 100vh;
-  &__details{
+  // height: 100vh;
+  .details{
     padding-top: 80px;
-    height: 100vh;
-    width: 90%;
     margin: 0 auto;
     display: flex;
+    width: 100%;
     a{
       text-decoration: none;
     }
-    &__image{
+    .image{
+      margin: 50px 0 50px 90px;
+      width: 40vw;
       display: flex;
+      flex-direction: column;
+      &__picup{
+        margin-bottom: 30px;
+      }
       &__list{
         display: flex;
-        flex-direction: column;
-        height: auto;
-        max-width: 100px;
+        max-width: 35vw;
         .show-images{
-          max-width: 100px;
-          height: 100px;
+          width: 70px;
+          height: 70px;
           object-fit: cover;
-          padding: 2px;
-          border: 1px solid gray ;
+          margin-right: 8px;
+        }
+        .show-images:hover{
+          border: 2px solid black;
         }
       }
       &__picup{
-        margin: 0 30px;
+        margin: 0 3vw;
          .view-image{
-          width: 410px;
-          height: 410px;
+          width: 380px;
+          height: 380px;
           object-fit: contain;
+          margin-bottom: 30px;
         }
       }
     }
-    &__string{
+    .string{
+      max-width: 60vw;
+      padding: 30px;
       &__user{
+        display: flex;
+        justify-content: space-between;
+        max-width: 25vw;
         .show-avatar{
-          float: left;
           border-radius: 50%;
-          height: 80px;
-          width: 80px;
-          margin: 0 auto;
+          height: 70px;
+          width: 70px;
+          margin-right: 10px;
+          object-fit: cover;
         }
-        .user-name{
-          padding: 5px;
+        .user-author{
+          display: flex;
+          flex-direction: column;
+          // max-width: 200px;
           text-align: left;
-          font-size: 18px;
-          padding-left: 100px;
-          color: dimgrey;
+          .user-name{
+            margin: 5px 0;
+            font-size: 18px;
+            font-weight: bold;
+            width: 20vw;
+            a{
+              color: black;
+            }
+          }
+          .post-date{
+            margin-top: 10px;
+            font-size: 14px;
+            color: #777;
+          }
+        }
+        .user-jarnal{
+          padding-top: 10px;
+          display: flex;
+          text-align: right;
+          .like{
+            margin-right: 50px;
+          }
+          li{
+            list-style: none;
+            font-size: 30px;
+            color: black;
+            width: 80px;
+          }
+          .red{
+            color: red;
+          }
+          .yellow{
+            color: gold;
+          }
+          .count{
+            padding-right: 8px;
+          }
+          .font{
+            font-size: 15px;
+            margin: 7px 0 0 11px;
+          }
         }
       }
       &__title{
-        border-bottom: 2px solid #777;
-        font-size: 30px;
-        max-width: 100%;
-        padding: 6px;
-        margin-bottom: 10px;
-        padding: 20px;
-        padding-left: 100px;
-        i{
-          color: dimgrey;
-        }
+        font-size: 25px;
+        width: 37vw;
+        margin: 20px 0;
+        padding: 10px;
+        margin-top: 50px;
       }
       &__content{
-        font-size: 20px;
-        height: 300px;
-        width: 750px;
+        max-width: 35vw;
+        font-size: 16px;
         padding: 20px;
-        border-bottom: 1px solid white;
         border: 4px solid #777;
-        border-radius: 240px 15px 185px 15px / 15px 200px 15px 185px;
+        border-radius: 5px;
         margin: 2em 0;
-        padding: 2em;
-        line-height: normal;
-      }
-      &__jarnal{
-        display: flex;
+        p{
+          word-wrap: break-word;
+        }
       }
     }
   }
-  .comment-space{
-    .comment-create{
-      background-color: skyblue;
+  .comment{
+    background-color: whitesmoke;
+    display: flex;
+    margin-top: 50px;
+    min-height: 300px;
+    &__create{
       height: 60px;
-      width: 100%;
+      width: 40%;
+      text-align: center;
+      .comment-area{
+        height: 100px;
+        width: 350px;
+        border: 0.1em solid gray;
+        border-radius: 3px;
+        padding: 12px;
+      }
+    }
+    &__list{
+      width: 60%;
+      &__header{
+        font-size: 20px;
+        padding: 20px;
+        }
+      &__show{
+        display: flex;
+        flex-direction: column;
+        table{
+          border-bottom: 1px solid #808080;
+          max-width: 800px;
+          color: #777;
+          min-height: 40px;
+          td{
+          vertical-align: bottom;
+          }
+          .content{
+          word-wrap: break-word;
+          padding-right: 20px;
+          }
+          .user-name{
+            text-align: right;
+          }
+          .date{
+            text-align: right;
+            width: 90px;
+          }
+        }
+      }
     }
   }
 }
 // いいねボタン
 .vertical_like{
   font-size: 20px;
-  .heart0{
-  }
-  .heart1{
-  }
 }
 
 

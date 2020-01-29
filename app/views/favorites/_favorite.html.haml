@@ -3,8 +3,14 @@
     - unless post.favorite_user(current_user.id).blank?
       = link_to post_favorite_path(post_id: post.id, id: post.favorites[0].id), method: :delete, remote: true do
         .favorite
-          %span ピン留め解除
+        %li.yellow
+          %i.fas.fa-star
+        %li.font
+          はずす
     - else
       = link_to post_favorites_path(post.id), method: :post, remote: true do
         .favorite
-          %span ピン留め
+        %li
+          %i.far.fa-star
+        %li.font
+          クリップ

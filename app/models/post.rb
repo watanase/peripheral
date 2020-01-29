@@ -23,7 +23,7 @@ class Post < ApplicationRecord
   end
   # ランキング表示
   def self.create_all_ranks 
-    Post.find(Like.group(:post_id).order('count(post_id) desc').limit(10).pluck(:post_id))
+    Post.find(Like.group(:post_id).order(Arel.sql('count(post_id) desc')).limit(10).pluck(:post_id))
   end
 
   def self.search(search)

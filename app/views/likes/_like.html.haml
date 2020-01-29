@@ -1,18 +1,21 @@
 - if user_signed_in?
   - unless post.like_user(current_user.id).blank?
     = link_to post_like_path(post_id: post.id, id: post.likes[0].id), method: :delete, remote: true do
-      .vertical_like
-        = image_tag "heart1", size: "30x30"
-        %span
-          = post.likes_count
+      .like
+      %li.red
+        %i.fas.fa-heart
+      %li.count.red
+        = @post.likes.count
   - else
     = link_to post_likes_path(post.id), method: :post, remote: true do
-      .vertical_like
-        = image_tag "heart0", size: "30x30"
-        %span
-          = post.likes_count
+      .like
+      %li
+        %i.far.fa-heart
+      %li.count
+        = @post.likes.count
 - else
-  .vertical_like
-    = image_tag "heart0"
-    %span
-      = post.likes_count
+  .like
+    %li
+      %i.far.fa-heart
+    %li.count
+      = @post.likes.count
