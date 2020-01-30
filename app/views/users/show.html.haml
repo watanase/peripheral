@@ -1,42 +1,45 @@
 .my-page
   .user-left
-    .back-ground
-      -# = image_tag
-      .user-image
+    .user-image
       -if @user.avatar.url
-        = image_tag @user.avatar.url
+        = image_tag @user.avatar.url, class: "avatar"
       - else
-        = image_tag "no_image.png"
-      .rink-button
-        -# .follow
-        -#   %div#follows_buttons{ id: @user.id }
-        -#     = render partial: 'relationships/follow', locals: { user: @user}
-        -# .fivorite
-        -# - if current_user == @user
-        -#   - @user.favorited_posts.each do |post|
-        -#     %p
-        -#       = link_to post_path(post) do
-        -#         = post.title
+        = image_tag "no_image.png", class: "avatar"
+    .follow-btn
+      - if current_user != @user
+        - if @user.followed_by?(current_user)
+          =link_to user_relationships_path(@user.id), method: :delete do
+            フォロー中
+        - else
+          =link_to user_relationships_path(@user.id), method: :post do
+            フォローする
+    .link-btn
+      - if current_user == @user
+        .favorite
+          = link_to favorite_user_path do
+            クリップリスト
         .follow
-          - @favorite_posts.each do |post|
+          = link_to follows_user_path do
+            フォローリスト
+  .user-right
+    .user-name
+      .name
+        = @user.name
+      .maypage-edit
+      - if user_signed_in? && current_user.id == @user.id
+        = link_to edit_user_registration_path do
+          編集
+    .user-profile
+      = @user.profile
+    .post-list
+      %h2 最近の投稿
+      .post
+      - if @posts.present?
+        - @posts.each do |post|
+          .line
             = link_to post_path(post) do
               %p
               = post.title
-        .favorite
-        = link_to followers_user_path(@user) do
-          link
-  .user-right
-    .user-name
-      = @user.name
-    .user-profile
-      = @user.profile
-    .user-post
-      %h2 最近の投稿
-      - @posts.each do |post|
-        = link_to post_path(post) do
-          %p
-          = post.title
-    - if user_signed_in? && current_user.id == @user.id
-      .maypage-edit
-      = link_to edit_user_registration_path do
-        編集
+      - else
+        %p
+        投稿はまだありません

@@ -1,14 +1,107 @@
+
+// ユーザー詳細画面
 .my-page{
-  padding-top: 50px;
+  padding: 15vh 10vw 8vh;
   display: flex;
+  height: 100vh;
+  width: 80vw;
+  margin:  0 auto;
+  a{
+    text-decoration: none;
+    color: #777;
+  }
   .user-left{
-    width: 50%;
+    height: 100%;
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+
+    .user-image{
+      height: 45vh;
+      width: 100%;
+      text-align: center;
+      line-height: 80vh;
+      .avatar{
+        height: 180px;
+        width: 180px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+    }
+    .follow-btn{
+      height: 10vh;
+      line-height: 6vh;
+      text-align: center;
+    }
+    .link-btn{
+      display: flex;
+      height: calc(100% - 55vh);
+      line-height: 35vh;
+      .favorite{
+        width: 50%;
+        text-align: center;
+      }
+      .follow{
+        text-align: center;
+        width: 50%;
+      }
+    }
   }
   .user-right{
-    width: 50%;
+    width: 50vw;
+    height: 100%;
+    background-color: blanchedalmond;
+    color: #777;
+    padding: 5vh;
+    .user-name{
+      height: 14vh;
+      display: flex;
+      justify-content: space-between;
+      padding: 20px;
+      line-height: 9vh;
+      .name{
+        font-size: 20px;
+      }
+    }
+    .user-profile{
+      height: 25vh;
+      padding: 20px;
+    }
+    .post-list{
+      height: calc(100% - 39vh);
+      padding: 20px;
+      h2{
+        margin-bottom: 10px;
+        font-size: 18px;
+      }
+      .line{
+        margin: 5px 5px;
+      }
+    }
   }
 }
-
+// お気に入り画面
+.favorite-list{
+  padding-top: 50px;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  .favorite-header{
+    width: 30%;
+  }
+  .list{
+    width: 70%;
+    a{
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}
+// フォロー画面
+.follows-list{
+  padding-top: 50px;
+}
 .circle-avatar{
   img{
     width: 300px;
@@ -32,7 +125,6 @@
     text-align: center;
   }
 }
-
 // ログイン画面
 .login{
   padding-top: 50px;

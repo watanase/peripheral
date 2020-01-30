@@ -1,11 +1,28 @@
 class UsersController < ApplicationController
+  before_action :set_user
   def edit
   end
 
   def show
-    @user = User.find(params[:id])
     name = @user.name
     @posts = @user.posts.page(params[:page]).per(5).order("created_at DESC")
-    @favorite_posts = @user.liked_posts
+  end
+
+  def favorite
+    @favorite_posts = @user.favorited_posts
+  end
+
+  def follows
+    @users = @user.followings
+  end
+
+  def followers
+    @users = @user.followers
+  end
+
+  private
+
+  def set_user
+    @user = User.find(params[:id])
   end
 end

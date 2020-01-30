@@ -1,7 +1,7 @@
 .post-list
   = link_to post_path(post.id), method: :get do
     .post-item
-      = image_tag post.images[0].src.to_s, class: "item-img"
+      = image_tag post.images[0].src.url, class: "item-img"
       .post-jarnal
         %h2.post-title
           = post.title

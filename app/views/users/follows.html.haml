@@ -1,0 +1,4 @@
+.follows-list
+  - @users.each do |user|
+    = link_to user_path(user) do
+      = user.name

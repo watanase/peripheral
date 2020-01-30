@@ -1,0 +1,11 @@
+.favorite-list
+  .favorite-header
+    クリップリスト
+  .list
+    - @favorite_posts.each do |fav|
+      .post
+      = link_to post_path(fav) do
+        .title
+          = fav.title
+        .user
+          = fav.user.name

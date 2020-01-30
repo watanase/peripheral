@@ -2,10 +2,12 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' }
   root "posts#index"
   resources :users, only: [:edit, :show] do
-    resources :relationships, only: [:create, :destroy]
-    get :followings, on: :member
-    get :followers, on: :member
+    resource :relationships, only: [:create, :destroy]
+    member do
+      get :follows, :followers, :favorite
+    end
   end
+
   resources :posts do
     collection do
       get 'search'

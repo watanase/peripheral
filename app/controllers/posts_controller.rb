@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_product, except: [:index, :new, :create, :search]
-
+  before_action :move_to_index, only: [:new, :create, :edit, :update, :destroy]
   def index
     @posts = Post.includes(:images).order(id: "DESC").page(params[:page]).per(20)
     @all_ranks = Post.create_all_ranks
@@ -54,5 +54,9 @@ class PostsController < ApplicationController
   private
   def post_params
     params.require(:post).permit(:title, :content, images_attributes: [:src, :_destroy, :id]).merge(user_id: current_user.id)
+  end
+
+  def move_to_index
+    redirect_to action: :index unless user_signed_in?
   end
 end

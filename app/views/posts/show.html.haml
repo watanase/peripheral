@@ -2,7 +2,7 @@
   .details
     .image
       .image__picup
-        = image_tag @post.images[0].src.to_s, class: "view-image"
+        = image_tag @post.images[0].src.url, class: "view-image"
       .image__list
         -@post.images.each do |image|
           = link_to image.src.url, class: "luminous" do
@@ -31,12 +31,12 @@
       .string__content
         %p
           = simple_format(@post.content)
-      -# - if user_signed_in? && current_user.id == @post.user_id
-      -#   .post-edit
-      -#     = link_to post_path(@post), method: :delete do
-      -#       削除
-      -#     = link_to edit_post_path, method: :get do
-      -#       編集
+      - if user_signed_in? && current_user.id == @post.user_id
+        .post-edit
+          = link_to post_path(@post), method: :delete do
+            削除
+          = link_to edit_post_path, method: :get do
+            編集
   .comment
     .comment__create
       = form_with model:[@post, @comment], local: true, id: "new-comment" do |f|
