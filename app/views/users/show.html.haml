@@ -38,8 +38,10 @@
         - @posts.each do |post|
           .line
             = link_to post_path(post) do
-              %p
+              .title
               = post.title
+              .date
+              = post.created_at.to_s(:date)
       - else
         %p
         投稿はまだありません

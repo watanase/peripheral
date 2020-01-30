@@ -78,29 +78,83 @@
       .line{
         margin: 5px 5px;
       }
+      a{
+        display: flex;
+        .date{
+          margin: 0 0 0 auto;
+        }
+      }
     }
   }
 }
 // お気に入り画面
 .favorite-list{
-  padding-top: 50px;
-  width: 100%;
+  padding: 80px 100px;
+  width: 60%;
   height: 100vh;
-  display: flex;
+  text-align: center;
+  margin: 0 auto;
   .favorite-header{
-    width: 30%;
+    font-size: 30px;
   }
   .list{
-    width: 70%;
+    margin-top: 50px;
     a{
       display: flex;
-      justify-content: space-between;
+      height: 45px;
+      text-decoration: none;
+      font-size: 20px;
+      border-bottom: 1.5px inset #777;
+      color: #777;
+      .src{
+        height: 40px;
+        width: 40px;
+      }
+      .title{
+        line-height: 45px;
+        margin-left: 10px;
+      }
+      .user{
+        margin: 0 0 0 auto;
+        line-height: 45px;
+      }
     }
   }
 }
 // フォロー画面
 .follows-list{
-  padding-top: 50px;
+  padding: 80px 100px;
+  width: 60%;
+  height: 100vh;
+  text-align: center;
+  margin: 0 auto;
+  .follows-header{
+    font-size: 30px;
+  }
+  .follows{
+    margin-top: 50px;
+    a{
+      display: flex;
+      height: 70px;
+      text-decoration: none;
+      font-size: 20px;
+      border-bottom: 1.5px inset #777;
+      color: #777;
+      width: 330px;
+      margin: 0 auto;
+      .avatar{
+        height: 60px;
+        width: 60px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+      .user{
+        line-height: 80px;
+        margin-left: 30px;
+        margin: 0 0 0 auto;
+      }
+    }
+  }
 }
 .circle-avatar{
   img{

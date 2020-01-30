@@ -5,6 +5,8 @@
     - @favorite_posts.each do |fav|
       .post
       = link_to post_path(fav) do
+        .image
+          = image_tag fav.images[0].src.url, class: "src"
         .title
           = fav.title
         .user
