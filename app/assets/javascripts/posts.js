@@ -5,6 +5,64 @@ $(function () {
   //querySelectorでfile_fieldを取得
   let file_field = document.querySelector('input[type=file]')
   //fileが選択された時に発火するイベント
+  let dropArea = document.getElementById("image-box-1");
+
+  //loadイベント発生時に発火するイベント
+  window.onload = function (e) {
+    //ドラッグした要素がドロップターゲットの上にある時にイベントが発火
+    dropArea.addEventListener("dragover", function (e) {
+      e.preventDefault();
+      //ドロップエリアに影がつく
+      $(this).children('#image-box__container').css({ 'border': '1px solid rgb(204, 204, 204)', 'box-shadow': '0px 0px 4px' })
+    }, false);
+    //ドラッグした要素がドロップターゲットから離れた時に発火するイベント
+    dropArea.addEventListener("dragleave", function (e) {
+      e.preventDefault();
+      //ドロップエリアの影が消える
+      $(this).children('#image-box__container').css({ 'border': '1px dashed rgb(204, 204, 204)', 'box-shadow': '0px 0px 0px' })
+    }, false);
+    //ドラッグした要素をドロップした時に発火するイベント
+    dropArea.addEventListener("drop", function (e) {
+      e.preventDefault();
+      $(this).children('#image-box__container').css({ 'border': '1px dashed rgb(204, 204, 204)', 'box-shadow': '0px 0px 0px' });
+      let files = e.dataTransfer.files;
+      //ドラッグアンドドロップで取得したデータについて、プレビューを表示
+      $.each(files, function (i, file) {
+        //アップロードされた画像を元に新しくfilereaderオブジェクトを生成
+        let fileReader = new FileReader();
+        //dataTransferオブジェクトに値を追加
+        dataBox.items.add(file)
+        file_field.files = dataBox.files
+        //lengthで要素の数を取得
+        let num = $('.item-image').length + i + 1
+        //指定されたファイルを読み込む
+        fileReader.readAsDataURL(file);
+        // 10枚プレビューを出したらドロップボックスが消える
+        if (num == 6) {
+          $('#image-box__container').css('display', 'none')
+        }
+        //image fileがロードされた時に発火するイベント
+        fileReader.onload = function () {
+          //変数srcにresultで取得したfileの内容を代入
+          let image = fileReader.result
+          let html = `<div class='item-image' data-image="${file.name}">
+                    <div class=' item-image__content'>
+                      <div class='item-image__content--icon'>
+                        <img src=${image}>
+                      </div>
+                    </div>
+                    <div class='item-image__operetion'>
+                      <div class='item-image__operetion--delete'><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#3d3d3d" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg></i></i></i></div>
+                    </div>
+                  </div>`
+          //image-box__containerの前にhtmlオブジェクトを追加　
+          $('#image-box__container').before(html);
+        };
+        //image-box__containerにitem-num-(変数)という名前のクラスを追加する
+        $('#image-box__container').attr('class', `previews-${num}`)
+      })
+    })
+  }
   $('#img-file').change(function () {
     //選択したfileのオブジェクトをpropで取得
     let file = $('input[type="file"]').prop('files')[0];
@@ -18,7 +76,7 @@ $(function () {
       let num = $('.item-image').length + 1 + i
       fileReader.readAsDataURL(file);
       //画像が10枚になったら超えたらドロップボックスを削除する
-      if (num == 4) {
+      if (num == 6) {
         $('#image-box__container').css('display', 'none')
       }
       //読み込みが完了すると、imageにfileのURLを格納
@@ -27,11 +85,11 @@ $(function () {
         let html = `<div class='item-image' data-image="${file.name}">
                     <div class=' item-image__content'>
                       <div class='item-image__content--icon'>
-                        <img src=${image} width="300" height="200" >
+                        <img src=${image}>
                       </div>
                     </div>
                     <div class='item-image__operetion'>
-                      <div class='item-image__operetion--delete'><svg xmlns="http://www.w3.org/2000/svg" width="62" height="62" viewBox="0 0 24 24" fill="none" stroke="#3d3d3d" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg></i></i></i></div>
+                      <div class='item-image__operetion--delete'><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#3d3d3d" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg></i></i></i></div>
                     </div>
                   </div>`
         //image_box__container要素の前にhtmlを差し込む

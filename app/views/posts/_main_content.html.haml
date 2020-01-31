@@ -1,7 +1,6 @@
 .main-content
   .post-list-box
-    - @posts.each do |post|
-      = render partial: 'post', locals: { post: post}
+    = render @posts
   .page-nation
     = paginate @posts
 = render "main-right"

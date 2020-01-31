@@ -1,7 +1,7 @@
 !!!
 %html
   %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{content: "text/html; charset=UTF-8", "http-equiv": "Content-Type"}/
     %title Peripheral
     = csrf_meta_tags
     = csp_meta_tag
@@ -19,21 +19,21 @@
             = icon('fas', 'search')
       .nav
         %ul.nav-bar
-          %li はじめての方へ
           - if user_signed_in?
             %li.nav-mypage
               = link_to user_path(current_user) do
                 = current_user.name
             %li.nav-logout
               = link_to destroy_user_session_path, method: :delete do
-                Logout
+                ログアウト
           - else
+            %li はじめての方へ
             %li.nav-login
               = link_to new_user_session_path do
-                Login
+                ログイン
             %li.nav-sign
               = link_to new_user_registration_path do
-                Signin
+                新規登録
     = yield
     .footer
       .footer__title

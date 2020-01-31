@@ -1,16 +1,27 @@
 /*ページネーション自体のデザイン*/
-.pagination>li>a {          
-  border: none;     /*枠線をなくす*/
-  color: #696969;   /*文字の色を変える*/
+.pagination>li>a {  
+  text-decoration: none;        
+  color: #696969;
+  font-size: 20px;
+  border: none;
 }
 
 /* 表示しているページ番号のデザイン */
 .pagination>.active>a {     
-  background: #93c9ff;     /*背景の色を変える*/
-  border-radius: 15px;     /*角を丸くする*/
+  border-radius: 50%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  background-color:#dcdcdc;
 }
 
 /*ホバー時のデザイン*/
 .pagination>li>a:hover {        
-  border-radius: 15px;    /*角を丸くする*/
+  border-radius: 50%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  background-color: #c0c0c0;
 }

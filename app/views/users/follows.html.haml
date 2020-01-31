@@ -1,0 +1,13 @@
+.follows-list
+  .follows-header
+    フォローリスト
+  .follows
+    - @users.each do |user|
+      = link_to user_path(user) do
+        .image
+        -if user.avatar.url
+          = image_tag @user.avatar.to_s, class: "avatar"
+        - else
+          = image_tag "no_image.png", class: "avatar"
+        .user
+          = user.name

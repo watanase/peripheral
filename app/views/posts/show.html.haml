@@ -1,47 +1,58 @@
 .show
-  .show__details
-    .show__details__image
-      .show__details__image__list
+  .details
+    .image
+      .image__picup
+        = image_tag @post.images[0].src.url, class: "view-image"
+      .image__list
         -@post.images.each do |image|
           = link_to image.src.url, class: "luminous" do
             = image_tag image.src.url, class: "show-images"
-      .show__details__image__picup
-        = image_tag @post.images[0].src.to_s, class: "view-image"
-    .show__details__string
-      .show__details__string__user
-        = link_to user_path(@post.user.id) do
-          -if @post.user.avatar.url
-            = image_tag @post.user.avatar.url, class: "show-avatar"
-          - else
-            = image_tag "no_image.png", class: "show-avatar"
-          %div
-            = @post.user.name
-      .show__details__string__title
-        %h2
-          = @post.title
-      .show__details__string__content
+    .string
+      .string__user
+        .user-icon
+          = link_to user_path(@post.user.id) do
+            -if @post.user.avatar.url
+              = image_tag @post.user.avatar.url, class: "show-avatar"
+            - else
+              = image_tag "no_image.png", class: "show-avatar"
+        .user-author
+          .user-name
+            = link_to user_path(@post.user) do
+              = @post.user.name
+          .post-date
+            = @post.created_at.to_s(:date)
+        .user-jarnal
+          #likes_buttons{ id: @post.id }
+            = render partial: 'likes/like', locals: { post: @post, likes: @likes}
+          #favorites_buttons{ id: @post.id }
+            = render partial: 'favorites/favorite', locals: { post: @post, favorites: @favorites}
+      .string__title
+        = @post.title
+      .string__content
         %p
-          = @post.content
-      .show__details__string__jarnal
-        %div#likes_buttons{ id: @post.id }
-          = render partial: 'likes/like', locals: { post: @post, likes: @likes}
-        %dev#favorites_buttons{ id: @post.id }
-          = render partial: 'favorites/favorite', locals: { post: @post, favorites: @favorites}
-      -# - if user_signed_in? && current_user.id == @post.user_id
-      -#   .post-edit
-      -#     = link_to post_path(@post), method: :delete do
-      -#       削除
-      -#     = link_to edit_post_path, method: :get do
-      -#       編集
-  .comment-space
-    .comment-create
+          = simple_format(@post.content)
+      - if user_signed_in? && current_user.id == @post.user_id
+        .post-edit
+          = link_to post_path(@post), method: :delete do
+            削除
+          = link_to edit_post_path, method: :get do
+            編集
+  .comment
+    .comment__create
       = form_with model:[@post, @comment], local: true, id: "new-comment" do |f|
         = f.text_area :content, placeholder: "コメント入力欄", class: "comment-area"
         %br/
         = f.submit 'コメントする', class: "comment-submit"
-    -if @comments
-      %h2 コメント一覧
-      .comment-list
-        - @comments.each do |c|
-          %p 
-            = c.content
+    .comment__list
+      .comment__list__header
+        %h2 コメント一覧
+      .comment__list__show
+        -if @comments
+          - @comments.each do |c|
+            .block
+              .content
+                = c.content
+              .user-name
+                = c.user.name
+              .date
+                = c.created_at.to_s(:date)

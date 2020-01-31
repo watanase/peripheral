@@ -1,11 +1,19 @@
-$(function(){
-  function buildHTML(comment){
-    let html = `<p>
-                  ${comment.content}
-                </p>`
+$(function () {
+  function buildHTML(comment) {
+    let html = `<div class="block">
+                  <div class="content">
+                   ${comment.content}
+                  </div>
+                  <div class="user-name">
+                    ${comment.user_name}
+                  </div>
+                  <div class="date">
+                    ${comment.created_at}
+                  </div>
+                </div>`
     return html;
   }
-  $("#new-comment").on("submit",function(e){
+  $("#new-comment").on("submit", function (e) {
     e.preventDefault();
 
     let formData = new FormData(this);
@@ -18,14 +26,14 @@ $(function(){
       processData: false,
       contentType: false
     })
-    .done(function(comment){
-      let html = buildHTML(comment);
-      $('.comment-list').prepend(html);
-      $('.comment-area').val('');
-      $('.comment-submit').prop('disabled', false);
-    })
-    .fail(function(){
-      alert("エラーが発生しました。お手数ですがリロードお願いします。コメントはログインしていないと投稿できません。");
-    })
+      .done(function (comment) {
+        let html = buildHTML(comment);
+        $('.comment__list__show').prepend(html);
+        $('.comment-area').val('');
+        $('.comment-submit').prop('disabled', false);
+      })
+      .fail(function () {
+        alert("エラーが発生しました。リロードしてください。コメントはログインしていないと投稿できません。");
+      })
   })
 })

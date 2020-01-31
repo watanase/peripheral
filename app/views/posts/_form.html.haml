@@ -6,17 +6,23 @@
         - @post.errors.full_messages.each do |message|
           %li= message
   = form_with(model: @post, local: true) do |f|
+    %span.post-action 新規投稿
     .add-image
-      #image-box
+      #image-box-1
         .previews-0#image-box__container
           = f.fields_for :images do |i|
             .input-area
               = i.file_field :src, type: 'file', name: "post[images_attributes][][src]", value:"", style: "display:none", id:"img-file"
               %label{for: "img-file"}
                 %i.fas.fa-images
-    .add-title
-      = f.text_field :title, placeholder: "タイトルを入力してください"
-    .add-content
-      = f.text_field :content, placeholder: "本文を入力してください"
-    .add-btn
-      = f.submit "投稿する"
+      %p  上記をクリック、又は枠内にドラッグドロップして投稿する画像を選択してください。
+      %p  ※画像は6枚まで投稿できます。
+    .text-area
+      .text-area__title
+        %h2 タイトル（２０文字以内）:
+        = f.text_field :title, class: "input-title", placeholder: "タイトルを入力してください"
+      .text-area__content
+        %h2 説明文 :
+        = f.text_area :content, class: "input-text", placeholder: "本文を入力してください"
+      .text-area__btn
+        = f.submit "投稿する", class: "btn"
