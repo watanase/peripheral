@@ -6,13 +6,14 @@
       - else
         = image_tag "no_image.png", class: "avatar"
     .follow-btn
-      - if current_user != @user
-        - if @user.followed_by?(current_user)
-          =link_to user_relationships_path(@user.id), method: :delete do
-            フォロー中
-        - else
-          =link_to user_relationships_path(@user.id), method: :post do
-            フォローする
+      - if user_signed_in?
+        - if current_user != @user
+          - if @user.followed_by?(current_user)
+            =link_to user_relationships_path(@user.id), method: :delete do
+              フォロー中
+          - else
+            =link_to user_relationships_path(@user.id), method: :post do
+              フォローする
     .link-btn
       - if current_user == @user
         .favorite
@@ -32,7 +33,10 @@
     .user-profile
       = @user.profile
     .post-list
-      %h2 最近の投稿
+      .post-header
+        %h2 最近の投稿
+        = link_to posts_user_path(@user) do
+          %span 投稿一覧
       .post
       - if @posts.present?
         - @posts.each do |post|

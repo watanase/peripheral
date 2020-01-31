@@ -49,11 +49,10 @@
       .comment__list__show
         -if @comments
           - @comments.each do |c|
-            %table
-              %tr
-                %td.content
-                  = c.content
-                %td.user-name
-                  = c.user.name
-                %td.date
-                  = c.created_at.to_s(:date)
+            .block
+              .content
+                = c.content
+              .user-name
+                = c.user.name
+              .date
+                = c.created_at.to_s(:date)

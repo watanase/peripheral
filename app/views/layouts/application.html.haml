@@ -23,19 +23,6 @@
             %li.nav-mypage
               = link_to user_path(current_user) do
                 = current_user.name
-                %ul.sub-menu
-                  %li
-                  = link_to "#" do
-                    トップページ
-                  %li
-                  = link_to "#" do
-                    マイページ
-                  %li
-                  = link_to "#" do
-                    フォローリスト
-                  %li
-                  = link_to "#" do
-                    クリップリスト
             %li.nav-logout
               = link_to destroy_user_session_path, method: :delete do
                 ログアウト

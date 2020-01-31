@@ -1,8 +1,16 @@
 $(function () {
   function buildHTML(comment) {
-    let html = `<td>
-                  ${comment.content}
-                </td>`
+    let html = `<div class="block">
+                  <div class="content">
+                   ${comment.content}
+                  </div>
+                  <div class="user-name">
+                    ${comment.user_name}
+                  </div>
+                  <div class="date">
+                    ${comment.created_at}
+                  </div>
+                </div>`
     return html;
   }
   $("#new-comment").on("submit", function (e) {
@@ -20,12 +28,12 @@ $(function () {
     })
       .done(function (comment) {
         let html = buildHTML(comment);
-        $('.content').prepend(html);
+        $('.comment__list__show').prepend(html);
         $('.comment-area').val('');
         $('.comment-submit').prop('disabled', false);
       })
       .fail(function () {
-        alert("エラーが発生しました。お手数ですがリロードお願いします。コメントはログインしていないと投稿できません。");
+        alert("エラーが発生しました。リロードしてください。コメントはログインしていないと投稿できません。");
       })
   })
 })
