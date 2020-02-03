@@ -5,7 +5,6 @@
   padding: 1em 2em;
   margin-top: 50px;
   margin-bottom: 60px;
-  -webkit-appearance: none;
   appearance: none;
   background-color: $button-bg;
   color: $button-text-color;
@@ -13,73 +12,7 @@
   border: none;
   cursor: pointer;
   position: relative;
-  transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
-  box-shadow: 0 2px 25px rgba(0,20,5,0.5);
-  
-  &:focus {
-    outline: 0;
-  }
-  
-  &:before, &:after{
-    position: absolute;
-    content: '';
-    display: block;
-    width: 140%;
-    height: 100%;
-    left: -20%;
-    z-index: -1000;
-    transition: all ease-in-out 0.5s;
-    background-repeat: no-repeat;
-  }
-  
-  &:before{
-    display: none;
-    top: -75%;
-    background-image:  
-      radial-gradient(circle, $button-bg 20%, transparent 20%),
-    radial-gradient(circle,  transparent 20%, $button-bg 20%, transparent 30%),
-    radial-gradient(circle, $button-bg 20%, transparent 20%), 
-    radial-gradient(circle, $button-bg 20%, transparent 20%),
-    radial-gradient(circle,  transparent 10%, $button-bg 15%, transparent 20%),
-    radial-gradient(circle, $button-bg 20%, transparent 20%),
-    radial-gradient(circle, $button-bg 20%, transparent 20%),
-    radial-gradient(circle, $button-bg 20%, transparent 20%),
-    radial-gradient(circle, $button-bg 20%, transparent 20%);
-  background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%, 10% 10%, 18% 18%;
-  //background-position: 0% 80%, -5% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%, 50% 50%, 65% 20%, 85% 30%;
-  }
-  
-  &:after{
-    display: none;
-    bottom: -75%;
-    background-image:  
-    radial-gradient(circle, $button-bg 20%, transparent 20%), 
-    radial-gradient(circle, $button-bg 20%, transparent 20%),
-    radial-gradient(circle,  transparent 10%, $button-bg 15%, transparent 20%),
-    radial-gradient(circle, $button-bg 20%, transparent 20%),
-    radial-gradient(circle, $button-bg 20%, transparent 20%),
-    radial-gradient(circle, $button-bg 20%, transparent 20%),
-    radial-gradient(circle, $button-bg 20%, transparent 20%);
-  background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 10% 10%, 20% 20%;
-  //background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%, 40% 90%, 55% 90%, 70% 90%;
-  }
- 
-  &:active{
-    transform: scale(0.9);
-    background-color: darken($button-bg, 5%);
-    box-shadow: 0 2px 25px rgba(0,20,5,0.2);
-  }
-  
-  &.animate{
-    &:before{
-      display: block;
-      animation: topBubbles ease-in-out 0.75s forwards;
-    }
-    &:after{
-      display: block;
-      animation: bottomBubbles ease-in-out 0.75s forwards;
-    }
-  }
+  transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;  
 }
 @keyframes topBubbles {
   0%{
@@ -190,7 +123,7 @@
   position: absolute;
 	border-radius: 50%;
   top: -10.5px;
-	left: -6.5px;
+	left: -2.8px;
   border: 1px solid red;
 	transition: transform .5s ease;
 	visibility: hidden;
@@ -225,7 +158,7 @@
   position: absolute;
 	border-radius: 50%;
   top: -10.5px;
-	left: -9.5px;
+	left: 3px;
   border: 2px solid gold;
 	transition: transform .5s ease;
 	visibility: hidden;
@@ -238,4 +171,76 @@
 	transform: scale(1.4, 1.4);
 	opacity: 0.7;
 	visibility: visible;
+}
+// 検索ボタン
+.search-bar{
+  margin: 100px auto;
+  width: 300px;
+  height: 50px;
+  .container-2{
+    width: 300px;
+    vertical-align: middle;
+    white-space: nowrap;
+    position: relative;
+  }
+
+  .container-2 input#search{
+    width: 50px;
+    height: 50px;
+    background: #2b303b;
+    border: none;
+    font-size: 10pt;
+    float: left;
+    color: #262626;
+    padding-left: 35px;
+    border-radius: 5px;
+    color: #fff;
+    transition: width .55s ease;
+  }
+
+  .container-2 input#search::-webkit-input-placeholder {
+    color: #65737e;
+  }
+  
+  .container-2 input#search:-moz-placeholder { /* Firefox 18- */
+    color: #65737e;  
+  }
+  
+  .container-2 input#search::-moz-placeholder {  /* Firefox 19+ */
+    color: #65737e;  
+  }
+  
+  .container-2 input#search:-ms-input-placeholder {  
+    color: #65737e;  
+  }
+
+  .container-2 .icon{
+    position: absolute;
+    top: 50%;
+    margin-left: 17px;
+    margin-top: 17px;
+    z-index: 1;
+    color: #4f5b66;
+  }
+  .container-2 input#search:focus, .container-2 input#search:active{
+    outline:none;
+    width: 300px;
+  }
+  .container-2:hover input#search{
+  width: 300px;
+  }
+  .container-2:hover .icon{
+    color: #93a2ad;
+  }
+  .search-btn{
+    position: absolute;
+    width: 2.5em;
+    top: 12px;
+    right: -3px;
+    border: none;
+    background: none;
+    font-size: 20px;
+    outline: 0;
+    cursor: pointer;
+  }
 }

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :posts do
+  resources :posts, except: [:edit, :update] do
     collection do
       get 'search'
     end

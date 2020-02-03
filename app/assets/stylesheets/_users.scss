@@ -211,7 +211,7 @@
 // 投稿一覧画面
 .user-posts{
   padding: 80px 100px;
-  width: 50%;
+  width: 750px;
   height: 100vh;
   text-align: center;
   margin: 0 auto;
@@ -225,7 +225,7 @@
       display: flex;
       height: 45px;
       text-decoration: none;
-      font-size: 20px;
+      font-size: 16px;
       border-bottom: 1.5px inset #777;
       color: #777;
       .src{
@@ -247,7 +247,7 @@
 // お気に入り画面
 .favorite-list{
   padding: 80px 100px;
-  width: 60%;
+  width: 750px;
   height: 100vh;
   text-align: center;
   margin: 0 auto;
@@ -261,7 +261,7 @@
       display: flex;
       height: 45px;
       text-decoration: none;
-      font-size: 20px;
+      font-size: 16px;
       border-bottom: 1.5px inset #777;
       color: #777;
       .src{

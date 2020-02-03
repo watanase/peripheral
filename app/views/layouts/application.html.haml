@@ -13,11 +13,15 @@
         =link_to root_path do
           Title
       .search-bar
-        = form_with url: search_posts_path, local: true, method: :get, class: "search-area" do |f|
-          = f.text_field :keyword, class: 'search-form', placeholder: "検索ワードを入力してください"
+        = form_with url: search_posts_path, local: true, method: :get, class: "container-2" do |f|
+          = f.text_field :keyword, id: 'search', placeholder: "検索ワードを入力してください"
           = button_tag type: 'submit', class: "search-btn" do
             = icon('fas', 'search')
       .nav
+        = link_to "#", id: "modal-open" do
+          %i.fas.fa-leaf
+          %span はじめての方
+        = render "posts/modal"
         %ul.nav-bar
           - if user_signed_in?
             %li.nav-mypage
@@ -27,7 +31,6 @@
               = link_to destroy_user_session_path, method: :delete do
                 ログアウト
           - else
-            %li はじめての方へ
             %li.nav-login
               = link_to new_user_session_path do
                 ログイン

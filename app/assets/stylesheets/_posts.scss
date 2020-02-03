@@ -27,31 +27,6 @@ body {
       color: black;
     }
   }
-  .search-bar{
-    line-height: 50px;
-    form{
-      position: relative;
-      .search-form{
-        height: 40px;
-        width: 300px;
-        border-radius: 9px;
-        outline: 0;
-        border: 1px solid #808080;
-        padding-left: 10px;
-      }
-      .search-btn{
-        position: absolute;
-        width: 2.5em;
-        top: 12px;
-        right: -3px;
-        border: none;
-        background: none;
-        font-size: 20px;
-        outline: 0;
-        cursor: pointer;
-      }
-    }
-  }
   .nav{
     line-height: 20px;
     .nav-bar{
@@ -212,8 +187,7 @@ body {
   }
 }
 // 共有表示するフッター
-.footer{
-}
+
 // 新規投稿画面
 .new-post{
   padding-top: 50px;
@@ -368,6 +342,9 @@ body {
   padding: 50px 0;
   background-color: whitesmoke;
   margin: 0 10vw;
+  a{
+    color: black;;
+  }
   .details{
     margin: 0 auto;
     display: flex;
