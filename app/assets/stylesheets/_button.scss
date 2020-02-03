@@ -81,8 +81,6 @@
     }
   }
 }
-
-
 @keyframes topBubbles {
   0%{
     background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%, 40% 90%, 55% 90%, 70% 90%;
@@ -105,4 +103,139 @@
     background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%, 110% 10%;
   background-size: 0% 0%, 0% 0%,  0% 0%,  0% 0%,  0% 0%,  0% 0%;
   }
+}
+// 新規登録ボタン
+.simple_square_btn8{
+	display: block;
+	position: relative;
+	width: 130px;
+	padding: 0.5em;
+	text-align: center;
+	text-decoration: none;
+	color: #1B1B1B;
+	background: #fff;
+  border-radius: 30px;
+	border:1px solid #1B1B1B;
+  backface-visibility: hidden;
+  outline: none;
+}
+.simple_square_btn8:hover{
+	cursor: pointer;
+	text-decoration: none;
+  animation: simple_square_btn8 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+@-webkit-keyframes simple_square_btn8{
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-5px);
+  }
+}
+@-moz-keyframes simple_square_btn8{
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-5px);
+  }
+}
+@keyframes simple_square_btn8{
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-5px);
+  }
+}
+// 戻るボタン
+.submit{
+	display: block;
+	position: relative;
+	width: 130px;
+	padding: 0.5em;
+	text-align: center;
+	text-decoration: none;
+	color: #1B1B1B;
+	background: #fff;
+  border-radius: 35px;
+	border:1px solid #1B1B1B;
+  backface-visibility: hidden;
+  outline: none;
+}
+.submit:hover{
+	cursor: pointer;
+	text-decoration: none;
+  animation: simple_square_btn8 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+// いいね、クリップボタン
+.iiken-hover{
+	display: inline-block;
+	position: relative;
+}
+.like-hover:hover {
+	cursor: pointer;
+	text-decoration: none;
+	text-align: center;
+	transition: transform .3s;
+	transform-origin: center;
+	transform: scale(0.9, 0.9);
+	opacity: 0.7;
+}
+.like-hover::after {
+  display: inline-block;
+  content: "";
+  width: 49px;
+  height: 49px;
+  position: absolute;
+	border-radius: 50%;
+  top: -10.5px;
+	left: -6.5px;
+  border: 1px solid red;
+	transition: transform .5s ease;
+	visibility: hidden;
+}
+.like-hover:hover::after {
+	cursor: pointer;
+	text-decoration: none;
+	transition: transform .5s ease;
+	transform-origin: center;
+	transform: scale(1.4, 1.4);
+	opacity: 0.7;
+	visibility: visible;
+}
+.fav-hover{
+	display: inline-block;
+	position: relative;
+}
+.fav-hover:hover {
+	cursor: pointer;
+	text-decoration: none;
+	text-align: center;
+	transition: transform .3s;
+	transform-origin: center;
+	transform: scale(0.9, 0.9);
+	opacity: 0.7;
+}
+.fav-hover::after {
+  display: inline-block;
+  content: "";
+  width: 49px;
+  height: 49px;
+  position: absolute;
+	border-radius: 50%;
+  top: -10.5px;
+	left: -9.5px;
+  border: 2px solid gold;
+	transition: transform .5s ease;
+	visibility: hidden;
+}
+.fav-hover:hover::after {
+	cursor: pointer;
+	text-decoration: none;
+	transition: transform .5s ease;
+	transform-origin: center;
+	transform: scale(1.4, 1.4);
+	opacity: 0.7;
+	visibility: visible;
 }

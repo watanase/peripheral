@@ -6,11 +6,11 @@ body {
   margin: 0;
   min-height: 100vh;
   width: 100vw;
-  background: whitesmoke;
+  background: white;
 }
 // 共有ヘッダー項目
 .header{
-  background-color: whitesmoke;
+  background-color: white;
   height: 50px;
   width: 100%;
   position: fixed;
@@ -213,8 +213,6 @@ body {
 }
 // 共有表示するフッター
 .footer{
-  // height: 40px;
-  // width: 100%;
 }
 // 新規投稿画面
 .new-post{
@@ -367,26 +365,31 @@ body {
 }
 // 投稿詳細画面
 .show{
-  // height: 100vh;
+  padding: 50px 0;
+  background-color: whitesmoke;
+  margin: 0 10vw;
   .details{
-    padding-top: 80px;
     margin: 0 auto;
     display: flex;
-    width: 100%;
     a{
       text-decoration: none;
     }
     .image{
-      margin: 50px 0 50px 90px;
-      width: 40vw;
+      margin: 50px 0;
+      width: 35vw;
       display: flex;
       flex-direction: column;
-      &__picup{
+        .view-image{
+        width: 30vw;
+        height: 30vh;
+        object-fit: contain;
         margin-bottom: 30px;
       }
       &__list{
         display: flex;
-        max-width: 35vw;
+        flex-wrap: wrap;
+        max-width: 25vw;
+        margin: 0 auto;
         .show-images{
           width: 70px;
           height: 70px;
@@ -397,15 +400,6 @@ body {
           border: 2px solid black;
         }
       }
-      &__picup{
-        margin: 0 3vw;
-         .view-image{
-          width: 380px;
-          height: 380px;
-          object-fit: contain;
-          margin-bottom: 30px;
-        }
-      }
     }
     .string{
       max-width: 60vw;
@@ -413,7 +407,6 @@ body {
       &__user{
         display: flex;
         justify-content: space-between;
-        max-width: 25vw;
         .show-avatar{
           border-radius: 50%;
           height: 70px;
@@ -424,13 +417,12 @@ body {
         .user-author{
           display: flex;
           flex-direction: column;
-          // max-width: 200px;
           text-align: left;
           .user-name{
             margin: 5px 0;
             font-size: 18px;
             font-weight: bold;
-            width: 20vw;
+            width: 16vw;
             a{
               color: black;
             }
@@ -444,15 +436,13 @@ body {
         .user-jarnal{
           padding-top: 10px;
           display: flex;
-          text-align: right;
-          .like{
-            margin-right: 50px;
-          }
+          margin: 0 auto;
+          width: 110px;
+          text-align: center;
           li{
             list-style: none;
             font-size: 30px;
             color: black;
-            width: 80px;
           }
           .red{
             color: red;
@@ -460,19 +450,22 @@ body {
           .yellow{
             color: gold;
           }
-          .count{
-            padding-right: 8px;
-          }
           .font{
             font-size: 15px;
-            margin: 7px 0 0 11px;
+            margin-top: 7px;
+          }
+          .like{
+            width: 40px;
+          }
+          .favorite{
+            width: 60px;
+            margin-left: 10px;
           }
         }
       }
       &__title{
         font-size: 25px;
-        width: 37vw;
-        margin: 20px 0;
+         margin: 20px 0;
         padding: 10px;
         margin-top: 50px;
       }

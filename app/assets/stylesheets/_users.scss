@@ -6,6 +6,7 @@
   height: 100vh;
   width: 80vw;
   margin:  0 auto;
+  background-color: whitesmoke;
   a{
     text-decoration: none;
     color: #777;
@@ -73,6 +74,12 @@
       .post-header{
         display: flex;
         justify-content: space-between;
+        span{
+          margin-right: 5px;
+        }
+        i{
+          padding-top: 3px;
+        }
       }
       h2{
         margin-bottom: 10px;
@@ -96,6 +103,7 @@
   height: 100vh;
   width: 80vw;
   margin:  0 auto;
+  background-color: whitesmoke;
   .profile-header{
     font-size: 25px;
   }
@@ -150,14 +158,14 @@
           padding-top: 30px;
           height: 24vh;
           .text-field{
-            padding: 5px;
+            padding: 10px;
             height: 25px;
             margin: 10px;
             border-radius: 3px;
-            width: 250px;
-            border: 2px solid #777;
+            width: 180px;
+            border: 1px solid;
             color: #777;
-            background: none;
+            background: #f5f6f7;
             outline: none;
           }
         }
@@ -168,10 +176,10 @@
             height: 150px;
             margin: 10px;
             border-radius: 3px;
-            width: 250px;
-            border: 2px solid #777;
+            width: 350px;
+            border: 1px solid;
             color: #777;
-            background: none;
+            background: #f5f6f7;
             outline: none;
           }
         }
@@ -184,17 +192,12 @@
             color: #777;
           }
           .update{
-            width: 50%;
             .submit{
-              margin-right: 47px;;
-              cursor: pointer;
-              line-height: 30px;
-              outline: none;
-              background: none;
-              border: 2px solid #777;
-              border-radius: 4px;
               color: #777;
+              height: 35px;
+              width: 60px;
               font-size: 15px;
+
             }
           }
           .back{
@@ -212,6 +215,7 @@
   height: 100vh;
   text-align: center;
   margin: 0 auto;
+  background-color: whitesmoke;
   .posts-header{
     font-size: 25px;
   }
@@ -247,6 +251,7 @@
   height: 100vh;
   text-align: center;
   margin: 0 auto;
+  background-color: whitesmoke;
   .favorite-header{
     font-size: 30px;
   }
@@ -282,6 +287,7 @@
   height: 100vh;
   text-align: center;
   margin: 0 auto;
+  background-color: whitesmoke;
   .follows-header{
     font-size: 30px;
   }
@@ -311,27 +317,104 @@
     }
   }
 }
-.circle-avatar{
-  img{
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    object-fit: cover;
-  }
-}
 // 新規登録画面
-.signin{
+.signup{
   padding-top: 50px;
   display: flex;
   height: 100vh;
   .left-page{
-    width: 45%;
+    width: 600px;
     background-image:url(background１.jpg);
-    background-repeat:  no-repeat;
   }
   .right-page{
-    width: 55%;
+    width: 1100px;
     text-align: center;
+    a{
+      text-decoration: none;
+      color: #777;
+    }
+    .format{
+      width: 500px;
+      height: 80vh;
+      margin: 45px auto;
+      background-color: whitesmoke;
+      font-size: 17px;
+      font-weight: bold;
+      border-radius: 5px;
+      h2{
+          font-size: 23px;
+          padding: 20px 0;
+          font-weight: bold;
+        }
+      .field-name{
+        height: 10vh;
+        margin: 5px 80px;
+        .title{
+          text-align: left;
+          margin: 5px 0 5px 10px;
+        }
+        .name{
+          width: 80%;
+          padding: 9px;
+          border-radius: 3px;
+          outline: none;
+          font-size: 15px;
+          border: none;
+        }
+      }
+      .field-email{
+        height: 10vh;
+        margin: 5px 80px;
+        .title{
+          text-align: left;
+          margin: 5px 0 5px 10px;
+        }
+        .email{
+          width: 80%;
+          padding: 9px;
+          border-radius: 3px;
+          outline: none;
+          font-size: 15px;
+          border: none;
+        }
+      }
+      .field-password{
+        height: 10vh;
+        margin: 5px 80px;
+        .title{
+          text-align: left;
+          margin: 5px 0 5px 10px;
+        }
+        .pass{
+          width: 80%;
+          padding: 9px;
+          border-radius: 3px;
+          outline: none;
+          font-size: 15px;
+          border: none;
+        }
+      }
+      .field-check{
+        height: 10vh;
+        margin: 5px 80px;
+        .title{
+          text-align: left;
+          margin: 5px 0 5px 10px;
+        }
+        .check{
+          width: 80%;
+          padding: 9px;
+          border-radius: 3px;
+          outline: none;
+          font-size: 15px;
+          border: none;
+        }
+      }
+      .signup-btn{
+        height: 12vh;
+        margin: 30px 0 0 185px;   
+      }
+    }
   }
 }
 // ログイン画面
@@ -340,13 +423,65 @@
   display: flex;
   height: 100vh;
   .left-page{
-    width: 55%;
+    width: 1100px;
     text-align: center;
+    a{
+      text-decoration: none;
+      color: #777;
+    }
+    .format{
+      width: 500px;
+      height: 80vh;
+      margin: 45px auto;
+      background-color: whitesmoke;
+      font-size: 17px;
+      font-weight: bold;
+      border-radius: 5px;
+      h2{
+        font-size: 23px;
+        padding: 20px 0;
+        font-weight: bold;
+      }
+      .field-email{
+        height: 10vh;
+        margin: 5px 80px;
+        .title{
+          text-align: left;
+          margin: 5px 0 5px 10px;
+        }
+        .email{
+          width: 80%;
+          padding: 9px;
+          border-radius: 3px;
+          outline: none;
+          font-size: 15px;
+          border: none;
+        }
+      }
+      .field-password{
+        height: 10vh;
+        margin: 5px 80px 40px;
+        .title{
+          text-align: left;
+          margin: 5px 0 5px 10px;
+        }
+        .pass{
+          width: 80%;
+          padding: 9px;
+          border-radius: 3px;
+          outline: none;
+          font-size: 15px;
+          border: none;
+        }
+      }
+      .signin-btn{
+        height: 12vh;
+        margin: 30px 0 0 185px;   
+      }
+    }
   }
   .right-page{
-    width: 45%;
+    width: 600px;
     background-image: url(background１.jpg);
-    background-repeat:  no-repeat;
   }
-
 }

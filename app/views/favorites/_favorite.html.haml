@@ -5,12 +5,12 @@
         .favorite
         %li.yellow
           %i.fas.fa-star
-        %li.font
-          はずす
+          %li.font
+            はずす
     - else
       = link_to post_favorites_path(post.id), method: :post, remote: true do
         .favorite
-        %li
+        %li.fav-hover
           %i.far.fa-star
-        %li.font
-          クリップ
+          %li.font
+            クリップ
