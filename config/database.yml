@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: peripheral_production
-  username: peripheral
-  password: <%= ENV['PERIPHERAL_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
