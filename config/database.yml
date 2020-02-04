@@ -51,4 +51,5 @@ production:
   <<: *default
   database: peripheral_production
   username: root
-  password:
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
