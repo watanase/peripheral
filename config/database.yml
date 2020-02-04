@@ -52,4 +52,3 @@ production:
   database: peripheral_production
   username: root
   password:
-  socket: /var/lib/mysql/mysql.sock
