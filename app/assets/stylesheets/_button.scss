@@ -174,69 +174,41 @@
 }
 // 検索ボタン
 .search-bar{
-  margin: 100px auto;
-  width: 300px;
-  height: 50px;
+  position: absolute;
+  left: 200px;
+  top: 2px;
   .container-2{
     width: 300px;
     vertical-align: middle;
     white-space: nowrap;
     position: relative;
   }
-
   .container-2 input#search{
-    width: 50px;
-    height: 50px;
-    background: #2b303b;
+    width: 45px;
+    height: 45px;
+    background: whitesmoke;
     border: none;
-    font-size: 10pt;
+    font-size: 15px;
     float: left;
     color: #262626;
-    padding-left: 35px;
-    border-radius: 5px;
-    color: #fff;
+    padding-left: 50px;
+    color: #777;
     transition: width .55s ease;
-  }
-
-  .container-2 input#search::-webkit-input-placeholder {
-    color: #65737e;
-  }
-  
-  .container-2 input#search:-moz-placeholder { /* Firefox 18- */
-    color: #65737e;  
-  }
-  
-  .container-2 input#search::-moz-placeholder {  /* Firefox 19+ */
-    color: #65737e;  
-  }
-  
-  .container-2 input#search:-ms-input-placeholder {  
-    color: #65737e;  
-  }
-
-  .container-2 .icon{
-    position: absolute;
-    top: 50%;
-    margin-left: 17px;
-    margin-top: 17px;
-    z-index: 1;
-    color: #4f5b66;
+    border-radius: 35px;
   }
   .container-2 input#search:focus, .container-2 input#search:active{
     outline:none;
     width: 300px;
+    font-size: 15px;
   }
   .container-2:hover input#search{
   width: 300px;
-  }
-  .container-2:hover .icon{
-    color: #93a2ad;
   }
   .search-btn{
     position: absolute;
     width: 2.5em;
     top: 12px;
-    right: -3px;
+    left: 0;
     border: none;
     background: none;
     font-size: 20px;

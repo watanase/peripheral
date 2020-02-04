@@ -22,36 +22,56 @@ body {
     line-height: 50px;
     font-size: 30px;
     padding-left: 20px;
+    position: relative;
     a{
       text-decoration: none;
       color: black;
     }
   }
   .nav{
-    line-height: 20px;
-    .nav-bar{
-      padding-top: 7px;
+    line-height: 50px;
+    display: flex;
+    a{
+      text-decoration: none;
+      color: black;
+      margin-right: 30px;
+    }
+    ul{
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      color: #fff;
+      display: flex;
+      .nav-mypage{
+        width: 190px;
+      }
       li{
-        margin: 0 10px;
-        display: inline;
+        position: relative;
+        display: block;
+        }
+      .drop-menu{
+        display: none;
+        position: absolute;
+        margin-left: -5px;
+        padding: 0;
+        li{
+          background-color: #777;
+        }
         a{
+          width: 160px;
+          padding: 5px 10px;
+          margin-left: -5px;
+          margin-right: -5px;
+          margin-bottom: -5px;
+          display: block;
           color: black;
           text-decoration: none;
-          border: 1px solid black;
-          display: inline-block;
-          text-align: left;
-          font-size: 16px;
-          padding: 8px 16px;
-          font-weight: bold;
-          transition: .4s;
-          &:hover {
-            background-color: black;
-            border-color: white;
-            color: white;
-          }
         }
-      }
-    }
+        a:hover{
+          background: whitesmoke;
+        }
+      }  
+    }  
   }
 }
 // ホーム画面に表示する投稿一覧
