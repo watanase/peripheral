@@ -37,6 +37,7 @@
         %h2 最近の投稿
         = link_to posts_user_path(@user) do
           %span 投稿一覧
+          %i.fas.fa-arrow-circle-right
       .post
       - if @posts.present?
         - @posts.each do |post|

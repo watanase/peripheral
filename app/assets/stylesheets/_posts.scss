@@ -6,11 +6,13 @@ body {
   margin: 0;
   min-height: 100vh;
   width: 100vw;
-  background: whitesmoke;
+  background: white;
+  position: relative;
+  padding-bottom: 30px;
 }
 // 共有ヘッダー項目
 .header{
-  background-color: whitesmoke;
+  background-color: white;
   height: 50px;
   width: 100%;
   position: fixed;
@@ -22,61 +24,73 @@ body {
     line-height: 50px;
     font-size: 30px;
     padding-left: 20px;
+    position: relative;
     a{
       text-decoration: none;
       color: black;
     }
   }
-  .search-bar{
+  .nav{
     line-height: 50px;
-    form{
-      position: relative;
-      .search-form{
-        height: 40px;
-        width: 300px;
-        border-radius: 9px;
-        outline: 0;
-        border: 1px solid #808080;
-        padding-left: 10px;
+    display: flex;
+    a{
+      text-decoration: none;
+      color: black;
+      margin-right: 10px;
+    }
+    .home{
+      i{
+        padding: 9px;
+        border: 1px solid ;
       }
-      .search-btn{
-        position: absolute;
-        width: 2.5em;
-        top: 12px;
-        right: -3px;
-        border: none;
-        background: none;
-        font-size: 20px;
-        outline: 0;
-        cursor: pointer;
+      i:hover{
+        background-color: whitesmoke;
       }
     }
-  }
-  .nav{
-    line-height: 20px;
-    .nav-bar{
-      padding-top: 7px;
+    #nav-bar{
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      color: #fff;
+      display: flex;
+      i{
+        padding: 9px;
+        border: 1px solid ;
+      }
+      i:hover{
+        background-color: whitesmoke;
+      }
+      .nav-mypage{
+        width: 190px;
+        text-align: center;
+      }
       li{
-        margin: 0 10px;
-        display: inline;
+        position: relative;
+        display: block;
+        }
+      .drop-menu{
+        display: none;
+        position: absolute;
+        margin-left: -5px;
+        padding: 0;
+        li{
+          background-color: #777;
+        }
         a{
+          width: 160px;
+          padding: 5px 10px;
+          margin-left: -5px;
+          margin-right: -5px;
+          margin-bottom: -5px;
+          display: block;
           color: black;
           text-decoration: none;
-          border: 1px solid black;
-          display: inline-block;
-          text-align: left;
-          font-size: 16px;
-          padding: 8px 16px;
-          font-weight: bold;
-          transition: .4s;
-          &:hover {
-            background-color: black;
-            border-color: white;
-            color: white;
-          }
         }
-      }
-    }
+        a:hover{
+          background: whitesmoke;
+        }
+      }  
+    }  
   }
 }
 // ホーム画面に表示する投稿一覧
@@ -165,11 +179,11 @@ body {
     .post-button{
       margin-bottom: 30px;
       .push{
-        border:dashed 5px #41403E;
+        border:solid 2px #41403E;
         text-align: center;
         align-self:center;
         background:transparent;
-        padding:0.7rem 0.7rem;
+        padding:0.7rem 0.7rem 0.7rem 0.3rem;
         margin:0 3rem;
         transition:all .5s ease;
         color:#41403E;
@@ -213,9 +227,17 @@ body {
 }
 // 共有表示するフッター
 .footer{
-  // height: 40px;
-  // width: 100%;
+  position: absolute;
+  bottom: 0;
+  height: 30px;
+  font-size: 20px;
+  background-color: lightgrey;
+  width: 100%;
+  line-height: 30px;
+  padding-left: 20px;
+  position: fixed;
 }
+
 // 新規投稿画面
 .new-post{
   padding-top: 50px;
@@ -367,26 +389,34 @@ body {
 }
 // 投稿詳細画面
 .show{
-  // height: 100vh;
+  padding: 50px 0;
+  background-color: whitesmoke;
+  margin: 0 10vw;
+  a{
+    color: black;;
+  }
   .details{
-    padding-top: 80px;
     margin: 0 auto;
     display: flex;
-    width: 100%;
     a{
       text-decoration: none;
     }
     .image{
-      margin: 50px 0 50px 90px;
-      width: 40vw;
+      margin: 50px 0;
+      width: 35vw;
       display: flex;
       flex-direction: column;
-      &__picup{
+        .view-image{
+        width: 30vw;
+        height: 30vh;
+        object-fit: contain;
         margin-bottom: 30px;
       }
       &__list{
         display: flex;
-        max-width: 35vw;
+        flex-wrap: wrap;
+        max-width: 25vw;
+        margin: 0 auto;
         .show-images{
           width: 70px;
           height: 70px;
@@ -397,15 +427,6 @@ body {
           border: 2px solid black;
         }
       }
-      &__picup{
-        margin: 0 3vw;
-         .view-image{
-          width: 380px;
-          height: 380px;
-          object-fit: contain;
-          margin-bottom: 30px;
-        }
-      }
     }
     .string{
       max-width: 60vw;
@@ -413,7 +434,6 @@ body {
       &__user{
         display: flex;
         justify-content: space-between;
-        max-width: 25vw;
         .show-avatar{
           border-radius: 50%;
           height: 70px;
@@ -424,13 +444,12 @@ body {
         .user-author{
           display: flex;
           flex-direction: column;
-          // max-width: 200px;
           text-align: left;
           .user-name{
             margin: 5px 0;
             font-size: 18px;
             font-weight: bold;
-            width: 20vw;
+            width: 16vw;
             a{
               color: black;
             }
@@ -444,15 +463,13 @@ body {
         .user-jarnal{
           padding-top: 10px;
           display: flex;
-          text-align: right;
-          .like{
-            margin-right: 50px;
-          }
+          margin: 0 auto;
+          width: 110px;
+          text-align: center;
           li{
             list-style: none;
             font-size: 30px;
             color: black;
-            width: 80px;
           }
           .red{
             color: red;
@@ -460,19 +477,22 @@ body {
           .yellow{
             color: gold;
           }
-          .count{
-            padding-right: 8px;
-          }
           .font{
             font-size: 15px;
-            margin: 7px 0 0 11px;
+            margin-top: 7px;
+          }
+          .like{
+            width: 40px;
+          }
+          .favorite{
+            width: 60px;
+            margin-left: 10px;
           }
         }
       }
       &__title{
         font-size: 25px;
-        width: 37vw;
-        margin: 20px 0;
+         margin: 20px 0;
         padding: 10px;
         margin-top: 50px;
       }

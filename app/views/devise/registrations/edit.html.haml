@@ -22,14 +22,15 @@
             %br/
             = f.text_field :name,  class: "text-field"
             %span.count-name= @user.name.length
-            %span /15
+            %span /10
         .profile
           .field
             = f.label :自己紹介
             %br/
             = f.text_area :profile, class: "text-area"
-            %span.count-profile= @user.profile.length
-            %span /70
+            - if @user.profile
+              %span.count-profile= @user.profile.length
+            %span /100
         .actions
           .update
             = button_tag type: 'submit', class: "submit" do

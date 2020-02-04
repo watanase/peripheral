@@ -1,0 +1,40 @@
+#contents {
+  z-index: 2;
+}
+.page-txt {
+  font-size: 20px;
+  padding: 20px;
+  line-height: 50px;
+  li{
+    font-size: 18px;
+    p{
+      font-size: 15px;
+      margin-left: 10px;
+      line-height: 30px;
+    }
+  }
+}
+/* モーダル コンテンツエリア */
+#modal-main {
+  font-size: 30px;
+  display: none;
+  width: 800px;
+  height: 520px;
+  padding: 20px;
+  background-image:url(com.jpg);
+  color: black;
+  position:fixed;
+  z-index: 4;
+  border-radius: 5px;
+}
+/* モーダル 背景エリア */
+#modal-bg {
+  display:none;
+  width:100%;
+  height:100%;
+  background-color: rgba(0,0,0,0.5);
+  position:fixed;
+  top:0;
+  left:0;
+  z-index: 3;
+}

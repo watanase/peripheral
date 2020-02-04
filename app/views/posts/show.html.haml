@@ -24,7 +24,7 @@
         .user-jarnal
           #likes_buttons{ id: @post.id }
             = render partial: 'likes/like', locals: { post: @post, likes: @likes}
-          #favorites_buttons{ id: @post.id }
+          .favorite#favorites_buttons{ id: @post.id }
             = render partial: 'favorites/favorite', locals: { post: @post, favorites: @favorites}
       .string__title
         = @post.title
@@ -32,11 +32,10 @@
         %p
           = simple_format(@post.content)
       - if user_signed_in? && current_user.id == @post.user_id
-        .post-edit
-          = link_to post_path(@post), method: :delete do
-            削除
-          = link_to edit_post_path, method: :get do
-            編集
+        = link_to "この投稿を削除する", post_path(@post), method: :delete, data: {confirm: "「#{@post.title}」を削除しますか?",
+                                                                      cancel: "キャンセル",
+                                                                      commit: "削除" }
+        %i.fas.fa-arrow-circle-right
   .comment
     .comment__create
       = form_with model:[@post, @comment], local: true, id: "new-comment" do |f|

@@ -9,9 +9,8 @@
   - else
     = link_to post_likes_path(post.id), method: :post, remote: true do
       .like
-      %li
+      %li.like-hover
         %i.far.fa-heart
-      %li.count
         = @post.likes.count
 - else
   .like
