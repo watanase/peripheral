@@ -2,7 +2,7 @@
 %html
   %head
     %meta{content: "text/html; charset=UTF-8", "http-equiv": "Content-Type"}/
-    %title Peripheral
+    %title PostCard
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
@@ -11,7 +11,7 @@
     .header
       .header__title
         =link_to root_path do
-          Title
+          PostCard
         .search-bar
           = form_with url: search_posts_path, local: true, method: :get, class: "container-2" do |f|
             = f.text_field :keyword, id: 'search', placeholder: "検索ワードを入力してください"
@@ -22,8 +22,14 @@
           %i.fas.fa-leaf
           %span はじめての方
         = render "posts/modal"
+        .home
+          = link_to root_path do
+            %i.fas.fa-home
         %ul#nav-bar
           - if user_signed_in?
+            %li
+              = link_to new_post_path do
+                %i.far.fa-paper-plane
             %li.nav-mypage
               = link_to user_path(current_user) do
                 = current_user.name
@@ -49,7 +55,5 @@
                 新規登録
     = yield
     .footer
-      .footer__title
-      .footer___copy
-        Copyright
+      PostCard
     

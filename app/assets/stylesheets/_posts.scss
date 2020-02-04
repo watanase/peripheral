@@ -7,6 +7,8 @@ body {
   min-height: 100vh;
   width: 100vw;
   background: white;
+  position: relative;
+  padding-bottom: 30px;
 }
 // 共有ヘッダー項目
 .header{
@@ -34,16 +36,33 @@ body {
     a{
       text-decoration: none;
       color: black;
-      margin-right: 30px;
+      margin-right: 10px;
     }
-    ul{
+    .home{
+      i{
+        padding: 9px;
+        border: 1px solid ;
+      }
+      i:hover{
+        background-color: whitesmoke;
+      }
+    }
+    #nav-bar{
       list-style-type: none;
       margin: 0;
       padding: 0;
       color: #fff;
       display: flex;
+      i{
+        padding: 9px;
+        border: 1px solid ;
+      }
+      i:hover{
+        background-color: whitesmoke;
+      }
       .nav-mypage{
         width: 190px;
+        text-align: center;
       }
       li{
         position: relative;
@@ -160,11 +179,11 @@ body {
     .post-button{
       margin-bottom: 30px;
       .push{
-        border:dashed 5px #41403E;
+        border:solid 2px #41403E;
         text-align: center;
         align-self:center;
         background:transparent;
-        padding:0.7rem 0.7rem;
+        padding:0.7rem 0.7rem 0.7rem 0.3rem;
         margin:0 3rem;
         transition:all .5s ease;
         color:#41403E;
@@ -207,6 +226,17 @@ body {
   }
 }
 // 共有表示するフッター
+.footer{
+  position: absolute;
+  bottom: 0;
+  height: 30px;
+  font-size: 20px;
+  background-color: lightgrey;
+  width: 100%;
+  line-height: 30px;
+  padding-left: 20px;
+  position: fixed;
+}
 
 // 新規投稿画面
 .new-post{

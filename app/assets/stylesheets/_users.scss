@@ -321,7 +321,7 @@
 .signup{
   padding-top: 50px;
   display: flex;
-  height: 100vh;
+  height: 100%;
   .left-page{
     width: 600px;
     background-image:url(background１.jpg);
@@ -341,14 +341,16 @@
       font-size: 17px;
       font-weight: bold;
       border-radius: 5px;
+      overflow: auto;
       h2{
           font-size: 23px;
           padding: 20px 0;
           font-weight: bold;
         }
       .field-name{
-        height: 10vh;
+        height: 80px;
         margin: 5px 80px;
+        line-height: 30px;
         .title{
           text-align: left;
           margin: 5px 0 5px 10px;
@@ -363,8 +365,9 @@
         }
       }
       .field-email{
-        height: 10vh;
+        height: 85px;
         margin: 5px 80px;
+        line-height: 30px;
         .title{
           text-align: left;
           margin: 5px 0 5px 10px;
@@ -379,8 +382,9 @@
         }
       }
       .field-password{
-        height: 10vh;
+        height: 85px;
         margin: 5px 80px;
+        line-height: 30px;
         .title{
           text-align: left;
           margin: 5px 0 5px 10px;
@@ -395,8 +399,9 @@
         }
       }
       .field-check{
-        height: 10vh;
+        height: 85px;
         margin: 5px 80px;
+        line-height: 30px;
         .title{
           text-align: left;
           margin: 5px 0 5px 10px;
@@ -411,8 +416,13 @@
         }
       }
       .signup-btn{
-        height: 12vh;
-        margin: 30px 0 0 185px;   
+        height: 100px;
+        display: flex;
+        justify-content: space-around;
+        padding-top: 30px;
+        .render{
+          margin-top: 10px;
+        }
       }
     }
   }
@@ -437,14 +447,17 @@
       font-size: 17px;
       font-weight: bold;
       border-radius: 5px;
+      overflow: auto;
       h2{
         font-size: 23px;
         padding: 20px 0;
         font-weight: bold;
+        margin: 30px 0;
       }
       .field-email{
-        height: 10vh;
+        height: 85px;
         margin: 5px 80px;
+        line-height: 30px;
         .title{
           text-align: left;
           margin: 5px 0 5px 10px;
@@ -459,8 +472,9 @@
         }
       }
       .field-password{
-        height: 10vh;
-        margin: 5px 80px 40px;
+        height: 85px;
+        margin: 5px 80px;
+        line-height: 30px;
         .title{
           text-align: left;
           margin: 5px 0 5px 10px;
@@ -475,8 +489,13 @@
         }
       }
       .signin-btn{
-        height: 12vh;
-        margin: 30px 0 0 185px;   
+        height: 100px;
+        display: flex;
+        justify-content: space-around;
+        margin: 100px 0;
+        .render{
+          margin-top: 10px;
+        }
       }
     }
   }

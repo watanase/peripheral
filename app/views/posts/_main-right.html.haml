@@ -3,6 +3,7 @@
     - if user_signed_in?
       = link_to new_post_path do
         .push
+          %i.far.fa-paper-plane
           新規投稿
   %h2 いいねランキング
   - @all_ranks.each_with_index do |post, i|

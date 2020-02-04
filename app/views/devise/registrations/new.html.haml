@@ -21,5 +21,7 @@
             = f.label :password_confirmation
           = f.password_field :password_confirmation, class: "check", autocomplete: "new-password"
         .signup-btn
-          = f.submit "新規登録", class: "simple_square_btn8"
-      = render "devise/shared/links"
+          .sign-up
+            = f.submit "新規登録", class: "simple_square_btn8"
+          .render
+            = render "devise/shared/links"
