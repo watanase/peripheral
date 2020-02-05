@@ -68,6 +68,7 @@ gem 'carrierwave'
 gem "jquery-rails"
 gem 'bootstrap-sass'
 gem 'kaminari'
+gem 'haml-rails'
 
 group :production do
   gem 'unicorn', '5.4.1'
