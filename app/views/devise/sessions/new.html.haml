@@ -1,4 +1,5 @@
 .login
+  = image_tag asset_path("background1.jpg")
   .left-page
     .format
       %h2 ログイン
@@ -20,5 +21,3 @@
             = f.submit "ログイン", class: "simple_square_btn8"
           .render
             = render "devise/shared/links"
-  .right-page
-

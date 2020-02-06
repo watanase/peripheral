@@ -321,14 +321,19 @@
 .signup{
   padding-top: 50px;
   display: flex;
-  height: 100%;
-  .left-page{
-    width: 600px;
-    background-image:url(background１.jpg);
+  height: calc(100vh - 30px);
+  position: relative;
+  img{
+    width: 100%;
+    object-fit: cover;
   }
   .right-page{
-    width: 1100px;
+    position: absolute;
+    left: 10vw;
+    top: 12vh;
+    background-color: whitesmoke;
     text-align: center;
+    border-radius: 15px;
     a{
       text-decoration: none;
       color: #777;
@@ -336,11 +341,8 @@
     .format{
       width: 500px;
       height: 80vh;
-      margin: 45px auto;
-      background-color: whitesmoke;
       font-size: 17px;
       font-weight: bold;
-      border-radius: 5px;
       overflow: auto;
       h2{
           font-size: 23px;
@@ -431,10 +433,19 @@
 .login{
   padding-top: 50px;
   display: flex;
-  height: 100vh;
+  height: calc(100vh - 30px);
+  position: relative;
+  img{
+    width: 100%;
+    object-fit: cover;
+  }
   .left-page{
-    width: 1100px;
+    position: absolute;
+    left: 10vw;
+    top: 12vh;
+    background-color: whitesmoke;
     text-align: center;
+    border-radius: 15px;
     a{
       text-decoration: none;
       color: #777;
@@ -442,11 +453,8 @@
     .format{
       width: 500px;
       height: 80vh;
-      margin: 45px auto;
-      background-color: whitesmoke;
       font-size: 17px;
       font-weight: bold;
-      border-radius: 5px;
       overflow: auto;
       h2{
         font-size: 23px;
@@ -498,9 +506,5 @@
         }
       }
     }
-  }
-  .right-page{
-    width: 600px;
-    background-image: url(background１.jpg);
   }
 }
