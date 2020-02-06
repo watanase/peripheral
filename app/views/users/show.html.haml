@@ -4,7 +4,7 @@
       -if @user.avatar.url
         = image_tag @user.avatar.url, class: "avatar"
       - else
-        = image_tag "no_image.png", class: "avatar"
+        = image_tag asset_path("no_image.png"), class: "avatar"
     .follow-btn
       - if user_signed_in?
         - if current_user != @user
