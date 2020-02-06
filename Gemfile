@@ -74,6 +74,8 @@ gem "jquery-rails"
 gem 'bootstrap-sass'
 gem 'kaminari'
 gem 'haml-rails'
+gem 'fog-aws'
+
 
 group :production do
   gem 'unicorn', '5.4.1'
