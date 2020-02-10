@@ -442,7 +442,7 @@
   .left-page{
     position: absolute;
     left: 10vw;
-    top: 12vh;
+    top: 17vh;
     background-color: whitesmoke;
     text-align: center;
     border-radius: 15px;
@@ -452,7 +452,7 @@
     }
     .format{
       width: 500px;
-      height: 80vh;
+      height: 70vh;
       font-size: 17px;
       font-weight: bold;
       overflow: auto;
@@ -500,7 +500,7 @@
         height: 100px;
         display: flex;
         justify-content: space-around;
-        margin: 100px 0;
+        margin: 20px 0;
         .render{
           margin-top: 10px;
         }

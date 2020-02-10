@@ -27,9 +27,10 @@
       .name
         = @user.name
       .maypage-edit
-      - if user_signed_in? && current_user.id == @user.id
-        = link_to edit_user_registration_path do
-          編集
+      - unless @user.email == "test@example.com"
+        - if user_signed_in? && current_user.id == @user.id
+          = link_to edit_user_registration_path do
+            編集
     .user-profile
       = @user.profile
     .post-list

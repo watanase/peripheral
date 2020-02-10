@@ -1,0 +1,52 @@
+.header
+  .header__title
+    =link_to root_path do
+      PostCard
+    .search-bar
+      = form_with url: search_posts_path, local: true, method: :get, class: "container-2" do |f|
+        = f.text_field :keyword, id: 'search', placeholder: "検索ワードを入力してください"
+        = button_tag type: 'submit', class: "search-btn" do
+          = icon('fas', 'search')
+  .guest-login
+    - unless user_signed_in?
+      = form_for(User.new, as: :user, url: session_path(:user)) do |f|
+        .field
+          =f.hidden_field :email ,value: "test@example.com"
+          =f.hidden_field :password ,value: "testtest"
+          =f.submit "ゲストユーザーでログインする（すべての機能を使用できます）", class: "guest-btn"
+  .nav
+    = link_to "#", id: "modal-open" do
+      %i.fas.fa-leaf
+      %span はじめての方
+    = render "posts/modal"
+    .home
+      = link_to root_path do
+        %i.fas.fa-home
+    %ul#nav-bar
+      - if user_signed_in?
+        %li
+          = link_to new_post_path do
+            %i.far.fa-paper-plane
+        %li.nav-mypage
+          = link_to user_path(current_user) do
+            = current_user.name
+          %ul.drop-menu
+            %li
+              = link_to posts_user_path(current_user) do
+                投稿一覧
+            %li
+              = link_to follows_user_path(current_user) do
+                フォローリスト
+            %li
+              = link_to favorite_user_path(current_user) do
+                クリップリスト
+        %li.nav-logout
+          = link_to destroy_user_session_path, method: :delete do
+            ログアウト
+      - else
+        %li.nav-login
+          = link_to new_user_session_path do
+            ログイン
+        %li.nav-sign
+          = link_to new_user_registration_path do
+            新規登録
