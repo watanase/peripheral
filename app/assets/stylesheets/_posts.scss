@@ -37,7 +37,11 @@ body {
     a{
       text-decoration: none;
       color: black;
-      margin-right: 10px;
+      margin: 0 5px;
+    }
+    #modal-open:hover{
+      opacity: 0.8;
+      background-color: whitesmoke;
     }
     .home{
       i{
@@ -50,7 +54,7 @@ body {
     }
     #nav-bar{
       list-style-type: none;
-      margin: 0;
+      margin: 0 20px;
       padding: 0;
       color: #fff;
       display: flex;
@@ -78,7 +82,7 @@ body {
           background-color: #777;
         }
         a{
-          width: 160px;
+          width: 190px;
           padding: 5px 10px;
           margin-left: -5px;
           margin-right: -5px;
@@ -90,7 +94,13 @@ body {
         a:hover{
           background: whitesmoke;
         }
-      }  
+      } 
+      .nav-login:hover{
+        background-color: whitesmoke;
+      } 
+      .nav-sign:hover{
+        background-color: whitesmoke;
+      } 
     }  
   }
 }
