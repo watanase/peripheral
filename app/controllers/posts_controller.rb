@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_product, except: [:index, :new, :create, :search]
+  before_action :set_post, except: [:index, :new, :create, :search]
   before_action :move_to_index, only: [:new, :create, :edit, :update, :destroy]
   def index
     @posts = Post.includes(:images).order(id: "DESC").page(params[:page]).per(20)
@@ -36,7 +36,7 @@ class PostsController < ApplicationController
     @all_ranks = Post.create_all_ranks
   end
 
-  def set_product
+  def set_post
     @post = Post.find(params[:id])
   end
 

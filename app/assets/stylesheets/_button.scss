@@ -215,3 +215,14 @@
     cursor: pointer;
   }
 }
+// ゲストログインボタン
+.guest-login{
+  .guest-btn{
+    border: none;
+    cursor: pointer;
+    padding-top: 10px;
+  }
+  .guest-btn:hover{
+    opacity: 0.7;
+  }
+}
