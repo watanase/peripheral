@@ -217,10 +217,12 @@
 }
 // ゲストログインボタン
 .guest-login{
+  padding-left: 20px;
   .guest-btn{
     border: none;
     cursor: pointer;
     padding-top: 10px;
+    outline: none;
   }
   .guest-btn:hover{
     opacity: 0.7;

@@ -37,7 +37,10 @@ body {
     a{
       text-decoration: none;
       color: black;
-      margin-right: 10px;
+      margin: 0 5px;
+    }
+    #modal-open:hover{
+      background-color: whitesmoke;
     }
     .home{
       i{
@@ -68,6 +71,7 @@ body {
       li{
         position: relative;
         display: block;
+        margin: 0 10px;
         }
       .drop-menu{
         display: none;
@@ -78,7 +82,7 @@ body {
           background-color: #777;
         }
         a{
-          width: 160px;
+          width: 190px;
           padding: 5px 10px;
           margin-left: -5px;
           margin-right: -5px;
@@ -90,8 +94,14 @@ body {
         a:hover{
           background: whitesmoke;
         }
-      }  
-    }  
+      }
+      .nav-login:hover{
+        background-color: whitesmoke;
+      }
+      .nav-sign:hover{
+        background-color: whitesmoke;
+      }
+    }
   }
 }
 // ホーム画面に表示する投稿一覧
