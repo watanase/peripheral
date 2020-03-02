@@ -9,7 +9,6 @@ https://postscard.com/
 - Haml
 - Scss
 - jQuery
-- bootstrap4
 
 #### バックエンド
 - Ruby 2.5.1
@@ -22,9 +21,9 @@ https://postscard.com/
 - MySQL 5.7
 
 #### インフラ・開発環境等
-- Docker/docker-compose
-- AWS（VPC, EC2, S3, Route 53, ALB, ACM）
-- CircleCI（CI/CD)
+<!-- - Docker/docker-compose -->
+- AWS（VPC, EC2, S3, Route 53）
+<!-- - CircleCI（CI/CD) -->
 - Capistrano3
 - RSpec
 
@@ -35,13 +34,11 @@ https://postscard.com/
   - マイページ・登録情報編集機能
 - 記事投稿機能
 - 画像投稿機能
-  - active_storageを使用
   - 複数枚投稿可
 - 画像スライド表示機能
-- カテゴリ機能
-  - ancestryを使った階層構造
-- タグ機能
+- いいね機能
+  - いいね数に応じたランキング機能
+- クリップ機能
 - コメント機能
 - 検索機能
-  - ransackを使用
 - ページネーション機能
