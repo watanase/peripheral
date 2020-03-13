@@ -14,10 +14,10 @@
       %p  ※画像は6枚まで投稿できます。
     .text-area
       .text-area__title
-        %h2 タイトル（２０文字以内）:
+        %h2 タイトル（２０文字以内）
         = f.text_field :title, class: "input-title", placeholder: "タイトルを入力してください"
       .text-area__content
-        %h2 説明文 :
+        %h2 説明文
         = f.text_area :content, class: "input-text", placeholder: "本文を入力してください"
       .text-area__btn
         = f.submit "投稿する", class: "btn"
