@@ -20,9 +20,12 @@
           .field
             = f.label :名前
             %br/
-            = f.text_field :name,  class: "text-field"
-            %span.count-name= @user.name.length
-            %span /10
+            - if @user.email == "test@example.com"
+              %p ゲストユーザーは名前を変更できません
+            -else
+              = f.text_field :name,  class: "text-field"
+              %span.count-name= @user.name.length
+              %span /10
         .profile
           .field
             = f.label :自己紹介

@@ -8,3 +8,16 @@
 @import "./pagenate";
 @import "./button";
 @import "./modal";
+
+#error_explanation{
+  h2{
+    font-size: 16px;
+  }
+  font-size: 16px;
+  color: #ff6666;
+}
+.alert-warning{
+  text-align: center;
+  color: #ff6666;
+  font-size: 16px;
+}

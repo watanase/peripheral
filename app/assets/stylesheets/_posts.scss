@@ -260,9 +260,8 @@ body {
   form{
     width: 100vw;
     padding: 50px;
-    text-align: center;
     .post-action{
-      margin-top: 20px;
+      margin-top: 50px;
       display: inline-block;
       padding: 12px 0;
       width: 160px;
@@ -283,7 +282,8 @@ body {
     }
     .add-image{
       width: 60vw;
-      margin: 0 auto;
+      margin: 30px auto;
+      text-align: center;
       #image-box-1{
         display: flex;
         margin-bottom: 30px;
@@ -342,15 +342,13 @@ body {
       }
     }
     .text-area{
-      margin: 50px 0 0 100px;
+      margin: 50px;
       font-size: 18px;
+      padding: 10px 200px;
       &__title{
-        display: flex;
         margin: 20px;
-        line-height: 40px;
-        h2{
-          margin-right: 20px;
-        }
+        line-height: 50px;
+        margin-left: 50px;
         .input-title{
           height: 40px;
           width: 390px;
@@ -361,12 +359,9 @@ body {
         }
       }
       &__content{
-        display: flex;
         margin: 20px;
-        line-height: 40px;
-        h2{
-          margin-right: 174px;
-        }
+        line-height: 50px;
+        margin-left: 50px;
         .input-text{
           width: 600px;
           height: 200px;
@@ -378,6 +373,7 @@ body {
       }
       &__btn{
         margin: 30px 150px 0 0;
+        text-align: center;
         .btn{
           align-self:center;
           background:transparent;

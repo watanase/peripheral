@@ -4,9 +4,10 @@
     .format
       %h2 新規登録
       = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        = render "devise/shared/error_messages", resource: resource
         .field-name
           .title
-            = f.label :名前
+            = f.label :name
           = f.text_field :name, class: "name",  autofocus: true, autocomplete: "名前", placeholder: "１０文字以内"
         .field-email
           .title
