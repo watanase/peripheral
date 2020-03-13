@@ -1,12 +1,7 @@
 .new-post
-  - if @post.errors.any?
-    .chat-group-form__errors
-      %h2="#{@post.errors.full_messages.count}件のエラーが発生しました。"
-      %ul
-        - @post.errors.full_messages.each do |message|
-          %li= message
   = form_with(model: @post, local: true) do |f|
     %span.post-action 新規投稿
+    = render "shared/error_messages", model: f.object
     .add-image
       #image-box-1
         .previews-0#image-box__container

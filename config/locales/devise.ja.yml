@@ -139,4 +139,4 @@ ja:
       not_locked: は凍結されていません。
       not_saved:
         one: エラーが発生したため %{resource} は保存されませんでした。
-        other: "%{count} 件のエラーが発生したため %{resource} は保存されませんでした。"
+        other: "%{count} 件のエラーが発生したため登録に失敗しました。"

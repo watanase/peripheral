@@ -27,7 +27,6 @@
       .name
         = @user.name
       .maypage-edit
-      - unless @user.email == "test@example.com"
         - if user_signed_in? && current_user.id == @user.id
           = link_to edit_user_registration_path do
             編集
