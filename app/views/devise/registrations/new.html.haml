@@ -1,9 +1,10 @@
-p.signup
+.signup
   = image_tag asset_path("background1.jpg")
   .right-page
     .format
       %h2 新規登録
       = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        = render "shared/error_messages", resource: resource
         .field-name
           .title
             = f.label :名前
