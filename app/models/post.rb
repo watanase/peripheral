@@ -17,17 +17,20 @@ class Post < ApplicationRecord
   def favorite_user(user_id)
     favorites.find_by(user_id: user_id)
   end
+
   # いいね判断
   def like_user(user_id)
     likes.find_by(user_id: user_id)
   end
+
   # ランキング表示
-  def self.create_all_ranks 
+  def self.create_all_ranks
     Post.find(Like.group(:post_id).order(Arel.sql('count(post_id) desc')).limit(10).pluck(:post_id))
   end
 
   def self.search(search)
     return Post.all unless search
+
     Post.where('title LIKE(?)', "%#{search}%")
   end
 
@@ -35,5 +38,4 @@ class Post < ApplicationRecord
   validates :content, length: { maximum: 300 }, presence: true
   validates :images, presence: true
   validates_associated :images
-
 end
