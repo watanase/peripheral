@@ -32,10 +32,13 @@
         %p
           = simple_format(@post.content)
       - if user_signed_in? && current_user.id == @post.user_id
-        = link_to "この投稿を削除する", post_path(@post), method: :delete, data: {confirm: "「#{@post.title}」を削除しますか?",
-                                                                      cancel: "キャンセル",
-                                                                      commit: "削除" }
-        %i.fas.fa-arrow-circle-right
+        .string__content__delete
+          = link_to "この投稿を削除する", post_path(@post), method: :delete, data: {confirm: "「#{@post.title}」を削除しますか?",
+                                                                        cancel: "キャンセル",
+                                                                        commit: "削除" }
+          %i.fas.fa-arrow-circle-right
+        .string__content__edit
+          = link_to "編集する", edit_post_path(@post)
   .comment
     .comment__create
       = form_with model:[@post, @comment], local: true, id: "new-comment" do |f|

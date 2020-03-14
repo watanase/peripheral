@@ -405,7 +405,9 @@ body {
   }
   .details{
     margin: 0 auto;
+    padding: 50px 0;
     display: flex;
+    border-bottom: 1px dashed $fuschia;
     a{
       text-decoration: none;
     }
