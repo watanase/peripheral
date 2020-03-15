@@ -1,16 +1,18 @@
-version: 2.1
-orbs:
-  ruby: circleci/ruby@0.1.2 
-
+version: 2
 jobs:
   build:
     docker:
-      - image: circleci/ruby:2.5.1-stretch-node
-    # executor: default
+    - image: circleci/ruby:2.5.1-stretch-node
     steps:
-      - checkout
-      - run:
-          name: Which bundler?
-          command: bundle -v
-      - ruby/bundle-install
+    - checkout
+    - run:
+        name: Which bundler?
+        command: bundle -v
+    - run:
+        command: bundle install --path vendor/bundle
     working_directory: ~/peripheral
+workflows:
+  version: 2
+  workflow:
+    jobs:
+    - build
