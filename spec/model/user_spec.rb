@@ -43,8 +43,8 @@ describe User do
     end
 
     it '登録済みのemailでは登録できない' do
-      user = create(:user, email: 'p@p')
-      another_user = build(:user, email: 'p@p')
+      user = create(:user)
+      another_user = build(:user, email: user.email)
       another_user.valid?
       expect(another_user.errors[:email]).to include('はすでに存在します')
     end
