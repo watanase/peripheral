@@ -116,6 +116,13 @@ GEM
     erubis (2.7.0)
     excon (0.72.0)
     execjs (2.7.0)
+    factory_bot (5.1.1)
+      activesupport (>= 4.2.0)
+    factory_bot_rails (5.1.1)
+      factory_bot (~> 5.1.0)
+      railties (>= 4.2.0)
+    faker (2.10.1)
+      i18n (>= 1.6, < 2)
     ffi (1.12.2)
     fog-aws (3.5.2)
       fog-core (~> 2.1)
@@ -368,6 +375,8 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   devise
+  factory_bot_rails
+  faker
   fog-aws
   font-awesome-sass
   haml-rails

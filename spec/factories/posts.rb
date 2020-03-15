@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :post do
-    title {"hello!"}
-    content {"yell"}
+    title { 'hello!' }
+    content { 'yell' }
     user
   end
 end
