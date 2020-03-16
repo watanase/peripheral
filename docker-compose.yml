@@ -19,7 +19,7 @@ services:
     build: .
     command: bundle exec rails s -p 3000 -b '0.0.0.0'
     volumes:
-      - .:/myproject    #ローカルのディレクトリをコンテナ上にマウント
+      - .:/app    #ローカルのディレクトリをコンテナ上にマウント
       - bundle:/usr/local/bundle    #bundle installした後buildし直さなくてよくなる
     ports:
       - "3000:3000"
@@ -29,3 +29,4 @@ services:
 volumes:
   mysql-data:
   bundle:
+    
