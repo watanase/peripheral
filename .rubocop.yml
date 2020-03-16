@@ -38,5 +38,4 @@ Rails/InverseOf:
   Enabled: false
   
 Metrics/BlockLength:
-  Exclude:
-    - 'spec/**/*'
+  Enabled: false
