@@ -51,7 +51,7 @@ describe Post do
         num = 'n' * 301
         post = build(:post, content: num)
         post.valid?
-        expect(post.errors[:content]).to include('は300文字以内で入力してください')
+        expect(post.errors[:content]).to include('は文字以内で入力してください')
       end
     end
   end
