@@ -19,7 +19,6 @@ describe Post do
         post = build(:post, content: num)
         expect(post).to be_valid
       end
-
     end
 
     context '登録できない場合' do

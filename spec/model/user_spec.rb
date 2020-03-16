@@ -21,7 +21,7 @@ describe User do
       end
 
       it 'profileが100文字以内だと登録できる' do
-        num = 'n' *100
+        num = 'n' * 100
         user = build(:user, profile: num)
         expect(user).to be_valid
       end
@@ -49,7 +49,9 @@ describe User do
       it 'passwordとpassword_confirmationが違うと登録できない' do
         user = build(:user, password_confirmation: '')
         user.valid?
-        expect(user.errors[:password_confirmation]).to include('とパスワードの入力が一致しません')
+        expect(
+          user.errors[:password_confirmation]
+        ).to include('とパスワードの入力が一致しません')
       end
 
       it 'nameが11文字以上だと登録できない' do
@@ -58,7 +60,7 @@ describe User do
         user.valid?
         expect(user.errors[:name]).to include('は10文字以内で入力してください')
       end
-      
+
       it '登録済みのemailでは登録できない' do
         user = create(:user)
         another_user = build(:user, email: user.email)
