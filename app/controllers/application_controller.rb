@@ -10,12 +10,13 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :profile, :avatar, :avatar_cache, :remove_avatar])
-
+    devise_parameter_sanitizer.permit(
+      :account_update,
+      keys: %i[name profile avatar avatar_cache remove_avatar]
+    )
   end
 
-  def after_update_path_for(resource)
+  def after_update_path_for(_resource)
     user_path(current_user)
   end
-
 end

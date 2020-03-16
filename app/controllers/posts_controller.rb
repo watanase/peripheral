@@ -1,8 +1,10 @@
 class PostsController < ApplicationController
-  before_action :set_post, except: [:index, :new, :create, :search]
-  before_action :move_to_index, only: [:new, :create, :edit, :update, :destroy]
+  before_action :set_post, except: %i[index new create search]
+  before_action :move_to_index, only: %i[new create destroy]
   def index
-    @posts = Post.includes(:images).order(id: "DESC").page(params[:page]).per(20)
+    @posts = Post.includes(:images).order(
+      id: 'DESC'
+    ).page(params[:page]).per(20)
     @all_ranks = Post.create_all_ranks
   end
 
@@ -23,7 +25,7 @@ class PostsController < ApplicationController
 
   def show
     @comment = Comment.new
-    @comments = @post.comments.order(id: "DESC")
+    @comments = @post.comments.order(id: 'DESC')
   end
 
   def destroy
@@ -41,8 +43,13 @@ class PostsController < ApplicationController
   end
 
   private
+
   def post_params
-    params.require(:post).permit(:title, :content, images_attributes: [:src, :_destroy, :id]).merge(user_id: current_user.id)
+    params.require(:post).permit(
+      :title,
+      :content,
+      images_attributes: %i[src _destroy id]
+    ).merge(user_id: current_user.id)
   end
 
   def move_to_index
