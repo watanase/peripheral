@@ -14,9 +14,15 @@ describe User do
         expect(user).to be_valid
       end
 
-      it 'passwordが6文字以↑だと登録できる' do
+      it 'passwordが6文字以上だと登録できる' do
         num = 'n' * 6
         user = build(:user, password: num, password_confirmation: num)
+        expect(user).to be_valid
+      end
+
+      it 'profileが100文字以内だと登録できる' do
+        num = 'n' *100
+        user = build(:user, profile: num)
         expect(user).to be_valid
       end
     end
@@ -65,6 +71,13 @@ describe User do
         user = build(:user, password: num, password_confirmation: num)
         user.valid?
         expect(user.errors[:password]).to include('は6文字以上で入力してください')
+      end
+
+      it 'profileが101文字以上だと登録できない' do
+        num = 'n' * 101
+        user = build(:user, profile: num)
+        user.valid?
+        expect(user.errors[:profile]).to include('は100文字以内で入力してください')
       end
     end
   end
