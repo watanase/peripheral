@@ -1,23 +1,56 @@
 .new-post
   = form_with(model: @post, local: true) do |f|
-    %span.post-action 新規投稿
+    - unless @post.title
+      %span.post-action 新規投稿
+    -else
+      %span.post-action 投稿編集
     = render "shared/error_messages", model: f.object
     .add-image
-      #image-box-1
-        .previews-0#image-box__container
-          = f.fields_for :images do |i|
-            .input-area
-              = i.file_field :src, type: 'file', name: "post[images_attributes][][src]", value:"", style: "display:none", id:"img-file"
-              %label{for: "img-file"}
-                %i.fas.fa-images
+      %ul#previews
+        - if @post.persisted?
+          - @post.images.each_with_index do |image, i|
+            %li= image_tag image.src.url, data: { index: i }, width: "200", height: '200'
+      #image-box
+        = f.fields_for :images do |i|
+          .js-file_group{"data-index": "#{i.index}"}
+            = i.file_field :src, class: 'js-file', id: 'img-file'
+            %label{for: 'img-file'}
+              %i.fas.fa-images
+            %br/
+          - if @post.persisted?
+            = i.check_box :_destroy, data:{ index: i.index }, class: 'hidden-destroy'
+        - if @post.persisted?
+          .js-file_group{"data-index": "#{@post.images.count}"}
+            = file_field_tag :src, name: "post[images_attributes][#{@post.images.count}][src]", class: 'js-file'
+            .js-remove 削除
+
+      -# #image-box-1
+      -#   .previews-0#image-box__container
+      -#     = f.fields_for :images do |i|
+      -#       .input-area
+      -#         = i.file_field :src, type: 'file', name: "post[images_attributes][][src]", value:"", style: "display:none", id:"img-file"
+      -#         %label{for: "img-file"}
+      -#           %i.fas.fa-images
       %p  上記をクリック、又は枠内にドラッグドロップして投稿する画像を選択してください。
       %p  ※画像は6枚まで投稿できます。
     .text-area
       .text-area__title
-        %h2 タイトル（２０文字以内）
-        = f.text_field :title, class: "input-title", placeholder: "タイトルを入力してください"
+        %h2
+          タイトル（２０文字以内）
+          - if @post.title
+            %span.count-name=@post.title.length
+          - else
+            %span.count-name 0
+          %span /20
+        = f.text_field :title, class: "text-field", placeholder: "タイトルを入力してください"
       .text-area__content
-        %h2 説明文
+        %h2
+          説明文
+          - if @post.content
+            %span.count-profile=@post.content.length
+          - else
+            %span.count-profile 0
+          %span /300
         = f.text_area :content, class: "input-text", placeholder: "本文を入力してください"
       .text-area__btn
         = f.submit "投稿する", class: "btn"

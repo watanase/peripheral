@@ -33,6 +33,8 @@
             = f.text_area :profile, class: "text-area"
             - if @user.profile
               %span.count-profile= @user.profile.length
+            - else
+              %span.count-profile 0
             %span /100
         .actions
           .update

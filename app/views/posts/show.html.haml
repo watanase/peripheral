@@ -36,6 +36,7 @@
                                                                       cancel: "キャンセル",
                                                                       commit: "削除" }
         %i.fas.fa-arrow-circle-right
+        %p= link_to "編集する", edit_post_path(@post)
   .comment
     .comment__create
       = form_with model:[@post, @comment], local: true, id: "new-comment" do |f|

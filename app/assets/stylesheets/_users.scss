@@ -6,17 +6,17 @@
   height: 100vh;
   width: 80vw;
   margin:  0 auto;
-  background-color: whitesmoke;
+  background-color: $whitesmoke;
   a{
     text-decoration: none;
-    color: #777;
+    color: $fuschia;
   }
   .user-left{
     height: 100%;
     width: 50vw;
     display: flex;
     flex-direction: column;
-    background-color: white;
+    background-color: $fff;
     .user-image{
       height: 45vh;
       width: 100%;
@@ -52,7 +52,7 @@
     width: 50vw;
     height: 100%;
     background-color: blanchedalmond;
-    color: #777;
+    color: $fuschia;
     padding: 5vh;
     .user-name{
       height: 14vh;
@@ -103,7 +103,7 @@
   height: 100vh;
   width: 80vw;
   margin:  0 auto;
-  background-color: whitesmoke;
+  background-color: $whitesmoke;
   .profile-header{
     font-size: 25px;
   }
@@ -119,7 +119,7 @@
         width: 50vw;
         display: flex;
         flex-direction: column;
-        background-color: white;
+        background-color: $fff;
         .avatar-image{
           height: 45vh;
           width: 100%;
@@ -150,7 +150,7 @@
         width: 50vw;
         height: 100%;
         background-color: blanchedalmond;
-        color: #777;
+        color: $fuschia;
         padding: 5vh;
         display: flex;
         flex-direction: column;
@@ -164,7 +164,7 @@
             border-radius: 3px;
             width: 180px;
             border: 1px solid;
-            color: #777;
+            color: $fuschia;
             background: #f5f6f7;
             outline: none;
           }
@@ -178,7 +178,7 @@
             border-radius: 3px;
             width: 350px;
             border: 1px solid;
-            color: #777;
+            color: $fuschia;
             background: #f5f6f7;
             outline: none;
           }
@@ -189,11 +189,11 @@
           align-items: flex-end;
           a{
             text-decoration: none;
-            color: #777;
+            color: $fuschia;
           }
           .update{
             .submit{
-              color: #777;
+              color: $fuschia;
               height: 35px;
               width: 60px;
               font-size: 15px;
@@ -215,7 +215,7 @@
   height: 100vh;
   text-align: center;
   margin: 0 auto;
-  background-color: whitesmoke;
+  background-color: $whitesmoke;
   .posts-header{
     font-size: 25px;
   }
@@ -227,7 +227,7 @@
       text-decoration: none;
       font-size: 16px;
       border-bottom: 1.5px inset #777;
-      color: #777;
+      color: $fuschia;
       .src{
         margin-top: 2px;
         height: 40px;
@@ -251,7 +251,7 @@
   height: 100vh;
   text-align: center;
   margin: 0 auto;
-  background-color: whitesmoke;
+  background-color: $whitesmoke;
   .favorite-header{
     font-size: 30px;
   }
@@ -262,8 +262,8 @@
       height: 45px;
       text-decoration: none;
       font-size: 16px;
-      border-bottom: 1.5px inset #777;
-      color: #777;
+      border-bottom: 1.5px inset $fuschia;
+      color: $fuschia;
       .src{
         height: 40px;
         width: 40px;
@@ -287,7 +287,7 @@
   height: 100vh;
   text-align: center;
   margin: 0 auto;
-  background-color: whitesmoke;
+  background-color: $whitesmoke;
   .follows-header{
     font-size: 30px;
   }
@@ -299,7 +299,7 @@
       text-decoration: none;
       font-size: 20px;
       border-bottom: 1.5px inset #777;
-      color: #777;
+      color: $fuschia;
       width: 330px;
       margin: 0 auto;
       .avatar{
@@ -331,12 +331,12 @@
     position: absolute;
     left: 10vw;
     top: 12vh;
-    background-color: whitesmoke;
+    background-color: $whitesmoke;
     text-align: center;
     border-radius: 15px;
     a{
       text-decoration: none;
-      color: #777;
+      color: $fuschia;
     }
     .format{
       width: 500px;
@@ -443,12 +443,12 @@
     position: absolute;
     left: 10vw;
     top: 17vh;
-    background-color: whitesmoke;
+    background-color: $whitesmoke;
     text-align: center;
     border-radius: 15px;
     a{
       text-decoration: none;
-      color: #777;
+      color: $fuschia;
     }
     .format{
       width: 500px;
