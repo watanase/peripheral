@@ -1,7 +1,7 @@
 .header
   .header__title
     =link_to root_path do
-      PostsCard
+      PostCard
     .search-bar
       = form_with url: search_posts_path, local: true, method: :get, class: "container-2" do |f|
         = f.text_field :keyword, id: 'search', placeholder: "検索ワードを入力してください"
