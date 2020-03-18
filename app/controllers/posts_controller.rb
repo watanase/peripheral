@@ -18,8 +18,9 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to root_path
     else
-      @post.images.new
+      flash[:notice] = "投稿に失敗しました"
       render :new
+      @post.images.new
     end
     @post.user_id = current_user.id
   end
