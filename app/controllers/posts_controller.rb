@@ -18,9 +18,9 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to root_path
     else
-      flash[:notice] = "投稿に失敗しました"
-      render :new
+      # binding.pry
       @post.images.new
+      render :new
     end
     @post.user_id = current_user.id
   end
@@ -61,7 +61,7 @@ class PostsController < ApplicationController
     params.require(:post).permit(
       :title,
       :content,
-      images_attributes: %i[src _destroy id]
+      images_attributes: %i[src src_cache _destroy id]
     ).merge(user_id: current_user.id)
   end
 

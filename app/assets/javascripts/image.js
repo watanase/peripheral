@@ -1,10 +1,12 @@
 $(function () {
   // 画像用のinputを生成する関数
   const buildFileField = (index) => {
-    const html = `<div data-index="${index}" class="js-file_group" id="image_${index}">
+    const html = `<div class="js-file_group" data-index="${index}" id="image_${index}">
                     <input class="js-file" type="file"
                     name="post[images_attributes][${index}][src]"
                     id="post_images_attributes_${index}_src">
+                    <input type="hidden" name="post[images_attributes][${index}][src_cache]"
+                    id="post_images_attributes_${index}_src_cache">
                     <label for="post_images_attributes_${index}_src"><i class="fas fa-images"></i></label>
                   </div>`;
     return html;
@@ -25,6 +27,7 @@ $(function () {
   lastIndex = $('.js-file_group:last').data('index');
   fileIndex.splice(0, lastIndex);
   $('.hidden-destroy').hide();
+  // ファイルを選択したときの処理
   $('#image-box').on('change', '.js-file', function (e) {
     const targetIndex = $(this).parent().data('index');
     // ファイルのブラウザ上でのURLを取得する
@@ -48,6 +51,7 @@ $(function () {
       }
     }
   });
+  // ファイルを削除したときの処理
   $('#previews').on('click', '.js-remove', function () {
     const targetIndex = $(this).siblings().data('index')
     // 該当indexを振られているチェックボックスを取得する
@@ -57,11 +61,15 @@ $(function () {
     if (hiddenCheck) hiddenCheck.prop('checked', true);
     $(this).parent().remove();
     $(`#image_${targetIndex}`).remove();
-    console.log(fileIndex[0])
+    console.log(targetIndex)
     if (count == 6) {
       $(`#image_${fileIndex[0] - 1}`).show();
     }
     // 画像入力欄が0個にならないようにしておく
     if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
   });
+  $(document).ready(function () {
+    // ページ読み込み時に実行したい処理
+  });
+
 });
