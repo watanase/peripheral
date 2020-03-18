@@ -1,7 +1,7 @@
 $(function () {
   // 画像用のinputを生成する関数
   const buildFileField = (index) => {
-    const html = `<div data-index="${index}" class="js-file_group">
+    const html = `<div data-index="${index}" class="js-file_group" id="image_${index}">
                     <input class="js-file" type="file"
                     name="post[images_attributes][${index}][src]"
                     id="post_images_attributes_${index}_src">
@@ -20,7 +20,7 @@ $(function () {
     return html;
   }
   // file_fieldのnameに動的なindexをつける為の配列
-  let fileIndex = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  let fileIndex = [1, 2, 3, 4, 5, 6];
   // 既に使われているindexを除外
   lastIndex = $('.js-file_group:last').data('index');
   fileIndex.splice(0, lastIndex);
@@ -30,6 +30,7 @@ $(function () {
     // ファイルのブラウザ上でのURLを取得する
     const file = e.target.files[0];
     const blobUrl = window.URL.createObjectURL(file);
+    const count = $('.js-remove').length;
     // 該当indexを持つimgタグがあれば取得して変数imgに入れる(画像変更の処理)
     if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
       img.setAttribute('src', blobUrl);
@@ -37,20 +38,29 @@ $(function () {
       $('#previews').append(buildImg(targetIndex, blobUrl));
       // fileIndexの先頭の数字を使ってinputを作る
       $('#image-box').append(buildFileField(fileIndex[0]));
+      // 入力済みのinput欄を非表示
+      $(`#image_${targetIndex}`).hide();
       fileIndex.shift();
       // 末尾の数に1足した数を追加する
       fileIndex.push(fileIndex[fileIndex.length - 1] + 1)
+      if (count == 5) {
+        $('.js-file_group').hide();
+      }
     }
   });
   $('#previews').on('click', '.js-remove', function () {
-    const targetIndex = $(this).parent().data('index')
+    const targetIndex = $(this).siblings().data('index')
     // 該当indexを振られているチェックボックスを取得する
     const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
+    const count = $('.js-remove').length;
     // もしチェックボックスが存在すればチェックを入れる
     if (hiddenCheck) hiddenCheck.prop('checked', true);
     $(this).parent().remove();
-    console.log(this);
-    $(`img[data-index="${targetIndex}"]`).remove();
+    $(`#image_${targetIndex}`).remove();
+    console.log(fileIndex[0])
+    if (count == 6) {
+      $(`#image_${fileIndex[0] - 1}`).show();
+    }
     // 画像入力欄が0個にならないようにしておく
     if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
   });

@@ -1,9 +1,5 @@
 .new-post
   = form_with(model: @post, local: true) do |f|
-    - unless @post.title
-      %span.post-action 新規投稿
-    -else
-      %span.post-action 投稿編集
     = render "shared/error_messages", model: f.object
     .add-image
       %ul#previews
@@ -12,7 +8,7 @@
             %li= image_tag image.src.url, data: { index: i }, width: "200", height: '200'
       #image-box
         = f.fields_for :images do |i|
-          .js-file_group{"data-index": "#{i.index}"}
+          #image_0.js-file_group{"data-index": "#{i.index}"}
             = i.file_field :src, class: 'js-file', id: 'img-file'
             %label{for: 'img-file'}
               %i.fas.fa-images
@@ -22,8 +18,8 @@
         - if @post.persisted?
           .js-file_group{"data-index": "#{@post.images.count}"}
             = file_field_tag :src, name: "post[images_attributes][#{@post.images.count}][src]", class: 'js-file'
-            .js-remove 削除
-
+            %label{for: 'img-file'}
+              %i.fas.fa-images
       -# #image-box-1
       -#   .previews-0#image-box__container
       -#     = f.fields_for :images do |i|
@@ -31,8 +27,7 @@
       -#         = i.file_field :src, type: 'file', name: "post[images_attributes][][src]", value:"", style: "display:none", id:"img-file"
       -#         %label{for: "img-file"}
       -#           %i.fas.fa-images
-      %p  上記をクリック、又は枠内にドラッグドロップして投稿する画像を選択してください。
-      %p  ※画像は6枚まで投稿できます。
+    %p  ※画像は6枚まで投稿できます。
     .text-area
       .text-area__title
         %h2

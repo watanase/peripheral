@@ -252,39 +252,40 @@ body {
 }
 
 // 新規投稿画面
-.new-post{
+.post-page{
   padding-top: 50px;
   display: block;
   position: relative;
   margin: 0px auto;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.14);
+  .post-action{
+    margin-top: 50px;
+    display: inline-block;
+    padding: 12px 0;
+    width: 160px;
+    text-align: center;
+    font-size: 21px;
+    line-height: 16px;
+    background: $fuschia;
+    color: $fff;
+    letter-spacing: 0.15em;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(-30deg);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 2px;
+    position: absolute;
+    top: 35px;
+    left: 6px;
+    overflow: hidden;
+  }
   form{
     width: 100vw;
     padding: 50px;
-    .post-action{
-      margin-top: 50px;
-      display: inline-block;
-      padding: 12px 0;
-      width: 160px;
-      text-align: center;
-      font-size: 21px;
-      line-height: 16px;
-      background: $fuschia;
-      color: $fff;
-      letter-spacing: 0.15em;
-      -webkit-transform: rotate(45deg);
-      transform: rotate(-30deg);
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-      border-radius: 2px;
-      position: absolute;
-      top: 35px;
-      left: 6px;
-      overflow: hidden;
-    }
     .add-image{
       width: 60vw;
       margin: 30px auto;
       text-align: center;
+      display: flex;
       #previews{
         display: flex;
       }
@@ -294,6 +295,9 @@ body {
         }
         label{
           font-size: 50px;
+          border: 2px solid;
+          padding: 40px;
+          border-radius: 10px;
         }
       }
       // #image-box-1{
