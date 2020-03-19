@@ -3,7 +3,7 @@
     = render "shared/error_messages", model: f.object
     .add-image
       %ul#previews
-        - if @post.images[0].src.present?
+        - if @post.persisted?
           - @post.images.each_with_index do |image, i|
             %li{id: "pre_#{i}"}
               = image_tag image.src.to_s, data: { index: i }, width: "100", height: '100'
@@ -12,30 +12,21 @@
                   %circle{:cx => "12", :cy => "12", :r => "10"}
                   %line{:x1 => "15", :x2 => "9", :y1 => "9", :y2 => "15"}
                   %line{:x1 => "9", :x2 => "15", :y1 => "9", :y2 => "15"}
-        -# - if @post.persisted?
-        -#   - @post.images.each_with_index do |image, i|
-        -#     %li
-        -#       = image_tag image.src.url, data: { index: i }, width: "100", height: '100'
-        -#       .js-remove
-        -#         %svg{:fill => "none", :height => "32", :stroke => "#3d3d3d", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "1.5", :viewbox => "0 0 24 24", :width => "32", :xmlns => "http://www.w3.org/2000/svg"}
-        -#           %circle{:cx => "12", :cy => "12", :r => "10"}
-        -#           %line{:x1 => "15", :x2 => "9", :y1 => "9", :y2 => "15"}
-        -#           %line{:x1 => "9", :x2 => "15", :y1 => "9", :y2 => "15"}
       #image-box
         = f.fields_for :images do |i|
           .js-file_group{id: "image_#{i.index}", "data-index": "#{i.index}"}
             = i.file_field :src, class: 'js-file'
-            = i.hidden_field :src_cache
+            -# = i.hidden_field :src_cache
             %label{for: "post_images_attributes_#{i.index}_src"}
               %i.fas.fa-images
             %br/
           - if @post.persisted?
             = i.check_box :_destroy, data:{ index: i.index }, class: 'hidden-destroy'
-        -# - if @post.persisted?
-        -#   .js-file_groupp{id: "image_#{@post.images.count}", "data-index": "#{@post.images.count}"}
-        -#     = file_field_tag :src, name: "post[images_attributes][#{@post.images.count}][src]", class: 'js-file'
-        -#     %label{for: "post_images_attributes_#{post.images.count}_src"}
-        -#       %i.fas.fa-images
+        - if @post.persisted?
+          .js-file_edit#img{"data-index": "#{@post.images.count}"}
+            = file_field_tag :src, name: "post[images_attributes][#{@post.images.count}][src]", class: 'js-file'
+            %label{for: "src"}
+              %i.fas.fa-images
       -# #image-box-1
       -#   .previews-0#image-box__container
       -#     = f.fields_for :images do |i|
