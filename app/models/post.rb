@@ -2,7 +2,7 @@ class Post < ApplicationRecord
   # ユーザー
   belongs_to :user
   # 画像
-  has_many :images, dependent: :destroy, inverse_of: :post
+  has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
   # お気に入り
   has_many :favorites, dependent: :destroy
@@ -15,8 +15,8 @@ class Post < ApplicationRecord
 
   validates :title, length: { maximum: 20 }, presence: true
   validates :content, length: { maximum: 300 }, presence: true
-  # validates :images, presence: true
-  # validates_associated :images
+  validates :images, presence: true
+  validates_associated :images
 
   # お気に入り判断
   def favorite_user(user_id)

@@ -5,7 +5,7 @@ $(function () {
                     <input class="js-file" type="file"
                     name="post[images_attributes][${index}][src]"
                     id="post_images_attributes_${index}_src">
-                    <input value="src" type="hidden"
+                    <input type="hidden"
                     name="post[images_attributes][${index}][src_cache]"
                     id="post_images_attributes_${index}_src_cache">
                     <label for="post_images_attributes_${index}_src">
@@ -15,7 +15,7 @@ $(function () {
   }
   // プレビュー用のimgタグを生成する関数
   const buildImg = (index, url) => {
-    const html = `<li>
+    const html = `<li id="pre_${index}">
                     <img data-index="${index}" src="${url}" width="100px" height="100px">
                     <div class="js-remove">
                       <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#3d3d3d" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
@@ -24,7 +24,7 @@ $(function () {
     return html;
   }
   // file_fieldのnameに動的なindexをつける為の配列
-  let fileIndex = [1, 2, 3, 4, 5, 6];
+  let fileIndex = 0;
   // 既に使われているindexを除外
   lastIndex = $('.js-file_group:last').data('index');
   fileIndex.splice(0, lastIndex);
@@ -48,8 +48,8 @@ $(function () {
       fileIndex.shift();
       // 末尾の数に1足した数を追加する
       fileIndex.push(fileIndex[fileIndex.length - 1] + 1)
-      if (count == 5) {
-        $('.js-file_group').hide();
+      if (count == 3) {
+        $(`#image_4`).remove();
       }
     }
   });
@@ -63,8 +63,9 @@ $(function () {
     if (hiddenCheck) hiddenCheck.prop('checked', true);
     $(this).parent().remove();
     $(`#image_${targetIndex}`).remove();
-    if (count == 6) {
-      $(`#image_${fileIndex[0] - 1}`).show();
+    console.log(fileIndex)
+    if (count < 4) {
+      $(`#image_box`).append(buildFileField(fileIndex[0]));
     }
     // 画像入力欄が0個にならないようにしておく
     if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
@@ -74,7 +75,7 @@ $(function () {
     const index = $('.js-file-group').length
     const alreadyIndex = [];
     var list = [];
-    $(`#image_${index + 1}`).remove()
+    $(`#image_${index + 1}, #pre_${index + 1}`).remove()
     // $(".js-file_group").each(function () {
 
     //   list.push($(this).attr('id'));
