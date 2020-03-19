@@ -5,6 +5,7 @@ ja:
         title: タイトル
         content: 説明文
         images: 画像
+        src: 画像
       user:
         name: 名前
         confirmation_sent_at: パスワード確認送信時刻

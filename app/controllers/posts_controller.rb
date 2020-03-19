@@ -15,11 +15,10 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    # binding.pry
     if @post.save
       redirect_to root_path
     else
-      # binding.pry
-      @post.images.new
       render :new
     end
     @post.user_id = current_user.id

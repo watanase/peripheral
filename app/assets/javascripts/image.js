@@ -5,9 +5,11 @@ $(function () {
                     <input class="js-file" type="file"
                     name="post[images_attributes][${index}][src]"
                     id="post_images_attributes_${index}_src">
-                    <input type="hidden" name="post[images_attributes][${index}][src_cache]"
+                    <input class="js-file" type="file"
+                    name="post[images_attributes][${index}][src_cache]"
                     id="post_images_attributes_${index}_src_cache">
-                    <label for="post_images_attributes_${index}_src"><i class="fas fa-images"></i></label>
+                    <label for="post_images_attributes_${index}_src">
+                    <i class="fas fa-images"></i></label>
                   </div>`;
     return html;
   }
@@ -26,7 +28,7 @@ $(function () {
   // 既に使われているindexを除外
   lastIndex = $('.js-file_group:last').data('index');
   fileIndex.splice(0, lastIndex);
-  $('.hidden-destroy').hide();
+  // $('.hidden-destroy').hide();
   // ファイルを選択したときの処理
   $('#image-box').on('change', '.js-file', function (e) {
     const targetIndex = $(this).parent().data('index');
@@ -61,15 +63,20 @@ $(function () {
     if (hiddenCheck) hiddenCheck.prop('checked', true);
     $(this).parent().remove();
     $(`#image_${targetIndex}`).remove();
-    console.log(targetIndex)
     if (count == 6) {
       $(`#image_${fileIndex[0] - 1}`).show();
     }
     // 画像入力欄が0個にならないようにしておく
     if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
   });
+  // ページに遷移したときの処理
   $(document).ready(function () {
-    // ページ読み込み時に実行したい処理
-  });
+    const alreadyIndex = [];
+    var list = [];
+    $(".js-file_group").each(function () {
 
+      list.push($(this).attr('id'));
+    });
+    console.log(list)
+  });
 });
