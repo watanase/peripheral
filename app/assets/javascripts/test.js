@@ -5,15 +5,15 @@ $(function () {
                     <input class="js-file" type="file"
                     name="post[images_attributes][${index}][src]"
                     id="post_images_attributes_${index}_src">
-                    <label for="post_images_attributes_${index}_src">
+                    <label id="label_${index}" for="post_images_attributes_${index}_src">
                     <i class="fas fa-images"></i></label>
                   </div>`;
     return html;
   }
   // プレビュー用のimgタグを生成する関数
   const buildImg = (index, url) => {
-    const html = `<li id="pre_${index}">
-                    <img data-index="${index}" src="${url}" width="100px" height="100px">
+    const html = `<li>
+                    <img id="pre_${index}" data-index="${index}" src="${url}" width="100px" height="100px">
                     <div class="js-remove">
                       <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#3d3d3d" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
                     </div>
@@ -25,7 +25,7 @@ $(function () {
   // 既に使われているindexを除外
   lastIndex = $('.js-file_group:last').data('index');
   fileIndex.splice(0, lastIndex);
-  // $('.hidden-destroy').hide();
+  $('.hidden-destroy').hide();
   // ファイルを選択したときの処理
   $('#image-box').on('change', '.js-file', function (e) {
     const targetIndex = $(this).parent().data('index');
@@ -45,10 +45,7 @@ $(function () {
       fileIndex.shift();
       // 末尾の数に1足した数を追加する
       fileIndex.push(fileIndex[fileIndex.length - 1] + 1)
-      console.log(targetIndex)
-      if (count > 2) {
-        $(`#image_${targetIndex + 1}`).remove();
-      }
+      if (count > 2) $(`#image_${targetIndex + 1}`).hide();
     }
   });
   // ファイルを削除したときの処理
@@ -59,18 +56,31 @@ $(function () {
     const count = $('.js-remove').length;
     // もしチェックボックスが存在すればチェックを入れる
     if (hiddenCheck) hiddenCheck.prop('checked', true);
+    // 非表示のinput欄を表示
     $(this).parent().remove();
     $(`#image_${targetIndex}`).remove();
+    if (count == 4) $(`#image_${targetIndex + 1}`).show();
+    for (var i = targetIndex; i < 4; i++) {
+      $(`#image_${i + 1}`).attr('data-index', `${i}`);
+      $(`#image_${i + 1}`).attr('id', `image_${i}`);
+      $(`#post_images_attributes_${i + 1}_src`).attr('name', `post[images_attributes][${i}][src]`);
+      $(`#post_images_attributes_${i + 1}_src`).attr('id', `post_images_attributes_${i}_src`);
+      $(`#label_${i + 1}`).attr('for', `post_images_attributes_${i}_src`);
+      $(`#label_${i + 1}`).attr('id', `label_${i}`);
+      $(`#pre_${i + 1}`).attr('data-index', `${i}`);
+      $(`#pre_${i + 1}`).attr('id', `pre_${i}`);
+    };
     // 画像入力欄が0個にならないようにしておく
-    $(``)
-    if ($('.js-file').length == 0)
-      $('#image-box').append(buildFileField(fileIndex[0]));
+    if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
   });
   // ページに遷移したときの処理
   $(document).ready(function () {
     const imageLength = $('.hidden-destroy').length
     if (imageLength > 0) {
       $('.js-file_group').hide()
+    }
+    if (imageLength > 3) {
+      $('.js-file_edit').hide()
     }
   });
 });
