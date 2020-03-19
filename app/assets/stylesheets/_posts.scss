@@ -285,7 +285,7 @@ body {
       width: 60vw;
       margin: 30px auto;
       text-align: center;
-      // display: flex;
+      display: flex;
       #previews{
         display: flex;
       }
@@ -293,13 +293,16 @@ body {
         display: flex;
         // flex-wrap: wrap";
         .js-file{
-          display: none;
+          // display: none;
         }
         label{
+          cursor: pointer;
           font-size: 50px;
           border: 2px solid;
-          padding: 40px;
+          padding: 20px;
           border-radius: 10px;
+          background-color: silver;
+          opacity: 0.8;
         }
       }
       // #image-box-1{

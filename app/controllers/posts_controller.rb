@@ -19,6 +19,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to root_path
     else
+      @post.images.new
       render :new
     end
     @post.user_id = current_user.id
@@ -27,9 +28,6 @@ class PostsController < ApplicationController
   def show
     @comment = Comment.new
     @comments = @post.comments.order(id: 'DESC')
-  end
-
-  def edit
   end
 
   def update

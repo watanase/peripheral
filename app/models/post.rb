@@ -2,7 +2,7 @@ class Post < ApplicationRecord
   # ユーザー
   belongs_to :user
   # 画像
-  has_many :images, dependent: :destroy
+  has_many :images, dependent: :destroy, inverse_of: :post
   accepts_nested_attributes_for :images, allow_destroy: true
   # お気に入り
   has_many :favorites, dependent: :destroy
@@ -12,6 +12,11 @@ class Post < ApplicationRecord
   # いいね
   has_many :likes, dependent: :destroy
   has_many :liked_users, through: :likes, source: :user
+
+  validates :title, length: { maximum: 20 }, presence: true
+  validates :content, length: { maximum: 300 }, presence: true
+  # validates :images, presence: true
+  # validates_associated :images
 
   # お気に入り判断
   def favorite_user(user_id)
@@ -35,9 +40,4 @@ class Post < ApplicationRecord
 
     Post.where('title LIKE(?)', "%#{search}%")
   end
-
-  validates :title, length: { maximum: 20 }, presence: true
-  validates :content, length: { maximum: 300 }, presence: true
-  validates :images, presence: true
-  validates_associated :images
 end

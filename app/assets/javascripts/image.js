@@ -5,7 +5,7 @@ $(function () {
                     <input class="js-file" type="file"
                     name="post[images_attributes][${index}][src]"
                     id="post_images_attributes_${index}_src">
-                    <input class="js-file" type="file"
+                    <input value="src" type="hidden"
                     name="post[images_attributes][${index}][src_cache]"
                     id="post_images_attributes_${index}_src_cache">
                     <label for="post_images_attributes_${index}_src">
@@ -71,12 +71,13 @@ $(function () {
   });
   // ページに遷移したときの処理
   $(document).ready(function () {
+    const index = $('.js-file-group').length
     const alreadyIndex = [];
     var list = [];
-    $(".js-file_group").each(function () {
+    $(`#image_${index + 1}`).remove()
+    // $(".js-file_group").each(function () {
 
-      list.push($(this).attr('id'));
-    });
-    console.log(list)
+    //   list.push($(this).attr('id'));
+    // });
   });
 });
