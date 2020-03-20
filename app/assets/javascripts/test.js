@@ -12,8 +12,8 @@ $(function () {
   }
   // プレビュー用のimgタグを生成する関数
   const buildImg = (index, url) => {
-    const html = `<li>
-                    <img id="pre_${index}" data-index="${index}" src="${url}" width="100px" height="100px">
+    const html = `<li id="pre_${index}">
+                    <img data-index="${index}" src="${url}" width="100px" height="100px">
                     <div class="js-remove">
                       <svg xmlns="http://www.w3.org/2000/svg"
                       width="32" height="32" viewBox="0 0 24 24" fill="none"
@@ -50,7 +50,6 @@ $(function () {
       // if (hiddenCheck) hiddenCheck.attr('checked', false);
       $('#previews').append(buildImg(targetIndex, blobUrl));
       // fileIndexの先頭の数字を使ってinputを作る
-      // if (count < 3) $('#image-box').append(buildFileField(targetIndex + 1));
       if (count < 3) {
         $('#image-box').append(buildFileField(fileIndex[0]));
         indexPlus()
@@ -95,7 +94,11 @@ $(function () {
     const remLength = $('.js-remove').length;
     const imageLength = $('.hidden-destroy').length
     if (imageLength > 0) $('.js-file_group').hide()
-    if (imageLength > 3) $('.js-file_edit').hide()
-    if (remLength == 0) $("#image_1, #image_2, #image_3, #image_4").remove()
+    $(`#image_${fileIndex[0] - 1}`).show()
+    if (imageLength == 4) $("#image_4").remove()
+    // if ($(".hidden-destroy:checked").val() == true) {
+    //   $(`#pre_${hiddenCheck}`).hide()
+    // }
+    if (remLength == 0) $("#image_1, #image_2, #image_3").remove()
   });
 });

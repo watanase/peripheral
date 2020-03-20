@@ -30,7 +30,7 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @count = @post.images.count
+    @image_count = @post.images.count
   end
 
   def update
