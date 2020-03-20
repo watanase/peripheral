@@ -34,20 +34,17 @@ $(function () {
     const file = e.target.files[0];
     const blobUrl = window.URL.createObjectURL(file);
     const count = $('.js-remove').length;
-    // fileIndex = targetIndex
+    const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
     // 該当indexを持つimgタグがあれば取得して変数imgに入れる(画像変更の処理)
     if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
       img.setAttribute('src', blobUrl);
     } else {  // 新規画像追加の処理
+      if (hiddenCheck) hiddenCheck.attr('checked', false);
       $('#previews').append(buildImg(targetIndex, blobUrl));
       // fileIndexの先頭の数字を使ってinputを作る
       $('#image-box').append(buildFileField(targetIndex + 1));
-      // if (hiddenCheck) hiddenCheck.prop('checked', false);
       // 入力済みのinput欄を非表示
       $(`#image_${targetIndex}`).hide();
-      // fileIndex.shift();
-      // // 末尾の数に1足した数を追加する
-      // fileIndex.push(fileIndex[fileIndex.length - 1] + 1)
       if (count > 2) $(`#image_${targetIndex + 1}`).hide();
     }
   });
