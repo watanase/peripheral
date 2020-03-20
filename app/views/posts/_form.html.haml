@@ -24,7 +24,7 @@
               %i.fas.fa-images
             %br/
           - if @post.persisted?
-            = i.check_box :_destroy, data:{ index: i.index }, class: 'hidden-destroy'
+            = i.check_box :_destroy,id: "delete_#{i.index}", data:{ index: i.index }, class: 'hidden-destroy'
         - if @post.persisted?
           .js-file_edit{id: "image_#{@count}", "data-index": "#{@count}"}
             = f.file_field :src,{id: "post_images_attributes_#{@count}_src", name: "post[images_attributes][#{@post.images.count}][src]", class: 'js-file'}

@@ -39,7 +39,7 @@ $(function () {
     if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
       img.setAttribute('src', blobUrl);
     } else {  // 新規画像追加の処理
-      if (hiddenCheck) hiddenCheck.attr('checked', false);
+      // if (hiddenCheck) hiddenCheck.attr('checked', false);
       $('#previews').append(buildImg(targetIndex, blobUrl));
       // fileIndexの先頭の数字を使ってinputを作る
       $('#image-box').append(buildFileField(targetIndex + 1));
@@ -58,19 +58,18 @@ $(function () {
     // もしチェックボックスが存在すればチェックを入れる
     const count = $('.js-remove').length;
     if (hiddenCheck) hiddenCheck.prop('checked', true);
-    // 非表示のinput欄を表示
     $(this).parent().remove();
     $(`#image_${targetIndex}`).remove();
     if (count == 4) $(`#image_4`).show();
     for (var i = targetIndex; i < 4; i++) {
-      $(`#image_${i + 1}`).attr('data-index', `${i}`);
-      $(`#image_${i + 1}`).attr('id', `image_${i}`);
-      $(`#post_images_attributes_${i + 1}_src`).attr('name', `post[images_attributes][${i}][src]`);
-      $(`#post_images_attributes_${i + 1}_src`).attr('id', `post_images_attributes_${i}_src`);
-      $(`#label_${i + 1}`).attr('for', `post_images_attributes_${i}_src`);
-      $(`#label_${i + 1}`).attr('id', `label_${i}`);
-      $(`#pre_${i + 1}`).attr('data-index', `${i}`);
-      $(`#pre_${i + 1}`).attr('id', `pre_${i}`);
+      $(`#image_${i + 1}`).attr('data-index', `${i}`).attr('id', `image_${i}`);
+      $(`#post_images_attributes_${i + 1}_src`).attr(
+        'name', `post[images_attributes][${i}][src]`).attr(
+          'id', `post_images_attributes_${i}_src`);
+      $(`#label_${i + 1}`).attr(
+        'for', `post_images_attributes_${i}_src`).attr(
+          'id', `label_${i}`);
+      $(`#pre_${i + 1}`).attr('data-index', `${i}`).attr('id', `pre_${i}`);
     };
     // 画像入力欄が0個にならないようにしておく
     if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
@@ -81,7 +80,7 @@ $(function () {
   $(document).ready(function () {
     const remLength = $('.js-remove').length;
     const imageLength = $('.hidden-destroy').length
-    if (imageLength > 0) $('.js-file_group').hide()
+    // if (imageLength > 0) $('.js-file_group').hide()
     if (imageLength > 3) $('.js-file_edit').hide()
     if (remLength == 0) $("#image_1, #image_2, #image_3, #image_4").remove()
   });
