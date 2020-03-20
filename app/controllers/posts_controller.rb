@@ -15,7 +15,6 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    # binding.pry
     if @post.save
       redirect_to root_path
     else
@@ -30,10 +29,15 @@ class PostsController < ApplicationController
     @comments = @post.comments.order(id: 'DESC')
   end
 
+  def edit
+    @count = @post.images.count
+  end
+
   def update
     if @post.update(post_params)
       redirect_to @post
     else
+      
       render :edit
     end
   end

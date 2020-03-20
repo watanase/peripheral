@@ -42,6 +42,7 @@ $(function () {
       $('#previews').append(buildImg(targetIndex, blobUrl));
       // fileIndexの先頭の数字を使ってinputを作る
       $('#image-box').append(buildFileField(targetIndex + 1));
+      // if (hiddenCheck) hiddenCheck.prop('checked', false);
       // 入力済みのinput欄を非表示
       $(`#image_${targetIndex}`).hide();
       // fileIndex.shift();
@@ -77,7 +78,9 @@ $(function () {
     // 画像入力欄が0個にならないようにしておく
     if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
   });
+  // 
   // ページに遷移したときの処理
+  // 
   $(document).ready(function () {
     const remLength = $('.js-remove').length;
     const imageLength = $('.hidden-destroy').length

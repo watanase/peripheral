@@ -66,7 +66,7 @@
 //     console.log(fileIndex)
 //     if (count < 4) {
 //       $(`#image_box`).append(buildFileField(fileIndex[0]));
-//     }
+    // }
 //     // 画像入力欄が0個にならないようにしておく
 //     if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
 //   });
