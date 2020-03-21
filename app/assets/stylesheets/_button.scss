@@ -122,18 +122,17 @@
 }
 // 検索ボタン
 .search-bar{
-  position: absolute;
-  left: 200px;
-  top: 2px;
+  height: 80px;
   .container-2{
     vertical-align: middle;
     white-space: nowrap;
     position: relative;
+    margin:0 3rem;
   }
   .container-2 input#search{
     width: 45px;
     height: 45px;
-    background: $whitesmoke;
+    background: wheat;
     border: none;
     font-size: 15px;
     float: left;
@@ -142,14 +141,11 @@
     color: #777;
     transition: width .55s ease;
     border-radius: 35px;
+    width: 200px;
   }
   .container-2 input#search:focus, .container-2 input#search:active{
     outline:none;
-    width: 300px;
     font-size: 15px;
-  }
-  .container-2:hover input#search{
-  width: 300px;
   }
   .search-btn{
     position: absolute;

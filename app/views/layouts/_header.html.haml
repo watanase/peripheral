@@ -2,11 +2,7 @@
   .header__title
     =link_to root_path do
       PostCard
-    .search-bar
-      = form_with url: search_posts_path, local: true, method: :get, class: "container-2" do |f|
-        = f.text_field :keyword, id: 'search', placeholder: "検索ワードを入力してください"
-        = button_tag type: 'submit', class: "search-btn" do
-          = icon('fas', 'search')
+    
   .guest-login
     - unless user_signed_in?
       = form_for(User.new, as: :user, url: session_path(:user)) do |f|

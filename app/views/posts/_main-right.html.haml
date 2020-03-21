@@ -1,4 +1,9 @@
 .info
+  .search-bar
+    = form_with url: search_posts_path, local: true, method: :get, class: "container-2" do |f|
+      = f.text_field :keyword, id: 'search', placeholder: "ワード検索"
+      = button_tag type: 'submit', class: "search-btn" do
+        = icon('fas', 'search')
   .post-button
     - if user_signed_in?
       = link_to new_post_path do
