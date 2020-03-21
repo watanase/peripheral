@@ -10,7 +10,7 @@ $(function () {
     return html;
   }
   const buildImg = (index, url) => {
-    const html = `<li id="pre_${index}">
+    const html = `<div id="preview">
                     <img data-index="${index}" src="${url}" width="100px" height="100px">
                     <div class="js-remove">
                       <svg xmlns="http://www.w3.org/2000/svg"
@@ -20,13 +20,13 @@ $(function () {
                       <line x1="15" y1="9" x2="9" y2="15"></line>
                       <line x1="9" y1="9" x2="15" y2="15"></line></svg>
                     </div>
-                  </li>`;
+                  </div>`;
     return html;
   }
   let fileIndex = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   lastIndex = $('.js-file_group:last').data('index');
   fileIndex.splice(0, lastIndex);
-  $('.hidden-destroy').hide();
+  // $('.hidden-destroy').hide();
   // 
   // ファイルを選択したときの処理
   // 
@@ -89,7 +89,7 @@ $(function () {
     $(`#image_${fileIndex[0] - 1}`).show()
     if (imageLength == 4) $("#image_4").remove()
     // if ($(".hidden-destroy:checked").val() == true) {
-    //   $(`#pre_${hiddenCheck}`).hide()
+    //   $("#preview").hide()
     // }
     if (remLength == 0) $("#image_1, #image_2, #image_3").remove()
   });

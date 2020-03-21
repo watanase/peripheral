@@ -37,6 +37,7 @@ class PostsController < ApplicationController
     if @post.update(post_params)
       redirect_to @post
     else
+      @image_count = @post.images.count
       render :edit
     end
   end
