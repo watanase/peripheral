@@ -90,8 +90,10 @@ $(function () {
     if (imageLength == 4) $("#image_4").remove()
     if ($(".hidden-destroy:checked").val() == true) {
       $("#preview_0, #preview_1, #preview_2, #preview_3").remove()
-      $('#image-box').append(buildFileField(fileIndex[0]));
-      indexPlus()
+      if ($(".alert-warning").length) {
+        $('#image-box').append(buildFileField(fileIndex[0]));
+        indexPlus()
+      }
     }
     if (remLength == 0) $("#image_1, #image_2, #image_3").remove()
   });

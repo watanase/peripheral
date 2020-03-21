@@ -19,7 +19,7 @@
         = f.fields_for :images do |i|
           .js-file_group{ id: "image_#{i.index}", "data-index": "#{i.index}" }
             = i.file_field :src, class: 'js-file'
-            = i.label :src, id: "label_#{i.index}", for: "post_images_attributes_#{i.index}_src", required: "" do
+            = i.label :src, id: "label_#{i.index}", for: "post_images_attributes_#{i.index}_src" do
               %i.fas.fa-images
             %br/
           - if @post.persisted?

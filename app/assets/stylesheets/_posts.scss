@@ -9,7 +9,9 @@ body {
   background: $fff;
   position: relative;
   padding-bottom: 30px;
-  font-family: Courier, serif;
+  font-family: 'Noto Sans Japanese',
+  'Source Sans Pro', Helvetica , Arial,
+  '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
 }
 // 共有ヘッダー項目
 .header{
