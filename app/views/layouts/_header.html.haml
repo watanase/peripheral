@@ -28,21 +28,15 @@
             = current_user.name
           %ul.drop-menu
             %li
-              = link_to posts_user_path(current_user) do
-                投稿一覧
+              = link_to "投稿一覧", posts_user_path(current_user)
             %li
-              = link_to follows_user_path(current_user) do
-                フォローリスト
+              = link_to "フォローリスト", follows_user_path(current_user)
             %li
-              = link_to favorite_user_path(current_user) do
-                クリップリスト
+              = link_to "クリップリスト", favorite_user_path(current_user)
         %li.nav-logout
-          = link_to destroy_user_session_path, method: :delete do
-            ログアウト
+          = link_to "ログアウト", destroy_user_session_path, method: :delete
       - else
         %li.nav-login
-          = link_to new_user_session_path do
-            ログイン
+          = link_to "ログイン", new_user_session_path
         %li.nav-sign
-          = link_to new_user_registration_path do
-            新規登録
+          = link_to "新規登録", new_user_registration_path
