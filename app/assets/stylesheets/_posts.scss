@@ -6,7 +6,7 @@ body {
   margin: 0;
   min-height: 100vh;
   width: 100vw;
-  background: white;
+  background: $fff;
   position: relative;
   padding-bottom: 30px;
   font-family: Courier, serif;
@@ -20,7 +20,7 @@ body {
   display: flex;
   justify-content: space-between;
   z-index: 1;
-  border-bottom: 2px solid #777;
+  border-bottom: 2px solid $fuschia;
   &__title{
     line-height: 50px;
     font-size: 30px;
@@ -42,7 +42,7 @@ body {
     }
     #modal-open:hover{
       opacity: 0.8;
-      background-color: whitesmoke;
+      background-color: $gainsboro;
     }
     .home{
       i{
@@ -50,21 +50,21 @@ body {
         border: 1px solid ;
       }
       i:hover{
-        background-color: whitesmoke;
+        background-color: $gainsboro;
       }
     }
     #nav-bar{
       list-style-type: none;
       margin: 0 20px;
       padding: 0;
-      color: #fff;
+      color: $fff;
       display: flex;
       i{
         padding: 9px;
         border: 1px solid ;
       }
       i:hover{
-        background-color: whitesmoke;
+        background-color: $gainsboro;
       }
       .nav-mypage{
         width: 190px;
@@ -77,13 +77,12 @@ body {
       .drop-menu{
         display: none;
         position: absolute;
-        margin-left: -5px;
         padding: 0;
         li{
-          background-color: #777;
+          background-color: $fuschia;
         }
         a{
-          width: 190px;
+          width: 200px;
           padding: 5px 10px;
           margin-left: -5px;
           margin-right: -5px;
@@ -93,14 +92,15 @@ body {
           text-decoration: none;
         }
         a:hover{
-          background: whitesmoke;
+          background: $gainsboro;
         }
-      } 
-      .nav-login:hover{
-        background-color: whitesmoke;
-      } 
-      .nav-sign:hover{
-        background-color: whitesmoke;
+      }
+      .nav-mypage:hover,
+      .nav-logout:hover,
+      .nav-login:hover,
+      .nav-sign:hover,
+      i:hover{
+        background-color: $gainsboro;
       } 
     }  
   }
@@ -252,93 +252,58 @@ body {
 }
 
 // 新規投稿画面
-.new-post{
+.post-page{
   padding-top: 50px;
   display: block;
   position: relative;
   margin: 0px auto;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.14);
+  .post-action{
+    margin-top: 50px;
+    display: inline-block;
+    padding: 12px 0;
+    width: 160px;
+    text-align: center;
+    font-size: 21px;
+    line-height: 16px;
+    background: $fuschia;
+    color: $fff;
+    letter-spacing: 0.15em;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(-30deg);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 2px;
+    position: absolute;
+    top: 35px;
+    left: 6px;
+    overflow: hidden;
+  }
   form{
     width: 100vw;
     padding: 50px;
-    .post-action{
-      margin-top: 50px;
-      display: inline-block;
-      padding: 12px 0;
-      width: 160px;
-      text-align: center;
-      font-size: 21px;
-      line-height: 16px;
-      background: #777;
-      color: #fff;
-      letter-spacing: 0.15em;
-      -webkit-transform: rotate(45deg);
-      transform: rotate(-30deg);
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-      border-radius: 2px;
-      position: absolute;
-      top: 35px;
-      left: 6px;
-      overflow: hidden;
-    }
     .add-image{
       width: 60vw;
       margin: 30px auto;
       text-align: center;
-      #image-box-1{
+      display: flex;
+      flex-wrap: wrap;
+      #previews{
         display: flex;
-        margin-bottom: 30px;
-        .previews-0{
-          width: 100%;
+      }
+      #image-box{
+        display: flex;
+        // flex-wrap: wrap";
+        .js-file{
+          display: none;
         }
-        .previews-1{
-          width : calc(100% / 6 * 5) ;
-        }
-        .previews-2{
-          width : calc(100% / 6 * 4) ;
-        }
-        .previews-3{
-          width : 50%;
-        }
-        .previews-4{
-          width : calc(100%  / 6 * 2) ;
-        }
-        .previews-5{
-          width : 20%;
-        }
-        .item-image{
-          position: relative;
-          margin: 10px;
-          img{
-            height: 100px;
-            max-width: 130px;
-          }
-          svg{
-            font-size: 20px;
-            position: absolute;
-            top: 0;
-            left: 0;
-            cursor: pointer;
-            color: gray;
-          }
-        }
-        .input-area{
-          border: 1px solid #777;
-          width: 100%;
-          height: 122px;
-          background-color: #616160;
-          background-image: repeating-linear-gradient(45deg,
-          #424242, #424242 3px,
-          transparent 0, transparent 6px);
-          label{
-            font-size: 60px;
-            cursor: pointer;
-            line-height: 115px;
-            display: block;
-          }
-        }
-        .input-area:hover{
-          opacity: 0.9;
+        label{
+          cursor: pointer;
+          font-size: 50px;
+          border: 2px solid;
+          padding: 20px;
+          border-radius: 10px;
+          background-color: silver;
+          opacity: 0.8;
         }
       }
     }
@@ -350,11 +315,11 @@ body {
         margin: 20px;
         line-height: 50px;
         margin-left: 50px;
-        .input-title{
+        .text-field{
           height: 40px;
           width: 390px;
           padding: 10px;
-          border: 2px solid #777;
+          border: 2px solid $fuschia;
           border-radius: 5px;
           font-size: 18px;
         }
@@ -368,7 +333,7 @@ body {
           height: 200px;
           font-size: 18px;
           padding: 10px;
-          border: 2px solid #777;
+          border: 2px solid $fuschia;
           border-radius: 5px;
         }
       }
@@ -399,7 +364,7 @@ body {
 // 投稿詳細画面
 .show{
   padding: 50px 0;
-  background-color: whitesmoke;
+  background-color: $whitesmoke;
   margin: 0 10vw;
   a{
     color: black;;
@@ -466,7 +431,7 @@ body {
           .post-date{
             margin-top: 10px;
             font-size: 14px;
-            color: #777;
+            color: $fuschia;
           }
         }
         .user-jarnal{
@@ -481,10 +446,10 @@ body {
             color: black;
           }
           .red{
-            color: red;
+            color: #ff4da6;
           }
           .yellow{
-            color: gold;
+            color: #ffbf7f;
           }
           .font{
             font-size: 15px;
@@ -509,7 +474,7 @@ body {
         max-width: 35vw;
         font-size: 16px;
         padding: 20px;
-        border: 4px solid #777;
+        border: 4px solid $fuschia;
         border-radius: 5px;
         margin: 2em 0;
         p{
@@ -519,7 +484,7 @@ body {
     }
   }
   .comment{
-    background-color: whitesmoke;
+    background-color: $whitesmoke;
     display: flex;
     margin-top: 50px;
     min-height: 300px;
@@ -547,7 +512,7 @@ body {
           justify-content: space-between;
           border-bottom: 1px solid #808080;
           max-width: 800px;
-          color: #777;
+          color: $fuschia;
           min-height: 40px;
           align-items: flex-end;
           .content{

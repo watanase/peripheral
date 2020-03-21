@@ -18,6 +18,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to root_path
     else
+      @post.images.new
       render :new
     end
     @post.user_id = current_user.id
@@ -26,6 +27,19 @@ class PostsController < ApplicationController
   def show
     @comment = Comment.new
     @comments = @post.comments.order(id: 'DESC')
+  end
+
+  def edit
+    @image_count = @post.images.count
+  end
+
+  def update
+    if @post.update(post_params)
+      redirect_to @post
+    else
+      @image_count = @post.images.count
+      render :edit
+    end
   end
 
   def destroy
@@ -48,7 +62,7 @@ class PostsController < ApplicationController
     params.require(:post).permit(
       :title,
       :content,
-      images_attributes: %i[src _destroy id]
+      images_attributes: %i[src src_cache _destroy id]
     ).merge(user_id: current_user.id)
   end
 

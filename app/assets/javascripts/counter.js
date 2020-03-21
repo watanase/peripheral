@@ -1,6 +1,6 @@
 $(function () {
 
-  $("input").bind('keydown keyup keypress change', function () {
+  $(".text-field").bind('keydown keyup keypress change', function () {
     let countNum = ($(this).val().length);
     $(".count-name").html(countNum);
   });
