@@ -2,31 +2,31 @@
   = form_with(model: @post, local: true) do |f|
     = render "shared/error_messages", model: f.object
     .add-image
-      #previews
+      %ul#previews
         - if @post.persisted?
           - @post.images.each_with_index do |image, i|
-            #preview
+            %li{ id: "preview_#{i}" }
               = image_tag image.src.to_s, data: { index: i }, width: "100", height: '100'
               .js-remove
-                %svg{:fill => "none", :height => "32", :stroke => "#3d3d3d",
+                %svg{ :fill => "none", :height => "32", :stroke => "#3d3d3d",
                   "stroke-linecap" => "round", "stroke-linejoin" => "round",
                   "stroke-width" => "1.5", :viewbox => "0 0 24 24",
-                  :width => "32", :xmlns => "http://www.w3.org/2000/svg"}
-                  %circle{:cx => "12", :cy => "12", :r => "10"}
-                  %line{:x1 => "15", :x2 => "9", :y1 => "9", :y2 => "15"}
-                  %line{:x1 => "9", :x2 => "15", :y1 => "9", :y2 => "15"}
+                  :width => "32", :xmlns => "http://www.w3.org/2000/svg" }
+                  %circle{ :cx => "12", :cy => "12", :r => "10" }
+                  %line{ :x1 => "15", :x2 => "9", :y1 => "9", :y2 => "15" }
+                  %line{ :x1 => "9", :x2 => "15", :y1 => "9", :y2 => "15" }
       #image-box
         = f.fields_for :images do |i|
-          .js-file_group{id: "image_#{i.index}", "data-index": "#{i.index}"}
+          .js-file_group{ id: "image_#{i.index}", "data-index": "#{i.index}" }
             = i.file_field :src, class: 'js-file'
-            = i.label :src, id: "label_#{i.index}", for: "post_images_attributes_#{i.index}_src" do
+            = i.label :src, id: "label_#{i.index}", for: "post_images_attributes_#{i.index}_src", required: "" do
               %i.fas.fa-images
             %br/
           - if @post.persisted?
             = i.check_box :_destroy,id: "delete_#{i.index}", data:{ index: i.index }, class: 'hidden-destroy'
         - if @post.persisted?
-          .js-file_group{id: "image_#{@image_count}", "data-index": "#{@image_count}"}
-            = f.file_field :src,{id: "post_images_attributes_#{@image_count}_src", name: "post[images_attributes][#{@image_count}][src]", class: 'js-file'}
+          .js-file_group{ id: "image_#{@image_count}", "data-index": "#{@image_count}" }
+            = f.file_field :src,{ id: "post_images_attributes_#{@image_count}_src", name: "post[images_attributes][#{@image_count}][src]", class: 'js-file'}
             = f.label :src, id: "label_#{@image_count}", for: "post_images_attributes_#{@image_count}_src" do
               %i.fas.fa-images
     %p  画像の選択（１〜４枚）
@@ -38,7 +38,7 @@
         - else
           %span.count-name 0
         %span /20
-        = f.text_field :title, class: "text-field", placeholder: "タイトルを入力してください", id: "title"
+        = f.text_field :title, class: "text-field", placeholder: "タイトルを入力してください", id: "title", required: ""
       .text-area__content
         %h2
           説明文
@@ -47,7 +47,7 @@
           - else
             %span.count-profile 0
           %span /300
-        = f.text_area :content, class: "input-text", placeholder: "本文を入力してください"
+        = f.text_area :content, class: "input-text", placeholder: "本文を入力してください", required: ""
       .text-area__btn
         = f.submit class: "btn"
 - if @post.persisted?
