@@ -18,3 +18,10 @@
             = f.submit "ログイン", class: "simple_square_btn8"
           .render
             = render "devise/shared/links"
+      .header__guest
+      - unless user_signed_in?
+        = form_for(User.new, as: :user, url: session_path(:user)) do |f|
+          .field
+            =f.hidden_field :email ,value: "test@example.com"
+            =f.hidden_field :password ,value: "testtest"
+            =f.submit "ゲストユーザーでログイン", class: "guest-btn"

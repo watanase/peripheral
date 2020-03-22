@@ -207,6 +207,12 @@
     }
     .nav{
       display: none;
+      i{
+        display: inline-block;
+      }
+      span{
+        display: none;
+      }
     }
     .nav.active{
       height: 50px;
@@ -227,16 +233,20 @@
         background-color: $sandybrown;
         color: $lemonchiffon;
       }
-      .nav-mypage{
-        text-align: center;
-        width: 143px;
-        .drop-menu{
-          display: none;
-          background-image:asset-url("headerbord.jpg");
-          .post{
-            padding: 16px 39px 14px 40px;
-          }
-        }
+      .drop-menu{
+        display: none;
+      }
+    }
+  }
+}
+@media screen and (min-width:480px){
+  .menu{
+    .nav{
+      i{
+        display:none;
+      }
+      span{
+        display: inline-block;
       }
     }
   }
