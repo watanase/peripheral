@@ -7,10 +7,7 @@ $(function () {
     var w = $(window).width();
     var x = 900;
     if (w > x) {
-      $('.nav').removeClass('active');
-    }
-    if (w < x + 1) {
-      $('.toggle').removeClass('active');
+      $('.nav, .toggle').removeClass('active');
     }
     // 
     // ユーザーネームマウスオーバー
