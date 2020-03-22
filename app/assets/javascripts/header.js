@@ -2,7 +2,7 @@
 // ユーザーネームマウスオーバー
 // 
 $(function () {
-  $('.nav-mypage').click(function () {
+  $('.nav-mypage').mouseover(function () {
     $("ul:not(:animated)", this).slideDown(0);
   }, function () {
     $("ul.drop-menu", this).slideUp(0);
@@ -30,7 +30,7 @@ $(window).resize(function () {
   if (w > x) {
     $('.nav').removeClass('active');
   }
-  if (w < x) {
+  if (w < x + 1) {
     $('.toggle').removeClass('active');
   }
 });

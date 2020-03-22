@@ -209,6 +209,7 @@
       display: none;
     }
     .nav.active{
+      height: 50px;
       display: block;
       display: flex;
       justify-content: space-between;
@@ -216,6 +217,11 @@
       top: 50px;
       left: 0;
       width: 100%;
+      background-image:asset-url("headerbord.jpg");
+      border-bottom: 2px solid;
+      .drop-menu{
+        display: none;
+      }
     }
   }
 }
