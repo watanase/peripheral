@@ -20,88 +20,29 @@ body {
   display: flex;
   justify-content: space-between;
   z-index: 1;
-  border-bottom: 2px solid $fuschia;
+  border-bottom: 2px solid $black;
+  a{
+    color: $black;
+    text-decoration: none;
+  }
   &__title{
     line-height: 50px;
     font-size: 30px;
     padding-left: 20px;
     font-weight: bold;
-    a{
-      text-decoration: none;
-      color: black;
-    }
   }
-  .nav{
-    line-height: 50px;
-    display: flex;
-    a{
-      text-decoration: none;
-      color: black;
-      margin: 0 5px;
+  &__guest{
+    .guest-btn{
+      border: none;
+      cursor: pointer;
+      padding: 12px;
+      outline: none;
+      background: none;
     }
-    #modal-open:hover{
-      opacity: 0.8;
-      background-color: $gainsboro;
+    .guest-btn:hover{
+      background-color: $sandybrown;
+      color: $lemonchiffon;
     }
-    .home{
-      i{
-        padding: 9px;
-        border: 1px solid ;
-      }
-      i:hover{
-        background-color: $gainsboro;
-      }
-    }
-    #nav-bar{
-      list-style-type: none;
-      margin: 0 20px;
-      padding: 0;
-      color: $fff;
-      display: flex;
-      i{
-        padding: 9px;
-        border: 1px solid ;
-      }
-      i:hover{
-        background-color: $gainsboro;
-      }
-      .nav-mypage{
-        width: 190px;
-        text-align: center;
-      }
-      li{
-        position: relative;
-        display: block;
-        }
-      .drop-menu{
-        display: none;
-        position: absolute;
-        padding: 0;
-        li{
-          background-color: $fuschia;
-        }
-        a{
-          width: 200px;
-          padding: 5px 10px;
-          margin-left: -5px;
-          margin-right: -5px;
-          margin-bottom: -5px;
-          display: block;
-          color: black;
-          text-decoration: none;
-        }
-        a:hover{
-          background: $gainsboro;
-        }
-      }
-      .nav-mypage:hover,
-      .nav-logout:hover,
-      .nav-login:hover,
-      .nav-sign:hover,
-      i:hover{
-        background-color: $gainsboro;
-      } 
-    }  
   }
 }
 // ホーム画面に表示する投稿一覧
