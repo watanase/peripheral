@@ -39,5 +39,6 @@ class Post < ApplicationRecord
     return Post.all unless search
 
     Post.where('title LIKE(?)', "%#{search}%")
+    Post.where('content LIKE(?)', "%#{search}%")
   end
 end

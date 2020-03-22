@@ -52,62 +52,63 @@ body {
     .post-list-box{
       justify-content: space-around;
     }
-    .pagination{
-      display: flex;
-      justify-content: space-around;
-      margin: 20px 450px;
+    .page-nation{
+      background-image:asset-url("headerbord.jpg");
+      height: 70px;
+      line-height: 63px;
+      margin: 20px auto;
+      .pagination{
+        display: flex;
+        justify-content: space-around;
+        }
       }
     }
     .info{
-    a{
-      text-decoration: none;
-    }
-    .post-button{
-      margin-bottom: 30px;
-      .push{
-        border:solid 2px #41403E;
+      height: 100%;
+      .post-button{
+        display: none;
+      }
+      .ranking{
+        height: 90vh;
+        a{
+          text-decoration: none;
+          color: $black;
+        }
+        h2{
+        font-size: 20px;
         text-align: center;
-        align-self:center;
-        background:transparent;
-        padding:0.7rem 0.7rem 0.7rem 0.3rem;
-        margin:0 3rem;
-        transition:all .5s ease;
-        color:#41403E;
-        font-size:1.3rem;
-        letter-spacing:1px;
-        outline:none;
-        box-shadow: 20px 38px 34px -26px hsla(0,0%,0%,.2);
-        border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
-        &:hover{
-          box-shadow:2px 8px 4px -6px hsla(0,0%,0%,.3);
-        } 
+        margin: 20px;
+        }
+        table{
+          margin: 0 auto;
+          padding: 10px;
+          table-layout: fixed;
+          width: 80%;
+          border-collapse: collapse;
+          background-color: $sandybrown;
+          td{
+            padding: 10px;
+            border: 1px solid $lemonchiffon;
+          }
+          .id, .count{
+            text-align: center;
+            width: 30px;
+          }
+        .title{
+          width: 120px;
+          overflow: hidden;
+          white-space: normal;
+          text-overflow: ellipsis;;
+        }
       }
     }
-    h2{
-      font-size: 20px;
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    table{
-      margin: 0 auto;
-      padding: 10px;
-      table-layout: fixed;
-      width: 80%;
-      border-collapse: collapse;
-      td{
-        padding: 10px;
-        border: 1px solid #ccc;
-      }
-      .id, .count{
-        text-align: center;
-        width: 30px;
-      }
-      .title{
-        width: 120px;
-        overflow: hidden;
-        white-space: normal;
-        text-overflow: ellipsis;;
-      }
+  }
+}
+@media screen and (min-width:480px){
+  .info{
+    height: 100%;
+    .ranking{
+      height: 500px;
     }
   }
 }
@@ -116,22 +117,19 @@ body {
     display: flex;
     .main-content{
       width: 80%;
-      .pagination{
-        display: flex;
-        justify-content: space-around;
-        margin: 20px 450px;
-        }
-    }
+      }
     .info{
       padding-top: 50px;
-      width: 250px;
+      width: 20%;
       position: fixed;
       right: 0;
+      margin: 0 auto;
       a{
         text-decoration: none;
       }
       .post-button{
-        margin-bottom: 30px;
+        display: block;
+        margin: 30px 0;
         .push{
           border:solid 2px #41403E;
           text-align: center;
@@ -180,7 +178,7 @@ body {
     }
   }
 }
-// 共有ホーム画面
+// 共有ホーム画面//ポスト
 .main-content{
   background-image:asset-url("backbord.jpg");
   background-repeat: repeat;

@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   def index
     @posts = Post.includes(:images).order(
       id: 'DESC'
-    ).page(params[:page]).per(20)
+    ).page(params[:page]).per(15)
     @all_ranks = Post.create_all_ranks
   end
 
@@ -48,7 +48,7 @@ class PostsController < ApplicationController
   end
 
   def search
-    @posts = Post.search(params[:keyword]).page(params[:page]).per(20)
+    @posts = Post.search(params[:keyword]).page(params[:page]).per(15)
     @all_ranks = Post.create_all_ranks
   end
 
