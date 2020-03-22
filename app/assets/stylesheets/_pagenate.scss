@@ -1,7 +1,7 @@
 /*ページネーション自体のデザイン*/
 .pagination>li>a {  
   text-decoration: none;        
-  color: #696969;
+  color: $black;
   font-size: 20px;
   border: none;
 }
@@ -13,7 +13,7 @@
   padding-bottom: 10px;
   padding-left: 15px;
   padding-right: 15px;
-  background-color:#dcdcdc;
+  background-color:rgba(255,143,69,0.5);
 }
 
 /*ホバー時のデザイン*/
@@ -23,5 +23,6 @@
   padding-bottom: 10px;
   padding-left: 15px;
   padding-right: 15px;
-  background-color: #c0c0c0;
+  background-color: $sandybrown;
+  color: $lemonchiffon;
 }

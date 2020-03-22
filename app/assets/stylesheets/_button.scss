@@ -122,30 +122,18 @@
 }
 // 検索ボタン
 .search-bar{
-  height: 80px;
   .container-2{
     vertical-align: middle;
     white-space: nowrap;
     position: relative;
-    margin:0 3rem;
+    margin:0 auto;
   }
   .container-2 input#search{
-    width: 45px;
+    background-image:asset-url("headerbord.jpg");
     height: 45px;
-    background-image:asset-url("paper.jpg");
-    border: none;
-    font-size: 15px;
-    float: left;
-    color: #262626;
     padding-left: 50px;
-    color: #777;
-    transition: width .55s ease;
     border-radius: 35px;
-    width: 200px;
-  }
-  .container-2 input#search:focus, .container-2 input#search:active{
-    outline:none;
-    font-size: 15px;
+    outline: none;
   }
   .search-btn{
     position: absolute;
@@ -168,7 +156,7 @@
       cursor: pointer;
       display: block;
       position: relative;
-      margin:3px;   
+      margin:3px 15px;   
       border: 2px solid;  
       span{
         width: 35px;
@@ -189,7 +177,7 @@
       }
     }
     .toggle:hover{
-      margin:3px;   
+      margin:3px 15px;   
     }
     .toggle.active{
       span:nth-child(1){
@@ -218,7 +206,7 @@
       }
     }
     .nav.active{
-      height: 50px;
+      height: 100px;
       display: block;
       display: flex;
       justify-content: space-around;
@@ -229,6 +217,17 @@
       background-image:asset-url("headerbord.jpg");
       border-bottom: 2px solid;
       line-height: 50px;
+      .search-bar{
+        padding: 5px;
+      }
+      .nav-icon{
+        width: 100%;
+        position: absolute;
+        top: 50px;
+        left: 0;
+        display: flex;
+        justify-content: space-around;
+      }
       .link-btn{
         padding: 16px 15px 14px 16px;
       }
@@ -241,7 +240,7 @@
 }
 @media screen and (min-width:480px){
   .menu{
-    .nav{
+    .nav-icon{
       i{
         display:none;
       }
@@ -268,22 +267,26 @@
       display: block;
       display: flex;
       line-height: 50px;
-      .nav-mypage{
-        width: 143px;
-        text-align: center;
-      }
-      .link-btn{
-        padding: 16px 15px 14px 16px;
-      }
-      .link-btn:hover{
-        background-color: $sandybrown;
-        color: $lemonchiffon;
-      }
-      .drop-menu{
-        background-image:asset-url("headerbord.jpg");
-        display: none;
-        .post{
-          padding: 16px 39px 14px 40px;
+      .nav-icon{
+        display: flex;
+        // 保留
+        // .nav-mypage{
+        //   width: 143px;
+        //   text-align: center;
+          .drop-menu{
+            background-image:asset-url("headerbord.jpg");
+            display: none;
+            .post{
+              padding: 16px 39px 14px 40px;
+            }
+          }
+        // }
+        .link-btn{
+          padding: 16px 15px 14px 16px;
+        }
+        .link-btn:hover{
+          background-color: $sandybrown;
+          color: $lemonchiffon;
         }
       }
     }

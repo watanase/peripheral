@@ -1,4 +1,3 @@
-
 $(function () {
   // 
   // ウィンドウのサイズで判断
@@ -11,12 +10,16 @@ $(function () {
     }
     // 
     // ユーザーネームマウスオーバー
-    //
-    $('.nav-mypage').hover(function () {
-      $("ul:not(:animated)", this).slideDown(0);
-    }, function () {
-      $("ul.drop-menu", this).slideUp(0);
-    });
+    // 改善保留
+    // if (w > x) {
+    //   $('.nav-mypage').hover(function () {
+    //     if (w > x) {
+    //     }
+    //     $("ul:not(:animated)", this).slideDown(0);
+    //   }, function () {
+    //     $("ul.drop-menu", this).slideUp(0);
+    //   });
+    // }
   });
   // 
   // ハンバーガーメニューのクリック
