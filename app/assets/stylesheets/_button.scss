@@ -212,15 +212,31 @@
       height: 50px;
       display: block;
       display: flex;
-      justify-content: space-between;
+      justify-content: space-around;
       position: absolute;
       top: 50px;
       left: 0;
       width: 100%;
       background-image:asset-url("headerbord.jpg");
       border-bottom: 2px solid;
-      .drop-menu{
-        display: none;
+      line-height: 50px;
+      .link-btn{
+        padding: 16px 15px 14px 16px;
+      }
+      .link-btn:hover{
+        background-color: $sandybrown;
+        color: $lemonchiffon;
+      }
+      .nav-mypage{
+        text-align: center;
+        width: 143px;
+        .drop-menu{
+          display: none;
+          background-image:asset-url("headerbord.jpg");
+          .post{
+            padding: 16px 39px 14px 40px;
+          }
+        }
       }
     }
   }

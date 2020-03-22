@@ -2,7 +2,7 @@
 // ユーザーネームマウスオーバー
 // 
 $(function () {
-  $('.nav-mypage').mouseover(function () {
+  $('.nav-mypage').hover(function () {
     $("ul:not(:animated)", this).slideDown(0);
   }, function () {
     $("ul.drop-menu", this).slideUp(0);
