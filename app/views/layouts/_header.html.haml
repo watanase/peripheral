@@ -18,8 +18,8 @@
         = link_to "#", id: "modal-open", class: "link-btn" do
           %i.fas.fa-leaf
           %span はじめての方
-          = render "posts/modal"
-      %li
+        = render "posts/modal"
+      %li.home
         = link_to root_path, class: "link-btn" do
           %i.fas.fa-home
       - if user_signed_in?
@@ -28,10 +28,10 @@
             %i.far.fa-paper-plane
         %li.nav-mypage
           = link_to user_path(current_user), class: "link-btn" do
-            = current_user.name
+            マイページ
           %ul.drop-menu
             %li
-              = link_to "投稿一覧", posts_user_path(current_user), class: "link-btn"
+              = link_to "投稿一覧", posts_user_path(current_user), class: "link-btn post"
             %li
               = link_to "フォローリスト", follows_user_path(current_user), class: "link-btn"
             %li

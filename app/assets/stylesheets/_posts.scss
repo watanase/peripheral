@@ -256,11 +256,12 @@ body {
   bottom: 0;
   height: 30px;
   font-size: 20px;
-  background-color: $fff;
+  background-image:asset-url("headerbord.jpg");
   width: 100%;
   line-height: 30px;
   padding-left: 20px;
   position: fixed;
+  border-top: 2px solid;
 }
 
 // 新規投稿画面
