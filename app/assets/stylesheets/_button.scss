@@ -213,6 +213,9 @@
       span{
         display: none;
       }
+      .drop-menu{
+        display: none;
+      }
     }
     .nav.active{
       height: 50px;
@@ -233,9 +236,6 @@
         background-color: $sandybrown;
         color: $lemonchiffon;
       }
-      .drop-menu{
-        display: none;
-      }
     }
   }
 }
@@ -247,6 +247,9 @@
       }
       span{
         display: inline-block;
+      }
+      .drop-menu{
+        display: none;
       }
     }
   }
@@ -268,10 +271,6 @@
       .nav-mypage{
         width: 143px;
         text-align: center;
-        .user-btn:hover{
-          background-color: $sandybrown;
-          color: $lemonchiffon;
-        }
       }
       .link-btn{
         padding: 16px 15px 14px 16px;

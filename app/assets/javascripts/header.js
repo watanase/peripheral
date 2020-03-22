@@ -12,13 +12,11 @@ $(function () {
     // 
     // ユーザーネームマウスオーバー
     //
-    if (w > x) {
-      $('.nav-mypage').hover(function () {
-        $("ul:not(:animated)", this).slideDown(0);
-      }, function () {
-        $("ul.drop-menu", this).slideUp(0);
-      });
-    }
+    $('.nav-mypage').hover(function () {
+      $("ul:not(:animated)", this).slideDown(0);
+    }, function () {
+      $("ul.drop-menu", this).slideUp(0);
+    });
   });
   // 
   // ハンバーガーメニューのクリック
