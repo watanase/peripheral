@@ -54,7 +54,9 @@
               .block
                 .content
                   = c.content
-                .user-name
-                  = c.user.name
-                .date
-                  = c.created_at.to_s(:date)
+                .jarnal
+                  .user-name
+                    = link_to user_path(c.user) do
+                      = c.user.name
+                  .date
+                    = c.created_at.to_s(:date)
