@@ -5,8 +5,8 @@ body {
   padding: 0;
   margin: 0;
   width: 100vw;
-  position: relative;
   background-image:asset-url("headerbord.jpg");
+  background-repeat: repeat;
   font-family: 'Noto Sans Japanese',
   'Source Sans Pro', Helvetica , Arial,
   '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
@@ -46,6 +46,74 @@ body {
   }
 }
 // ホーム画面に表示する投稿一覧
+.main-content{
+  background-image:asset-url("backbord.jpg");
+  background-repeat: repeat;
+  .post-list-box{
+    padding: 50px 10px;
+    overflow: scroll;
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 96vh;
+    .post-list{
+      height: 350px;
+      width: 250px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px $black;
+      margin: 30px 10px;
+      background-image:asset-url("paper.jpg");
+      a{
+        text-decoration: none;
+      }
+      a:hover{
+        opacity: 0.6;
+      }
+      .post-item{
+        display: block;
+        .item-img{
+          border-radius: 5px 5px 0 0;
+          max-width: 100%;
+          height: 200px;
+          border-bottom: 1px solid #eef;
+          object-fit: cover;
+          margin: 0 auto;
+        }
+        .post-jarnal{
+          padding: 10px;
+          .post-title{
+            font-size: 18px;
+            margin-bottom: 10px;
+            text-align: center;
+            color: #333;
+            overflow: hidden;
+            white-space: normal;
+            height: 30px;
+          }
+          .post-content{
+            font-size: 14px;
+            line-height: 1;
+            color: #777;
+            overflow: hidden;
+            white-space: normal;
+            text-overflow: ellipsis;
+            height: 40px;
+          }
+        }
+        .post-user{
+          border-top: 1px solid #eee;
+          padding: 10px;
+          color: #777;
+          display: flex;
+          justify-content: space-between;
+          height: 45px;
+          .like{
+            line-height: 25px;
+          }
+        }
+      }
+    }
+  } 
+}
 @media screen and (min-width:300px){
   .main-content{
     width: 100%;
@@ -178,77 +246,8 @@ body {
     }
   }
 }
-// 共有ホーム画面//ポスト
-.main-content{
-  background-image:asset-url("backbord.jpg");
-  background-repeat: repeat;
-  .post-list-box{
-    padding: 50px 10px;
-    overflow: scroll;
-    display: flex;
-    flex-wrap: wrap;
-    min-height: 96vh;
-    .post-list{
-      height: 350px;
-      width: 250px;
-      border-radius: 5px;
-      box-shadow: 0 2px 5px $black;
-      margin: 30px 10px;
-      background-image:asset-url("paper.jpg");
-      a{
-        text-decoration: none;
-      }
-      a:hover{
-        opacity: 0.6;
-      }
-      .post-item{
-        display: block;
-        .item-img{
-          border-radius: 5px 5px 0 0;
-          max-width: 100%;
-          height: 200px;
-          border-bottom: 1px solid #eef;
-          object-fit: cover;
-          margin: 0 auto;
-        }
-        .post-jarnal{
-          padding: 10px;
-          .post-title{
-            font-size: 18px;
-            margin-bottom: 10px;
-            text-align: center;
-            color: #333;
-            overflow: hidden;
-            white-space: normal;
-            height: 30px;
-          }
-          .post-content{
-            font-size: 14px;
-            line-height: 1;
-            color: #777;
-            overflow: hidden;
-            white-space: normal;
-            text-overflow: ellipsis;
-            height: 40px;
-          }
-        }
-        .post-user{
-          border-top: 1px solid #eee;
-          padding: 10px;
-          color: #777;
-          display: flex;
-          justify-content: space-between;
-          height: 45px;
-          .like{
-            line-height: 25px;
-          }
-        }
-      }
-    }
-  } 
-}
 
-// 共有表示するフッター
+// フッター
 .footer{
   position: absolute;
   bottom: 0;
@@ -373,140 +372,139 @@ body {
   }
 }
 // 投稿詳細画面
-.show{
-  padding: 50px 0;
-  background-color: $whitesmoke;
-  margin: 0 10vw;
-  a{
-    color: black;;
-  }
-  .details{
-    margin: 0 auto;
-    display: flex;
+.post-card{
+  margin: 0 30px;
+  padding: 80px 0;
+  .show{
+    height: 100%;
+    border: dashed 2px $sandybrown;
+    border-radius: 3px;
+    box-shadow: 0 0 0 10px #fff6e6;
+    background: #fff6e6;
     a{
+      color: black;
       text-decoration: none;
     }
+  }
+}
+@media screen and (min-width:300px){
+  .details{
     .image{
-      margin: 50px 0;
-      width: 35vw;
-      display: flex;
-      flex-direction: column;
-        .view-image{
-        width: 30vw;
+      margin: 10px 0;
+      padding-bottom: 10px;
+      border-bottom: dashed 2px $sandybrown;
+      .view-image{
+        width: 100%;
         height: 30vh;
         object-fit: contain;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
       }
       &__list{
         display: flex;
-        flex-wrap: wrap;
-        max-width: 25vw;
-        margin: 0 auto;
+        justify-content: center;
+        border-bottom: 1px ;
         .show-images{
-          width: 70px;
-          height: 70px;
+          width: 50px;
+          height: 50px;
           object-fit: cover;
-          margin-right: 8px;
+          margin: 5px;
         }
         .show-images:hover{
-          border: 2px solid black;
+          border: 2px solid $black;
         }
       }
     }
     .string{
-      max-width: 60vw;
-      padding: 30px;
+      padding: 10px;
       &__user{
-        display: flex;
-        justify-content: space-between;
+        position: relative;
         .show-avatar{
           border-radius: 50%;
-          height: 70px;
-          width: 70px;
-          margin-right: 10px;
+          height: 50px;
+          width: 50px;
+          margin: 10px ;
           object-fit: cover;
         }
         .user-author{
-          display: flex;
-          flex-direction: column;
-          text-align: left;
+          position: absolute;
+          top: 0;
+          right: 0px;
           .user-name{
             margin: 5px 0;
-            font-size: 18px;
-            font-weight: bold;
-            width: 16vw;
-            a{
-              color: black;
-            }
+            font-size: 16px;
           }
           .post-date{
-            margin-top: 10px;
+            margin-top: 5px;
             font-size: 14px;
             color: $fuschia;
+            position: absolute;
+            top: 27px;
           }
         }
         .user-jarnal{
-          padding-top: 10px;
+          position: absolute;
+          right: 0;
+          top: 30px;
           display: flex;
-          margin: 0 auto;
-          width: 110px;
-          text-align: center;
           li{
             list-style: none;
-            font-size: 30px;
-            color: black;
+            font-size: 15px;
           }
           .red{
             color: $pstel;
           }
           .yellow{
-            color: #ffbf7f;
+            color: $ffbf7f;
           }
-          .font{
-            font-size: 15px;
-            margin-top: 7px;
-          }
-          .like{
-            width: 40px;
-          }
-          .favorite{
-            width: 60px;
-            margin-left: 10px;
+          .like,.like-hover{
+            display: flex;
+            i{
+              padding-top: 2px;
+            }
+            .count{
+              margin: 0 5px;
+            }
           }
         }
       }
-      &__title{
-        font-size: 25px;
-         margin: 20px 0;
-        padding: 10px;
-        margin-top: 50px;
+      &__text{
+        position: relative;
+        margin: 10px 0;
+        box-shadow: 0 2px 3px rgba(0,0,0,.22);
+        padding: 22px 8px 22px 8px;
+        background-image:
+        linear-gradient(90deg, rgba(237, 119, 128, 0) 0%, rgba(237, 119, 128, 0) 50%, #fff6e6 0%, #fff6e6 100%), linear-gradient(180deg, rgba(237, 119, 128, 0) 95%, $fuschia 100%);
+        background-size: 8px 100%,100% 2em;
+        line-height: 2;
+        &__title{
+          font-size: 1.15em;
+          padding: 5px;
+          background-image:asset-url("headerbord.jpg");
+          color: $fuschia;
+          font-weight:bold;
+          margin: -22px -8px 22px -8px;
+        }
       }
-      &__content{
-        max-width: 35vw;
-        font-size: 16px;
-        padding: 20px;
-        border: 4px solid $fuschia;
-        border-radius: 5px;
-        margin: 2em 0;
-        p{
-          word-wrap: break-word;
+      .setting{
+        margin: 10px 10px 0;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        .delete, .edit{
+          display: flex;
+          i{
+            padding: 4px;
+          }
         }
       }
     }
   }
   .comment{
-    background-color: $whitesmoke;
-    display: flex;
-    margin-top: 50px;
-    min-height: 300px;
     &__create{
       height: 60px;
-      width: 40%;
       text-align: center;
       .comment-area{
-        height: 100px;
-        width: 350px;
-        border: 0.1em solid gray;
+        border: 0.1em solid wheat;
         border-radius: 3px;
         padding: 12px;
       }
@@ -534,6 +532,169 @@ body {
           }
           .date{
             margin: 0 10px;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (min-width:480px){
+  .show{
+    .details{
+      margin: 0 auto;
+      display: flex;
+      a{
+        text-decoration: none;
+      }
+      .image{
+        margin: 50px 0;
+        width: 35vw;
+        display: flex;
+        flex-direction: column;
+          .view-image{
+          width: 30vw;
+          height: 30vh;
+          object-fit: contain;
+          margin-bottom: 30px;
+        }
+        &__list{
+          display: flex;
+          flex-wrap: wrap;
+          max-width: 25vw;
+          margin: 0 auto;
+          .show-images{
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+            margin-right: 8px;
+          }
+          .show-images:hover{
+            border: 2px solid black;
+          }
+        }
+      }
+      .string{
+        max-width: 60vw;
+        padding: 30px;
+        &__user{
+          display: flex;
+          justify-content: space-between;
+          .show-avatar{
+            border-radius: 50%;
+            height: 70px;
+            width: 70px;
+            margin-right: 10px;
+            object-fit: cover;
+          }
+          .user-author{
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            .user-name{
+              margin: 5px 0;
+              font-size: 18px;
+              font-weight: bold;
+              width: 16vw;
+              a{
+                color: black;
+              }
+            }
+            .post-date{
+              margin-top: 10px;
+              font-size: 14px;
+              color: $fuschia;
+            }
+          }
+          .user-jarnal{
+            padding-top: 10px;
+            display: flex;
+            margin: 0 auto;
+            width: 110px;
+            text-align: center;
+            li{
+              list-style: none;
+              font-size: 30px;
+              color: black;
+            }
+            .red{
+              color: $pstel;
+            }
+            .yellow{
+              color: #ffbf7f;
+            }
+            .font{
+              font-size: 15px;
+              margin-top: 7px;
+            }
+            .like{
+              width: 40px;
+            }
+            .favorite{
+              width: 60px;
+              margin-left: 10px;
+            }
+          }
+        }
+        &__title{
+          font-size: 25px;
+           margin: 20px 0;
+          padding: 10px;
+          margin-top: 50px;
+        }
+        &__content{
+          max-width: 35vw;
+          font-size: 16px;
+          padding: 20px;
+          border: 4px solid $fuschia;
+          border-radius: 5px;
+          margin: 2em 0;
+          p{
+            word-wrap: break-word;
+          }
+        }
+      }
+    }
+    .comment{
+      background-color: $whitesmoke;
+      display: flex;
+      margin-top: 50px;
+      min-height: 300px;
+      &__create{
+        height: 60px;
+        width: 40%;
+        text-align: center;
+        .comment-area{
+          height: 100px;
+          width: 350px;
+          border: 0.1em solid gray;
+          border-radius: 3px;
+          padding: 12px;
+        }
+      }
+      &__list{
+        width: 60%;
+        &__header{
+          font-size: 20px;
+          padding: 20px;
+          }
+        &__show{
+          .block{
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid #808080;
+            max-width: 800px;
+            color: $fuschia;
+            min-height: 40px;
+            align-items: flex-end;
+            .content{
+              word-wrap: break-word;
+            }
+            .user-name{
+              margin-left: auto;
+            }
+            .date{
+              margin: 0 10px;
+            }
           }
         }
       }

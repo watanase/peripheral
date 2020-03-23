@@ -1,58 +1,60 @@
-.show
-  .details
-    .image
-      .image__picup
-        = image_tag @post.images[0].src.url, class: "view-image"
-      .image__list
-        -@post.images.each do |image|
-          = link_to image.src.url, class: "luminous" do
-            = image_tag image.src.url, class: "show-images"
-    .string
-      .string__user
-        .user-icon
-          = link_to user_path(@post.user.id) do
-            -if @post.user.avatar.url
-              = image_tag @post.user.avatar.url, class: "show-avatar"
-            - else
-              = image_tag "no_image.png", class: "show-avatar"
-        .user-author
-          .user-name
-            = link_to user_path(@post.user) do
-              = @post.user.name
-          .post-date
-            = @post.created_at.to_s(:date)
-        .user-jarnal
-          #likes_buttons{ id: @post.id }
-            = render partial: 'likes/like', locals: { post: @post, likes: @likes}
-          .favorite#favorites_buttons{ id: @post.id }
-            = render partial: 'favorites/favorite', locals: { post: @post, favorites: @favorites}
-      .string__title
-        = @post.title
-      .string__content
-        %p
+.post-card
+  .show
+    .details
+      .image
+        .image__picup
+          = image_tag @post.images[0].src.url, class: "view-image"
+        .image__list
+          -@post.images.each do |image|
+            = link_to image.src.url, class: "luminous" do
+              = image_tag image.src.url, class: "show-images"
+      .string
+        .string__user
+          .user-icon
+            = link_to user_path(@post.user.id) do
+              -if @post.user.avatar.url
+                = image_tag @post.user.avatar.url, class: "show-avatar"
+              - else
+                = image_tag "no_image.png", class: "show-avatar"
+          .user-author
+            .user-name
+              = link_to user_path(@post.user) do
+                = @post.user.name
+            .post-date
+              = @post.created_at.to_s(:date)
+          .user-jarnal
+            #likes_buttons{ id: @post.id }
+              = render partial: 'likes/like', locals: { post: @post, likes: @likes}
+            .favorite#favorites_buttons{ id: @post.id }
+              = render partial: 'favorites/favorite', locals: { post: @post, favorites: @favorites}
+        .string__text
+          .string__text__title 
+            = @post.title
           = simple_format(@post.content)
-      - if user_signed_in? && current_user.id == @post.user_id
-        = link_to "この投稿を削除する", post_path(@post), method: :delete, data: {confirm: "「#{@post.title}」を削除しますか?",
-                                                                      cancel: "キャンセル",
-                                                                      commit: "削除" }
-        %i.fas.fa-arrow-circle-right
-        %p= link_to "編集する", edit_post_path(@post)
-  .comment
-    .comment__create
-      = form_with model:[@post, @comment], local: true, id: "new-comment" do |f|
-        = f.text_area :content, placeholder: "コメント入力欄", class: "comment-area"
-        %br/
-        = f.submit 'コメントする', class: "comment-submit"
-    .comment__list
-      .comment__list__header
-        %h2 コメント一覧
-      .comment__list__show
-        -if @comments
-          - @comments.each do |c|
-            .block
-              .content
-                = c.content
-              .user-name
-                = c.user.name
-              .date
-                = c.created_at.to_s(:date)
+        .setting
+          - if user_signed_in? && current_user.id == @post.user_id
+            = link_to  post_path(@post),class: "delete", method: :delete, data: {confirm: "「#{@post.title}」を削除しますか?", cancel: "キャンセル", commit: "削除" } do
+              %p 投稿を削除 
+              %i.fas.fa-arrow-circle-right
+            = link_to edit_post_path(@post), class: "edit" do
+              %p 編集
+              %i.fas.fa-arrow-circle-right
+    .comment
+      .comment__create
+        = form_with model:[@post, @comment], local: true, id: "new-comment" do |f|
+          = f.text_area :content, placeholder: "コメント入力欄", class: "comment-area"
+          %br/
+          = f.submit 'コメントする', class: "comment-submit"
+      .comment__list
+        .comment__list__header
+          %h2 コメント一覧
+        .comment__list__show
+          -if @comments
+            - @comments.each do |c|
+              .block
+                .content
+                  = c.content
+                .user-name
+                  = c.user.name
+                .date
+                  = c.created_at.to_s(:date)
