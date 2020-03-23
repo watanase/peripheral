@@ -33,16 +33,16 @@
           = simple_format(@post.content)
         .setting
           - if user_signed_in? && current_user.id == @post.user_id
-            = link_to  post_path(@post),class: "delete", method: :delete, data: {confirm: "「#{@post.title}」を削除しますか?", cancel: "キャンセル", commit: "削除" } do
-              %p 投稿を削除 
-              %i.fas.fa-arrow-circle-right
             = link_to edit_post_path(@post), class: "edit" do
               %p 編集
+              %i.fas.fa-arrow-circle-right
+            = link_to  post_path(@post),class: "delete", method: :delete, data: {confirm: "「#{@post.title}」を削除しますか?", cancel: "キャンセル", commit: "削除" } do
+              %p 投稿を削除 
               %i.fas.fa-arrow-circle-right
     .comment
       .comment__create
         = form_with model:[@post, @comment], local: true, id: "new-comment" do |f|
-          = f.text_area :content, placeholder: "コメント入力欄", class: "comment-area"
+          = f.text_area :content, placeholder: "コメント入力欄", class: "comment-area", required: ""
           %br/
           = f.submit 'コメントする', class: "comment-submit"
       .comment__list
