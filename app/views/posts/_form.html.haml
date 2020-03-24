@@ -29,7 +29,7 @@
             = f.file_field :src,{ id: "post_images_attributes_#{@image_count}_src", name: "post[images_attributes][#{@image_count}][src]", class: 'js-file'}
             = f.label :src, id: "label_#{@image_count}", for: "post_images_attributes_#{@image_count}_src" do
               %i.fas.fa-images
-      %p  画像の選択（１〜４枚）
+    %h2.info-image  画像の選択（１〜４枚）
     .text-area
       .string-area
         .heading
@@ -39,7 +39,7 @@
           - else
             %span.count-name 0
           %span / 20
-        = f.text_field :title, class: "text-field", placeholder: "タイトルを入力", id: "title", required: ""
+        = f.text_field :title, class: "text-field", placeholder: "タイトルを入力", required: ""
       .string-area
         .heading
           %h2
@@ -53,4 +53,5 @@
       .text-area__btn
         = f.submit class: "btn"
 - if @post.persisted?
-  = link_to "戻る", post_path(@post), class: "btn"
+  .return
+    = link_to "戻る", post_path(@post), class: "btn"

@@ -325,7 +325,7 @@ body {
     }
   }
 }
-@media screen and (min-width:1160px) {
+@media screen and (min-width:1160px){
   .wrapper{
     display: flex;
     .main-content{
@@ -405,239 +405,10 @@ body {
   position: fixed;
   border-top: 2px solid;
 }
-
-// 新規投稿画面
-@media screen and (min-width:300px){
-  .post-action{
-    
-  }
-  .new-post{
-    color: $fuschia;
-    margin: 10px;
-    .add-image{
-      #previews{
-        margin: 0 auto;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-        li{
-          position: relative;
-          margin: 9px;
-          height: 100px;
-          img{
-            object-fit: cover;
-            border-radius: 3px;
-          }
-          .js-remove{
-            position: absolute;
-            top: -15px;
-            left: -15px;
-            svg{
-              stroke: $fuschia;
-              fill: $whitesmoke;
-            }
-          }
-        }
-      }
-      #image-box{
-        margin: 30px 0;
-        text-align: center;
-        .js-file{
-          display: none;
-        }
-        label{
-          cursor: pointer;
-          font-size: 50px;
-          border: 2px solid;
-          padding: 20px;
-          border-radius: 5px;
-          color: $ffbf7f;
-          background-image:asset-url("headerbord.jpg");
-        }
-      }
-      p{
-        text-align: center;
-        margin: 10px;
-        line-height: 3;
-      }
-    }
-    .text-area{
-      font-size: 18px;
-      .string-area{
-        text-align: center;
-        .heading{
-          display: flex;
-          .count-name{
-            margin-left: 5px;
-          }
-          span{
-            padding: 2px;
-          }
-        }
-        .text-field{
-          margin: 5px;
-          padding: 10px;
-          border: 2px solid $ffbf7f;
-          border-radius: 5px;
-          font-size: 18px;
-        }
-      }
-      &__content{
-        margin: 20px;
-        line-height: 50px;
-        margin-left: 50px;
-        .input-text{
-          // width: 600px;
-          // height: 200px;
-          // font-size: 18px;
-          // padding: 10px;
-          // border: 2px solid $fuschia;
-          // border-radius: 5px;
-          border-radius: 5px;
-        position: relative;
-        margin: 10px 0;
-        box-shadow: 0 2px 3px rgba(0,0,0,.22);
-        padding: 22px 8px 22px 8px;
-        background-image:
-        linear-gradient(90deg, rgba(237, 119, 128, 0) 0%, rgba(237, 119, 128, 0) 50%, #fff6e6 0%, #fff6e6 100%), linear-gradient(180deg, rgba(237, 119, 128, 0) 95%, $fuschia 100%);
-        background-size: 8px 100%,100% 2em;
-        line-height: 2;
-        }
-      }
-      &__btn{
-              display: none;
-
-        margin: 30px 150px 0 0;
-        text-align: center;
-        .btn{
-          align-self:center;
-          background:transparent;
-          padding:0.3rem 0.7rem;
-          margin:0 1rem;
-          transition:all .5s ease;
-          color:#41403E;
-          font-size:1.5rem;
-          letter-spacing:1px;
-          outline:none;
-          box-shadow: 20px 38px 34px -26px hsla(0,0%,0%,.2);
-          border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
-          border:dashed 2px #41403E
-        }
-        .btn:hover{
-          box-shadow:2px 8px 4px -6px hsla(0,0%,0%,.3);
-        } 
-      }
-    }
-  }
-}
-@media screen and (min-width:900px){
-  // .post-action{
-  //   margin-top: 50px;
-  //   display: inline-block;
-  //   padding: 12px 0;
-  //   width: 160px;ws
-  //   text-align: center;
-  //   font-size: 21px;
-  //   line-height: 16px;
-  //   background: $fuschia;
-  //   color: $fff;
-  //   letter-spacing: 0.15em;
-  //   -webkit-transform: rotate(45deg);
-  //   transform: rotate(-30deg);
-  //   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  //   border-radius: 2px;
-  //   position: absolute;
-  //   top: 35px;
-  //   left: 6px;
-  //   overflow: hidden;
-  // }
-  // form{
-  //   width: 100vw;
-  //   padding: 50px;
-  //   .add-image{
-  //     width: 60vw;
-  //     margin: 30px auto;
-  //     text-align: center;
-  //     display: flex;
-  //     flex-wrap: wrap;
-  //     #previews{
-  //       display: flex;
-  //     }
-  //     #image-box{
-  //       display: flex;
-  //       // flex-wrap: wrap";
-  //       .js-file{
-  //         display: none;
-  //       }
-  //       label{
-  //         cursor: pointer;
-  //         font-size: 50px;
-  //         border: 2px solid;
-  //         padding: 20px;
-  //         border-radius: 10px;
-  //         background-color: silver;
-  //         opacity: 0.8;
-  //       }
-  //     }
-  //   }
-  //   .text-area{
-  //     margin: 50px;
-  //     font-size: 18px;
-  //     padding: 10px 200px;
-  //     &__title{
-  //       margin: 20px;
-  //       line-height: 50px;
-  //       margin-left: 50px;
-  //       .text-field{
-  //         height: 40px;
-  //         width: 390px;
-  //         padding: 10px;
-  //         border: 2px solid $fuschia;
-  //         border-radius: 5px;
-  //         font-size: 18px;
-  //       }
-  //     }
-  //     &__content{
-  //       margin: 20px;
-  //       line-height: 50px;
-  //       margin-left: 50px;
-  //       .input-text{
-  //         width: 600px;
-  //         height: 200px;
-  //         font-size: 18px;
-  //         padding: 10px;
-  //         border: 2px solid $fuschia;
-  //         border-radius: 5px;
-  //       }
-  //     }
-  //     &__btn{
-  //       margin: 30px 150px 0 0;
-  //       text-align: center;
-  //       .btn{
-  //         align-self:center;
-  //         background:transparent;
-  //         padding:0.3rem 0.7rem;
-  //         margin:0 1rem;
-  //         transition:all .5s ease;
-  //         color:#41403E;
-  //         font-size:1.5rem;
-  //         letter-spacing:1px;
-  //         outline:none;
-  //         box-shadow: 20px 38px 34px -26px hsla(0,0%,0%,.2);
-  //         border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
-  //         border:dashed 2px #41403E
-  //       }
-  //       .btn:hover{
-  //         box-shadow:2px 8px 4px -6px hsla(0,0%,0%,.3);
-  //       } 
-  //     }
-  //   }
-  // }
-}
-// 投稿詳細画面
+// 投稿共通
 .post-card{
   margin: 0 30px;
-  padding: 80px 0;
+  padding: 100px 0;
   .show{
     height: 100%;
     border: dashed 2px $sandybrown;
@@ -645,11 +416,129 @@ body {
     box-shadow: 0 0 0 10px #fff6e6;
     background: #fff6e6;
     a{
-      color: black;
+      color: $fuschia;
       text-decoration: none;
     }
   }
 }
+// 新規投稿画面
+@media screen and (min-width:300px){
+  .post-action{
+    margin: 5px 10px;
+    color: $fuschia;
+  }
+  .new-post{
+    color: $fuschia;
+    margin: 10px;
+    .add-image{
+        #previews{
+          li{
+            position: relative;
+            margin: 9px;
+            height: 100px;
+            img{
+              object-fit: cover;
+              border-radius: 3px;
+            }
+            .js-remove{
+              position: absolute;
+              top: -15px;
+              left: -15px;
+              svg{
+                stroke: $fuschia;
+                fill: $whitesmoke;
+              }
+            }
+          }
+        }
+        #image-box{
+          margin: 30px 0;
+          text-align: center;
+          .js-file{
+            display: none;
+          }
+          label{
+            cursor: pointer;
+            font-size: 50px;
+            border: 2px solid;
+            padding: 20px;
+            border-radius: 5px;
+            color: $ffbf7f;
+            background-image:asset-url("headerbord.jpg");
+          }
+        }
+
+    }
+    .info-image{
+      margin: 15px 0;
+    }
+    .text-area{
+      font-size: 18px;
+      .string-area{
+        text-align: center;
+        .heading{
+          display: flex;
+          .count-name, .count-profile{
+            margin-left: 5px;
+          }
+          span{
+            padding: 2px;
+          }
+        }
+        .text-field, .input-text{
+          margin: 5px;
+          padding: 10px;
+          border: 2px solid $ffbf7f;
+          border-radius: 5px;
+          resize: vertical;
+          outline: none;
+          width: 70vw;
+        }
+        .input-text{
+          min-height: 20vh;
+        }
+      }
+      &__btn{
+        text-align: center;
+
+      }
+    }
+  }
+  .btn{
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 20px 0;
+    padding:0.3rem 0.7rem;
+    border: solid 2px $ffbf7f;
+    background-color: $fff;
+    color: $fuschia;
+  }
+  .return{
+    text-align: center;
+    margin-bottom: 20px;
+  }
+}
+@media screen and (min-width:300px) and (max-width: 480px){
+  #previews{
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+}
+@media screen and (min-width:480px){
+  .post-card{
+    padding: 180px 0;
+    .add-image{
+      display: flex;
+      #previews{
+        display: flex;
+        margin: 0 20px;
+      }
+    }
+  }
+}
+// 投稿詳細画面
 @media screen and (min-width:300px){
   .details{
     .image{
@@ -733,6 +622,7 @@ body {
         }
       }
       &__text{
+        word-break: break-all;
         border-radius: 5px;
         position: relative;
         margin: 10px 0;
