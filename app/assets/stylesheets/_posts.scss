@@ -57,7 +57,7 @@ body {
       border: 2px solid;  
       border-radius: 3px;
       span{
-        width: 32px;
+        width: 33px;
         display: block;
         border-bottom: 2px solid $black;
         position: absolute;
@@ -206,7 +206,7 @@ body {
       border-radius: 5px;
       box-shadow: 0 2px 5px $black;
       margin: 30px 10px;
-      background-image:asset-url("paper.jpg");
+      background-image:asset-url("headerbord.jpg");
       a{
         text-decoration: none;
       }
@@ -407,47 +407,56 @@ body {
 }
 
 // 新規投稿画面
-.post-page{
-  padding-top: 50px;
-  display: block;
-  position: relative;
-  margin: 0px auto;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.14);
+@media screen and (min-width:300px){
   .post-action{
-    margin-top: 50px;
-    display: inline-block;
-    padding: 12px 0;
-    width: 160px;
-    text-align: center;
-    font-size: 21px;
-    line-height: 16px;
-    background: $fuschia;
-    color: $fff;
-    letter-spacing: 0.15em;
-    -webkit-transform: rotate(45deg);
-    transform: rotate(-30deg);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    border-radius: 2px;
-    position: absolute;
-    top: 35px;
-    left: 6px;
-    overflow: hidden;
+    // margin-top: 50px;
+    // display: inline-block;
+    // padding: 12px 0;
+    // width: 160px;
+    // text-align: center;
+    // font-size: 21px;
+    // line-height: 16px;
+    // background: $fuschia;
+    // color: $fff;
+    // letter-spacing: 0.15em;
+    // -webkit-transform: rotate(45deg);
+    // transform: rotate(-30deg);
+    // box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    // border-radius: 2px;
+    // position: absolute;
+    // top: 35px;
+    // left: 6px;
+    // overflow: hidden;
   }
-  form{
-    width: 100vw;
-    padding: 50px;
+  .new-post{
+    margin: 10px;
     .add-image{
-      width: 60vw;
-      margin: 30px auto;
-      text-align: center;
-      display: flex;
-      flex-wrap: wrap;
       #previews{
+        margin: 0 auto;
         display: flex;
+        flex-wrap: wrap;
+        li{
+          position: relative;
+          margin: 9px;
+          height: 100px;
+          img{
+            object-fit: cover;
+            border-radius: 3px;
+          }
+          .js-remove{
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            svg{
+              fill: currentColor;
+              color: $lemonchiffon;
+            }
+          }
+        }
       }
       #image-box{
-        display: flex;
-        // flex-wrap: wrap";
+        margin: 30px 0;
+        text-align: center;
         .js-file{
           display: none;
         }
@@ -456,13 +465,14 @@ body {
           font-size: 50px;
           border: 2px solid;
           padding: 20px;
-          border-radius: 10px;
-          background-color: silver;
-          opacity: 0.8;
+          border-radius: 5px;
+          color: $ffbf7f;
+          background-image:asset-url("headerbord.jpg");
         }
       }
     }
     .text-area{
+      display: none;
       margin: 50px;
       font-size: 18px;
       padding: 10px 200px;
@@ -515,6 +525,110 @@ body {
       }
     }
   }
+}
+@media screen and (min-width:900px){
+  // .post-action{
+  //   margin-top: 50px;
+  //   display: inline-block;
+  //   padding: 12px 0;
+  //   width: 160px;ws
+  //   text-align: center;
+  //   font-size: 21px;
+  //   line-height: 16px;
+  //   background: $fuschia;
+  //   color: $fff;
+  //   letter-spacing: 0.15em;
+  //   -webkit-transform: rotate(45deg);
+  //   transform: rotate(-30deg);
+  //   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  //   border-radius: 2px;
+  //   position: absolute;
+  //   top: 35px;
+  //   left: 6px;
+  //   overflow: hidden;
+  // }
+  // form{
+  //   width: 100vw;
+  //   padding: 50px;
+  //   .add-image{
+  //     width: 60vw;
+  //     margin: 30px auto;
+  //     text-align: center;
+  //     display: flex;
+  //     flex-wrap: wrap;
+  //     #previews{
+  //       display: flex;
+  //     }
+  //     #image-box{
+  //       display: flex;
+  //       // flex-wrap: wrap";
+  //       .js-file{
+  //         display: none;
+  //       }
+  //       label{
+  //         cursor: pointer;
+  //         font-size: 50px;
+  //         border: 2px solid;
+  //         padding: 20px;
+  //         border-radius: 10px;
+  //         background-color: silver;
+  //         opacity: 0.8;
+  //       }
+  //     }
+  //   }
+  //   .text-area{
+  //     margin: 50px;
+  //     font-size: 18px;
+  //     padding: 10px 200px;
+  //     &__title{
+  //       margin: 20px;
+  //       line-height: 50px;
+  //       margin-left: 50px;
+  //       .text-field{
+  //         height: 40px;
+  //         width: 390px;
+  //         padding: 10px;
+  //         border: 2px solid $fuschia;
+  //         border-radius: 5px;
+  //         font-size: 18px;
+  //       }
+  //     }
+  //     &__content{
+  //       margin: 20px;
+  //       line-height: 50px;
+  //       margin-left: 50px;
+  //       .input-text{
+  //         width: 600px;
+  //         height: 200px;
+  //         font-size: 18px;
+  //         padding: 10px;
+  //         border: 2px solid $fuschia;
+  //         border-radius: 5px;
+  //       }
+  //     }
+  //     &__btn{
+  //       margin: 30px 150px 0 0;
+  //       text-align: center;
+  //       .btn{
+  //         align-self:center;
+  //         background:transparent;
+  //         padding:0.3rem 0.7rem;
+  //         margin:0 1rem;
+  //         transition:all .5s ease;
+  //         color:#41403E;
+  //         font-size:1.5rem;
+  //         letter-spacing:1px;
+  //         outline:none;
+  //         box-shadow: 20px 38px 34px -26px hsla(0,0%,0%,.2);
+  //         border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  //         border:dashed 2px #41403E
+  //       }
+  //       .btn:hover{
+  //         box-shadow:2px 8px 4px -6px hsla(0,0%,0%,.3);
+  //       } 
+  //     }
+  //   }
+  // }
 }
 // 投稿詳細画面
 .post-card{
