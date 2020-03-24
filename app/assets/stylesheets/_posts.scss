@@ -342,24 +342,18 @@ body {
       }
       .post-button{
         display: block;
+        text-align: center;
         margin: 30px 0;
         .push{
-          border:solid 2px #41403E;
-          text-align: center;
-          align-self:center;
-          background:transparent;
-          padding:0.7rem 0.7rem 0.7rem 0.3rem;
-          margin:0 3rem;
-          transition:all .5s ease;
-          color:#41403E;
-          font-size:1.3rem;
-          letter-spacing:1px;
-          outline:none;
-          box-shadow: 20px 38px 34px -26px hsla(0,0%,0%,.2);
-          border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
-          &:hover{
-            box-shadow:2px 8px 4px -6px hsla(0,0%,0%,.3);
-          } 
+          display: inline-block;
+          font-size: 20px;
+          appearance: none;
+          background-color: $sandybrown;
+          color: $fff;
+          border-radius: 4px;
+          border: none;
+          cursor: pointer;
+          padding: 18px;
         }
       }
       h2{
@@ -368,6 +362,7 @@ body {
         margin-bottom: 20px;
       }
       table{
+        color: $lemonchiffon;
         margin: 0 auto;
         padding: 10px;
         table-layout: fixed;
@@ -375,7 +370,7 @@ body {
         border-collapse: collapse;
         td{
           padding: 10px;
-          border: 1px solid #ccc;
+          border: 1px solid $lemonchiffon;
         }
         .id, .count{
           text-align: center;
