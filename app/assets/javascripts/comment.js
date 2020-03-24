@@ -4,11 +4,13 @@ $(function () {
                   <div class="content">
                    ${comment.content}
                   </div>
-                  <div class="user-name">
-                    ${comment.user_name}
-                  </div>
-                  <div class="date">
-                    ${comment.created_at}
+                  <div class="jarnal">
+                    <div class="user-name">
+                      ${comment.user_name}
+                    </div>
+                    <div class="date">
+                      ${comment.created_at}
+                    </div>
                   </div>
                 </div>`
     return html;

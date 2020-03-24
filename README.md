@@ -1,7 +1,7 @@
 # URL
 https://postscard.com/
 非ログイン状態の場合は記事の閲覧のみ可能です。ログインすると記事投稿やコメントが可能になります。
-画面上部の「ゲストユーザーでログインする」をクリックすると、ユーザー登録せずにログインできます。
+ログインページの「ゲストユーザーでログインする」をクリックすると会員登録せずにログインできます。
 
 # 言語・使用技術
 
@@ -21,9 +21,9 @@ https://postscard.com/
 - MySQL 5.7
 
 #### インフラ・開発環境等
-<!-- - Docker/docker-compose -->
+- Docker/docker-compose
 - AWS（VPC, EC2, S3, Route 53）
-<!-- - CircleCI（CI/CD) -->
+- CircleCI（CI/CD)
 - Capistrano3
 - RSpec
 
@@ -42,3 +42,6 @@ https://postscard.com/
 - コメント機能
 - 検索機能
 - ページネーション機能
+
+#### アプリへの取り組み
+- プログラミングスクールに約３ヶ月通い,HTML/CSS/Ruby/Rails/AWSなどの基礎を学び、スクールの課題でチャットアプリを作成。そこからこのアプリを作成に取り掛かり、スクールで学んだ技術に加えてDocker/CircleCIを学習してアプリに組み込みました。

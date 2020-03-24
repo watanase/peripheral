@@ -5,13 +5,13 @@ body {
   padding: 0;
   margin: 0;
   width: 100vw;
-  position: relative;
   background-image:asset-url("headerbord.jpg");
+  background-repeat: repeat;
   font-family: 'Noto Sans Japanese',
   'Source Sans Pro', Helvetica , Arial,
   '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
 }
-// 共有ヘッダー項目
+// ヘッダー項目
 .header{
   background-image:asset-url("headerbord.jpg");
   height: 50px;
@@ -45,7 +45,220 @@ body {
     }
   }
 }
+@media screen and (min-width:300px){
+  .menu{
+    display: flex;
+    .toggle{
+      width: 45px;
+      cursor: pointer;
+      display: block;
+      position: relative;
+      margin:3px 15px;   
+      border: 2px solid;  
+      border-radius: 3px;
+      span{
+        width: 33px;
+        display: block;
+        border-bottom: 2px solid $black;
+        position: absolute;
+        -webkit-transition: .35s ease-in-out;
+        margin-left: 4px;
+      }
+      span:nth-child(1){
+        top: 7px;
+      }
+      span:nth-child(2){
+        top: 18px;
+      }
+      span:nth-child(3){
+        top: 29px;
+      }
+    }
+    .toggle:hover{
+      margin:3px 15px;   
+    }
+    .toggle.active{
+      span:nth-child(1){
+        top: -2px;
+        transform: translateY(20px) rotate(-315deg);
+      }
+      span:nth-child(2){
+        opacity: 0;
+      }
+      span:nth-child(3){
+        top: 38px;
+      -webkit-transform: translateY(-20px) rotate(315deg);
+      transform: translateY(-20px) rotate(315deg);
+      }
+    }
+    .nav{
+      display: none;
+      i{
+        display: inline-block;
+      }
+      span{
+        display: none;
+      }
+      .drop-menu{
+        display: none;
+      }
+    }
+    .nav.active{
+      height: 100px;
+      display: block;
+      display: flex;
+      justify-content: space-around;
+      position: absolute;
+      top: 50px;
+      left: 0;
+      width: 100%;
+      background-image:asset-url("headerbord.jpg");
+      border-bottom: 2px solid;
+      line-height: 50px;
+      .search-bar{
+        padding: 5px;
+      }
+      .nav-icon{
+        width: 100%;
+        position: absolute;
+        top: 50px;
+        left: 0;
+        display: flex;
+        justify-content: space-around;
+      }
+      .link-btn{
+        padding: 16px 15px 14px 16px;
+      }
+      .link-btn:hover{
+        background-color: $sandybrown;
+        color: $lemonchiffon;
+      }
+    }
+  }
+}
+@media screen and (min-width:480px){
+  .menu{
+    .nav-icon{
+      i{
+        display:none;
+      }
+      span{
+        display: inline-block;
+      }
+      .drop-menu{
+        display: none;
+      }
+    }
+  }
+}
+@media screen and (min-width:900px){
+  .menu{
+    display: flex;
+    right: 0;
+    .toggle{
+      display: none;
+    }
+    .nav.active{
+      display: none;
+    }
+    .nav{
+      display: block;
+      display: flex;
+      line-height: 50px;
+      .nav-icon{
+        display: flex;
+        // 保留
+        // .nav-mypage{
+        //   width: 143px;
+        //   text-align: center;
+          .drop-menu{
+            background-image:asset-url("headerbord.jpg");
+            display: none;
+            .post{
+              padding: 16px 39px 14px 40px;
+            }
+          }
+        // }
+        .link-btn{
+          padding: 16px 15px 14px 16px;
+        }
+        .link-btn:hover{
+          background-color: $sandybrown;
+          color: $lemonchiffon;
+        }
+      }
+    }
+  }
+}
 // ホーム画面に表示する投稿一覧
+.main-content{
+  background-image:asset-url("backbord.jpg");
+  background-repeat: repeat;
+  .post-list-box{
+    padding: 50px 10px;
+    overflow: scroll;
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 96vh;
+    .post-list{
+      height: 350px;
+      width: 250px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px $black;
+      margin: 30px 10px;
+      background-image:asset-url("headerbord.jpg");
+      a{
+        text-decoration: none;
+      }
+      a:hover{
+        opacity: 0.6;
+      }
+      .post-item{
+        display: block;
+        .item-img{
+          border-radius: 5px 5px 0 0;
+          max-width: 100%;
+          height: 200px;
+          border-bottom: 1px solid #eef;
+          object-fit: cover;
+          margin: 0 auto;
+        }
+        .post-jarnal{
+          padding: 10px;
+          .post-title{
+            font-size: 18px;
+            margin-bottom: 10px;
+            text-align: center;
+            color: #333;
+            overflow: hidden;
+            white-space: normal;
+            height: 30px;
+          }
+          .post-content{
+            font-size: 14px;
+            line-height: 1;
+            color: #777;
+            overflow: hidden;
+            white-space: normal;
+            text-overflow: ellipsis;
+            height: 40px;
+          }
+        }
+        .post-user{
+          border-top: 1px solid #eee;
+          padding: 10px;
+          color: #777;
+          display: flex;
+          justify-content: space-between;
+          height: 45px;
+          .like{
+            line-height: 25px;
+          }
+        }
+      }
+    }
+  } 
+}
 @media screen and (min-width:300px){
   .main-content{
     width: 100%;
@@ -112,7 +325,7 @@ body {
     }
   }
 }
-@media screen and (min-width:1160px) {
+@media screen and (min-width:1160px){
   .wrapper{
     display: flex;
     .main-content{
@@ -129,24 +342,18 @@ body {
       }
       .post-button{
         display: block;
+        text-align: center;
         margin: 30px 0;
         .push{
-          border:solid 2px #41403E;
-          text-align: center;
-          align-self:center;
-          background:transparent;
-          padding:0.7rem 0.7rem 0.7rem 0.3rem;
-          margin:0 3rem;
-          transition:all .5s ease;
-          color:#41403E;
-          font-size:1.3rem;
-          letter-spacing:1px;
-          outline:none;
-          box-shadow: 20px 38px 34px -26px hsla(0,0%,0%,.2);
-          border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
-          &:hover{
-            box-shadow:2px 8px 4px -6px hsla(0,0%,0%,.3);
-          } 
+          display: inline-block;
+          font-size: 20px;
+          appearance: none;
+          background-color: $sandybrown;
+          color: $fff;
+          border-radius: 4px;
+          border: none;
+          cursor: pointer;
+          padding: 18px;
         }
       }
       h2{
@@ -155,6 +362,7 @@ body {
         margin-bottom: 20px;
       }
       table{
+        color: $lemonchiffon;
         margin: 0 auto;
         padding: 10px;
         table-layout: fixed;
@@ -162,7 +370,7 @@ body {
         border-collapse: collapse;
         td{
           padding: 10px;
-          border: 1px solid #ccc;
+          border: 1px solid $lemonchiffon;
         }
         .id, .count{
           text-align: center;
@@ -178,77 +386,8 @@ body {
     }
   }
 }
-// 共有ホーム画面//ポスト
-.main-content{
-  background-image:asset-url("backbord.jpg");
-  background-repeat: repeat;
-  .post-list-box{
-    padding: 50px 10px;
-    overflow: scroll;
-    display: flex;
-    flex-wrap: wrap;
-    min-height: 96vh;
-    .post-list{
-      height: 350px;
-      width: 250px;
-      border-radius: 5px;
-      box-shadow: 0 2px 5px $black;
-      margin: 30px 10px;
-      background-image:asset-url("paper.jpg");
-      a{
-        text-decoration: none;
-      }
-      a:hover{
-        opacity: 0.6;
-      }
-      .post-item{
-        display: block;
-        .item-img{
-          border-radius: 5px 5px 0 0;
-          max-width: 100%;
-          height: 200px;
-          border-bottom: 1px solid #eef;
-          object-fit: cover;
-          margin: 0 auto;
-        }
-        .post-jarnal{
-          padding: 10px;
-          .post-title{
-            font-size: 18px;
-            margin-bottom: 10px;
-            text-align: center;
-            color: #333;
-            overflow: hidden;
-            white-space: normal;
-            height: 30px;
-          }
-          .post-content{
-            font-size: 14px;
-            line-height: 1;
-            color: #777;
-            overflow: hidden;
-            white-space: normal;
-            text-overflow: ellipsis;
-            height: 40px;
-          }
-        }
-        .post-user{
-          border-top: 1px solid #eee;
-          padding: 10px;
-          color: #777;
-          display: flex;
-          justify-content: space-between;
-          height: 45px;
-          .like{
-            line-height: 25px;
-          }
-        }
-      }
-    }
-  } 
-}
 
-// 共有表示するフッター
+// フッター
 .footer{
   position: absolute;
   bottom: 0;
@@ -261,281 +400,316 @@ body {
   position: fixed;
   border-top: 2px solid;
 }
-
-// 新規投稿画面
-.post-page{
-  padding-top: 50px;
-  display: block;
-  position: relative;
-  margin: 0px auto;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.14);
-  .post-action{
-    margin-top: 50px;
-    display: inline-block;
-    padding: 12px 0;
-    width: 160px;
-    text-align: center;
-    font-size: 21px;
-    line-height: 16px;
-    background: $fuschia;
-    color: $fff;
-    letter-spacing: 0.15em;
-    -webkit-transform: rotate(45deg);
-    transform: rotate(-30deg);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    border-radius: 2px;
-    position: absolute;
-    top: 35px;
-    left: 6px;
-    overflow: hidden;
+// 投稿共通
+.post-card{
+  margin: 0 30px;
+  padding: 100px 0;
+  .show{
+    height: 100%;
+    border: dashed 2px $sandybrown;
+    border-radius: 3px;
+    box-shadow: 0 0 0 10px #fff6e6;
+    background: #fff6e6;
+    a{
+      color: $fuschia;
+      text-decoration: none;
+    }
   }
-  form{
-    width: 100vw;
-    padding: 50px;
+}
+// 新規投稿画面
+@media screen and (min-width:300px){
+  .post-action{
+    margin: 5px 10px;
+    color: $fuschia;
+  }
+  .new-post{
+    color: $fuschia;
+    margin: 10px;
     .add-image{
-      width: 60vw;
-      margin: 30px auto;
-      text-align: center;
-      display: flex;
-      flex-wrap: wrap;
-      #previews{
-        display: flex;
-      }
-      #image-box{
-        display: flex;
-        // flex-wrap: wrap";
-        .js-file{
-          display: none;
+        #previews{
+          li{
+            position: relative;
+            margin: 9px;
+            height: 100px;
+            img{
+              object-fit: cover;
+              border-radius: 3px;
+            }
+            .js-remove{
+              position: absolute;
+              top: -15px;
+              left: -15px;
+              svg{
+                stroke: $fuschia;
+                fill: $whitesmoke;
+              }
+            }
+          }
         }
-        label{
-          cursor: pointer;
-          font-size: 50px;
-          border: 2px solid;
-          padding: 20px;
-          border-radius: 10px;
-          background-color: silver;
-          opacity: 0.8;
+        #image-box{
+          margin: 30px 0;
+          text-align: center;
+          .js-file{
+            display: none;
+          }
+          label{
+            cursor: pointer;
+            font-size: 50px;
+            border: 2px solid;
+            padding: 20px;
+            border-radius: 5px;
+            color: $ffbf7f;
+            background-image:asset-url("headerbord.jpg");
+          }
         }
-      }
+
+    }
+    .info-image{
+      margin: 15px 0;
     }
     .text-area{
-      margin: 50px;
       font-size: 18px;
-      padding: 10px 200px;
-      &__title{
-        margin: 20px;
-        line-height: 50px;
-        margin-left: 50px;
-        .text-field{
-          height: 40px;
-          width: 390px;
-          padding: 10px;
-          border: 2px solid $fuschia;
-          border-radius: 5px;
-          font-size: 18px;
+      .string-area{
+        text-align: center;
+        .heading{
+          display: flex;
+          .count-name, .count-profile{
+            margin-left: 5px;
+          }
+          span{
+            padding: 2px;
+          }
         }
-      }
-      &__content{
-        margin: 20px;
-        line-height: 50px;
-        margin-left: 50px;
-        .input-text{
-          width: 600px;
-          height: 200px;
-          font-size: 18px;
+        .text-field, .input-text{
+          margin: 5px;
           padding: 10px;
-          border: 2px solid $fuschia;
+          border: 2px solid $ffbf7f;
           border-radius: 5px;
+          resize: vertical;
+          outline: none;
+          width: 70vw;
+        }
+        .input-text{
+          min-height: 20vh;
         }
       }
       &__btn{
-        margin: 30px 150px 0 0;
         text-align: center;
-        .btn{
-          align-self:center;
-          background:transparent;
-          padding:0.3rem 0.7rem;
-          margin:0 1rem;
-          transition:all .5s ease;
-          color:#41403E;
-          font-size:1.5rem;
-          letter-spacing:1px;
-          outline:none;
-          box-shadow: 20px 38px 34px -26px hsla(0,0%,0%,.2);
-          border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
-          border:dashed 2px #41403E
-        }
-        .btn:hover{
-          box-shadow:2px 8px 4px -6px hsla(0,0%,0%,.3);
-        } 
+
+      }
+    }
+  }
+  .btn{
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 20px 0;
+    padding:0.3rem 0.7rem;
+    border: solid 2px $ffbf7f;
+    background-color: $fff;
+    color: $fuschia;
+  }
+  .return{
+    text-align: center;
+    margin-bottom: 20px;
+  }
+}
+@media screen and (min-width:300px) and (max-width: 480px){
+  #previews{
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+}
+@media screen and (min-width:480px){
+  .post-card{
+    padding: 180px 0;
+    .add-image{
+      display: flex;
+      #previews{
+        display: flex;
+        margin: 0 20px;
       }
     }
   }
 }
 // 投稿詳細画面
-.show{
-  padding: 50px 0;
-  background-color: $whitesmoke;
-  margin: 0 10vw;
-  a{
-    color: black;;
-  }
+@media screen and (min-width:300px){
   .details{
-    margin: 0 auto;
-    display: flex;
-    a{
-      text-decoration: none;
-    }
     .image{
-      margin: 50px 0;
-      width: 35vw;
-      display: flex;
-      flex-direction: column;
-        .view-image{
-        width: 30vw;
+      margin: 10px 0;
+      padding-bottom: 10px;
+      border-bottom: dashed 2px $sandybrown;
+      .view-image{
+        width: 100%;
         height: 30vh;
         object-fit: contain;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
       }
       &__list{
         display: flex;
-        flex-wrap: wrap;
-        max-width: 25vw;
-        margin: 0 auto;
+        justify-content: center;
+        border-bottom: 1px ;
         .show-images{
-          width: 70px;
-          height: 70px;
+          width: 50px;
+          height: 50px;
           object-fit: cover;
-          margin-right: 8px;
+          margin: 5px;
+          border-radius: 2px;
         }
         .show-images:hover{
-          border: 2px solid black;
+          border: 2px solid $black;
         }
       }
     }
     .string{
-      max-width: 60vw;
-      padding: 30px;
+      padding: 10px;
+      border-bottom: dashed 2px $sandybrown;
       &__user{
-        display: flex;
-        justify-content: space-between;
+        position: relative;
         .show-avatar{
           border-radius: 50%;
-          height: 70px;
-          width: 70px;
-          margin-right: 10px;
+          height: 50px;
+          width: 50px;
+          margin: 10px ;
           object-fit: cover;
         }
         .user-author{
-          display: flex;
-          flex-direction: column;
-          text-align: left;
+          position: absolute;
+          top: 6px;
+          right: 0px;
           .user-name{
             margin: 5px 0;
-            font-size: 18px;
-            font-weight: bold;
-            width: 16vw;
-            a{
-              color: black;
-            }
+            font-size: 16px;
           }
           .post-date{
-            margin-top: 10px;
+            margin-top: 5px;
             font-size: 14px;
             color: $fuschia;
+            position: absolute;
+            top: 27px;
           }
         }
         .user-jarnal{
-          padding-top: 10px;
+          position: absolute;
+          right: 0;
+          top: 38px;
           display: flex;
-          margin: 0 auto;
-          width: 110px;
-          text-align: center;
           li{
             list-style: none;
-            font-size: 30px;
-            color: black;
+            font-size: 15px;
           }
           .red{
             color: $pstel;
           }
           .yellow{
-            color: #ffbf7f;
+            color: $ffbf7f;
           }
-          .font{
-            font-size: 15px;
-            margin-top: 7px;
-          }
-          .like{
-            width: 40px;
-          }
-          .favorite{
-            width: 60px;
-            margin-left: 10px;
+          .like,.like-hover{
+            display: flex;
+            i{
+              padding-top: 2px;
+            }
+            .count{
+              margin: 0 5px;
+            }
           }
         }
       }
-      &__title{
-        font-size: 25px;
-         margin: 20px 0;
-        padding: 10px;
-        margin-top: 50px;
-      }
-      &__content{
-        max-width: 35vw;
-        font-size: 16px;
-        padding: 20px;
-        border: 4px solid $fuschia;
+      &__text{
+        word-break: break-all;
         border-radius: 5px;
-        margin: 2em 0;
-        p{
-          word-wrap: break-word;
+        position: relative;
+        margin: 10px 0;
+        box-shadow: 0 2px 3px rgba(0,0,0,.22);
+        padding: 22px 8px 22px 8px;
+        background-image:
+        linear-gradient(90deg, rgba(237, 119, 128, 0) 0%, rgba(237, 119, 128, 0) 50%, #fff6e6 0%, #fff6e6 100%), linear-gradient(180deg, rgba(237, 119, 128, 0) 95%, $fuschia 100%);
+        background-size: 8px 100%,100% 2em;
+        line-height: 2;
+        &__title{
+          font-size: 1.15em;
+          padding: 5px;
+          background-image:asset-url("headerbord.jpg");
+          color: $fuschia;
+          font-weight:bold;
+          margin: -22px -8px 22px -8px;
+        }
+      }
+      .setting{
+        margin: 10px 10px 0;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        .delete, .edit{
+          display: flex;
+          i{
+            padding: 4px;
+          }
         }
       }
     }
   }
   .comment{
-    background-color: $whitesmoke;
-    display: flex;
-    margin-top: 50px;
-    min-height: 300px;
+    padding: 20px 0;
     &__create{
-      height: 60px;
-      width: 40%;
       text-align: center;
       .comment-area{
-        height: 100px;
-        width: 350px;
-        border: 0.1em solid gray;
+        width: 60vw;
+        border: 0.1em solid wheat;
         border-radius: 3px;
-        padding: 12px;
+        padding: 5px;
+        outline: none;
+      }
+      .comment-submit{
+        outline: none;
       }
     }
     &__list{
-      width: 60%;
       &__header{
         font-size: 20px;
-        padding: 20px;
+        padding: 10px;
         }
       &__show{
+        padding: 10px;
         .block{
-          display: flex;
-          justify-content: space-between;
           border-bottom: 1px solid #808080;
-          max-width: 800px;
           color: $fuschia;
-          min-height: 40px;
+          min-height: 30px;
           align-items: flex-end;
           .content{
             word-wrap: break-word;
           }
-          .user-name{
-            margin-left: auto;
-          }
-          .date{
-            margin: 0 10px;
+          .jarnal{
+            text-align: right;
+            .user-name{
+              cursor: pointer;
+              a{
+                color: $fuschia;
+              }
+            }
           }
         }
+      }
+    }
+  }
+}
+@media screen and (min-width:480px){
+  .string__user{
+    position: relative;
+    .user-author{
+      left: 70px;
+    }
+    .user-jarnal{
+      left: 160px;
+    }
+  }
+  .comment__list__show{
+    .jarnal{
+      display: flex;
+      justify-content: flex-end;
+      .date{
+        padding: 3px;
       }
     }
   }

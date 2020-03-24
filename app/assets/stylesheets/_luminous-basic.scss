@@ -269,6 +269,9 @@
   /* Used to centre the image in the container, respecting overflow: https://stackoverflow.com/a/33455342/515634 */
   .lum-lightbox-position-helper {
     margin: auto;
+    img{
+      width: 100%;
+    }
   }
 
   .lum-lightbox-inner img {

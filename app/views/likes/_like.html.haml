@@ -2,19 +2,20 @@
   - unless post.like_user(current_user.id).blank?
     = link_to post_like_path(post_id: post.id, id: post.likes[0].id), method: :delete, remote: true do
       .like
-      %li.red
-        %i.fas.fa-heart
-      %li.count.red
-        = @post.likes.count
+        %li.red
+          %i.fas.fa-heart
+        %li.count.red
+          = @post.likes_count
   - else
     = link_to post_likes_path(post.id), method: :post, remote: true do
       .like
-      %li.like-hover
-        %i.far.fa-heart
-        .hover= @post.likes.count
+        %li.like-hover
+          %i.far.fa-heart
+          .hover.count
+            = @post.likes_count
 - else
   .like
     %li
       %i.far.fa-heart
     %li.count
-      = @post.likes.count
+      = @post.likes_count
