@@ -1,53 +1,47 @@
 .my-page
-  .show
+  .show.user-jarnal
     .user-left
       .user-image
         -if @user.avatar.url
           = image_tag @user.avatar.url, class: "avatar"
         - else
           = image_tag asset_path("no_image.png"), class: "avatar"
-      .follow-btn.link-btn
-        - if user_signed_in?
-          - if current_user != @user
-            - if @user.followed_by?(current_user)
-              =link_to user_relationships_path(@user.id), method: :delete do
-                フォロー中
-            - else
-              =link_to user_relationships_path(@user.id), method: :post do
-                フォローする
-      .link-btn
+      .link-list
+        - if user_signed_in? && current_user != @user
+          - if @user.followed_by?(current_user)
+            =link_to user_relationships_path(@user.id),class: "my-btn", method: :delete do
+              フォロー中
+          - else
+            =link_to user_relationships_path(@user.id),class: "my-btn", method: :post do
+              フォローする
         - if current_user == @user
-          .favorite
-            = link_to favorite_user_path do
-              クリップリスト
-          .follow
-            = link_to follows_user_path do
-              フォローリスト
+          = link_to favorite_user_path,class: "my-btn" do
+            クリップリスト
+          = link_to follows_user_path,class: "my-btn" do
+            フォローリスト
     .user-right
-      .user-name
-        .name
+      .string__text
+        .string__text__title 
           = @user.name
-        .maypage-edit
-          - if user_signed_in? && current_user.id == @user.id
-            = link_to edit_user_registration_path do
-              編集
-      .user-profile
-        = @user.profile
+        = simple_format(@user.profile)
       .post-list
         .post-header
           %h2 最近の投稿
-          = link_to posts_user_path(@user) do
+          = link_to posts_user_path(@user), class: "list" do
             %span 投稿一覧
             %i.fas.fa-arrow-circle-right
         .post
-        - if @posts.present?
-          - @posts.each do |post|
-            .line
-              = link_to post_path(post) do
+          - if @posts.present?
+            - @posts.each do |post|
+              = link_to post_path(post), class: "line" do
                 .title
-                = post.title
+                  = post.title
                 .date
-                = post.created_at.to_s(:date)
-        - else
-          %p
-          投稿はまだありません
+                  = post.created_at.to_s(:date)
+          - else
+            %p
+            投稿はまだありません
+      .maypage-edit
+        - if user_signed_in? && current_user.id == @user.id
+          = link_to edit_user_registration_path, class: "my-btn" do
+            プロフィールを編集
