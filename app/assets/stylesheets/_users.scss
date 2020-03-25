@@ -1,54 +1,52 @@
-
-// ユーザー詳細画面
+// ユーザー画面共通
 .my-page{
-  padding: 15vh 10vw 8vh;
-  display: flex;
-  height: 100vh;
-  width: 80vw;
-  margin:  0 auto;
-  background-color: $whitesmoke;
-  a{
-    text-decoration: none;
-    color: $fuschia;
+  margin: 0 30px;
+  padding: 80px 0;
+   .show{
+    height: 100%;
+    border: dashed 2px $sandybrown;
+    border-radius: 3px;
+    box-shadow: 0 0 0 10px #fff6e6;
+    background: #fff6e6;
+    a{
+      color: $fuschia;
+      text-decoration: none;
+    }
   }
+}
+// ユーザーページ
+@media screen and (min-width:300px){
   .user-left{
     height: 100%;
-    width: 50vw;
-    display: flex;
-    flex-direction: column;
-    background-color: $fff;
     .user-image{
-      height: 45vh;
-      width: 100%;
       text-align: center;
-      line-height: 80vh;
+      margin: 50px;
       .avatar{
-        height: 180px;
-        width: 180px;
+        height: 150px;
+        width: 150px;
         border-radius: 50%;
         object-fit: cover;
       }
     }
     .follow-btn{
-      height: 10vh;
-      line-height: 6vh;
-      text-align: center;
+      margin: 10px;
     }
     .link-btn{
+      margin: 10px 10px 20px;
+      line-height: 6vh;
       display: flex;
-      height: calc(100% - 55vh);
-      line-height: 35vh;
+      text-align: center;
       .favorite{
         width: 50%;
-        text-align: center;
       }
       .follow{
-        text-align: center;
+        // text-align: center;
         width: 50%;
       }
     }
   }
   .user-right{
+    display: none;
     width: 50vw;
     height: 100%;
     background-color: blanchedalmond;
@@ -96,6 +94,105 @@
       }
     }
   }
+}
+@media screen and (min-width:900px){
+  // .my-page{
+  //   padding: 15vh 10vw 8vh;
+  //   display: flex;
+  //   height: 100vh;
+  //   width: 80vw;
+  //   margin:  0 auto;
+  //   background-color: $whitesmoke;
+  //   a{
+  //     text-decoration: none;
+  //     color: $fuschia;
+  //   }
+  //   .user-left{
+  //     height: 100%;
+  //     width: 50vw;
+  //     display: flex;
+  //     flex-direction: column;
+  //     background-color: $fff;
+  //     .user-image{
+  //       height: 45vh;
+  //       width: 100%;
+  //       text-align: center;
+  //       line-height: 80vh;
+  //       .avatar{
+  //         height: 180px;
+  //         width: 180px;
+  //         border-radius: 50%;
+  //         object-fit: cover;
+  //       }
+  //     }
+  //     .follow-btn{
+  //       height: 10vh;
+  //       line-height: 6vh;
+  //       text-align: center;
+  //     }
+  //     .link-btn{
+  //       display: flex;
+  //       height: calc(100% - 55vh);
+  //       line-height: 35vh;
+  //       .favorite{
+  //         width: 50%;
+  //         text-align: center;
+  //       }
+  //       .follow{
+  //         text-align: center;
+  //         width: 50%;
+  //       }
+  //     }
+  //   }
+  //   .user-right{
+  //     width: 50vw;
+  //     height: 100%;
+  //     background-color: blanchedalmond;
+  //     color: $fuschia;
+  //     padding: 5vh;
+  //     .user-name{
+  //       height: 14vh;
+  //       display: flex;
+  //       justify-content: space-between;
+  //       padding: 20px;
+  //       line-height: 9vh;
+  //       .name{
+  //         font-size: 20px;
+  //       }
+  //     }
+  //     .user-profile{
+  //       height: 25vh;
+  //       padding: 20px;
+  //     }
+  //     .post-list{
+  //       height: calc(100% - 39vh);
+  //       padding: 20px;
+  //       .post-header{
+  //         display: flex;
+  //         justify-content: space-between;
+  //         span{
+  //           margin-right: 5px;
+  //         }
+  //         i{
+  //           padding-top: 3px;
+  //         }
+  //       }
+  //       h2{
+  //         margin-bottom: 10px;
+  //         font-size: 18px;
+  //       }
+  //       .line{
+  //         margin: 5px 5px;
+  //       }
+  //       a{
+  //         display: flex;
+  //         .date{
+  //           margin: 0 0 0 auto;
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
 }
 // ユーザー編集画面
 .profile-edit{
