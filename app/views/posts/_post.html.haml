@@ -13,7 +13,7 @@
         .like
           - if user_signed_in?
             - unless post.like_user(current_user.id).blank?
-              %i.fas.fa-heart{style: "color: red;"}
+              %i.fas.fa-heart.red
             - else
               %i.far.fa-heart
           - else

@@ -9,6 +9,7 @@ ja:
         src: 画像
       user:
         name: 名前
+        profile: 自己紹介
         confirmation_sent_at: パスワード確認送信時刻
         confirmation_token: パスワード確認用トークン
         confirmed_at: パスワード確認時刻
@@ -145,5 +146,5 @@ ja:
       not_found: は見つかりませんでした。
       not_locked: は凍結されていません。
       not_saved:
-        one: エラーが発生したため %{resource} は保存されませんでした。
+        one: プロフィールの更新に失敗しました。
         other: "%{count} 件のエラーが発生したため登録に失敗しました。"

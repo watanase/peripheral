@@ -1,7 +1,7 @@
 .my-page
   .show.user-jarnal
     .user-left
-      .user-image
+      .user-image.image-avatar
         -if @user.avatar.url
           = image_tag @user.avatar.url, class: "avatar"
         - else
@@ -20,7 +20,7 @@
           = link_to follows_user_path,class: "my-btn" do
             フォローリスト
     .user-right
-      .string__text
+      .string__text.user-prifile
         .string__text__title 
           = @user.name
         = simple_format(@user.profile)

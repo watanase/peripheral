@@ -17,7 +17,8 @@ class Post < ApplicationRecord
   validates :content, length: { maximum: 300 }, presence: true
   validates :images, presence: true
   validates_associated :images
-
+  before_validation :delete_whitespace
+ 
   # お気に入り判断
   def favorite_user(user_id)
     favorites.find_by(user_id: user_id)
@@ -41,4 +42,10 @@ class Post < ApplicationRecord
     Post.where('title LIKE(?)', "%#{search}%")
     Post.where('content LIKE(?)', "%#{search}%")
   end
+
+  private
+    def delete_whitespace
+      self.title = title.rstrip
+      self.content = content.rstrip
+    end
 end

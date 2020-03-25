@@ -1,11 +1,11 @@
-// 入力文字数のカウント
+// // 入力文字数のカウント
 $(function () {
-  $(".text-field").bind('keydown keyup keypress change', function () {
-    let countNum = ($(this).val().length);
-    $(".count-name").html(countNum);
+  $(".text-field").on("keydown keyup keypress change", function () {
+    let inputCount = $(this).val().replace(/\n/g, "改行").length;
+    $(".count-name").text(inputCount);
   });
-  $("textarea").bind('keydown keyup keypress change', function () {
-    let countNum = ($(this).val().length);
-    $(".count-profile").html(countNum);
+  $("textarea").on("keydown keyup keypress change", function () {
+    let profileCount = $(this).val().replace(/\n/g, "改行").length;
+    $(".count-profile").text(profileCount);
   });
 });

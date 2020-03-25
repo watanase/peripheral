@@ -33,7 +33,7 @@
     .text-area
       .string-area
         .heading
-          %h2 タイトル
+          %h2= f.label :title
           - if @post.title
             %span.count-name=@post.title.length
           - else
@@ -42,13 +42,12 @@
         = f.text_field :title, class: "text-field", placeholder: "タイトルを入力", required: ""
       .string-area
         .heading
-          %h2
-            説明文
-            - if @post.content
-              %span.count-profile=@post.content.length
-            - else
-              %span.count-profile 0
-            %span /300
+          %h2= f.label :content
+          - if @post.content
+            %span.count-profile= @post.content.length
+          - else
+            %span.count-profile 0
+          %span /300
         = f.text_area :content, class: "input-text", placeholder: "説明文を入力", required: ""
       .text-area__btn
         = f.submit class: "btn"

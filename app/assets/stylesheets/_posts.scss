@@ -237,7 +237,7 @@ body {
           .post-content{
             font-size: 14px;
             line-height: 1;
-            color: #777;
+            color: $fuschia;
             overflow: hidden;
             white-space: normal;
             text-overflow: ellipsis;
@@ -247,12 +247,15 @@ body {
         .post-user{
           border-top: 1px solid #eee;
           padding: 10px;
-          color: #777;
+          color: $fuschia;
           display: flex;
           justify-content: space-between;
           height: 45px;
           .like{
             line-height: 25px;
+            .red{
+              color: $pstel;
+            }
           }
         }
       }
@@ -467,37 +470,6 @@ body {
     .info-image{
       margin: 15px 0;
     }
-    .text-area{
-      font-size: 18px;
-      .string-area{
-        text-align: center;
-        .heading{
-          display: flex;
-          .count-name, .count-profile{
-            margin-left: 5px;
-          }
-          span{
-            padding: 2px;
-          }
-        }
-        .text-field, .input-text{
-          margin: 5px;
-          padding: 10px;
-          border: 2px solid $ffbf7f;
-          border-radius: 5px;
-          resize: vertical;
-          outline: none;
-          width: 70vw;
-        }
-        .input-text{
-          min-height: 20vh;
-        }
-      }
-      &__btn{
-        text-align: center;
-
-      }
-    }
   }
   .btn{
     border-radius: 5px;
@@ -680,13 +652,19 @@ body {
   }
 }
 @media screen and (min-width:480px){
-  .string__user{
-    position: relative;
-    .user-author{
-      left: 70px;
+  .string{
+    &__user{
+      position: relative;
+      .user-author{
+        left: 70px;
+      }
+      .user-jarnal{
+        left: 160px;
+      }
     }
-    .user-jarnal{
-      left: 160px;
+    &__text{
+      margin: 20px auto;
+      width: 80vw;
     }
   }
   .comment__list__show{

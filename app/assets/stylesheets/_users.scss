@@ -13,7 +13,7 @@
     }
   }
 }
-// ユーザーページ
+// ユーザーマイページ
 @media screen and (min-width:300px){
   .user-left{
     height: 100%;
@@ -79,11 +79,16 @@
     }
   }
 }
-@media screen and (min-width:600px){
-  .user-right{
-    .string__text{
-      width: 80vw;
-      margin: 20px auto;
+@media screen and (min-width:480px){
+  .user-jarnal{
+    .image-avatar{
+      margin: 80px;
+    }
+    .user-right{
+      .string__text{
+        width: 80vw;
+        margin: 20px auto;
+      }
     }
   }
 }
@@ -101,121 +106,41 @@
       .post-list{
         width: 40vw;
       }
-      .string__text{
+      .user-prifile{
         width: 40vw;
-        margin: 20px auto;
       }
     }
   }
 }
-// ユーザー編集画面
-.profile-edit{
-  padding: 15vh 10vw 8vh;
-  height: 100vh;
-  width: 80vw;
-  margin:  0 auto;
-  background-color: $whitesmoke;
-  .profile-header{
-    font-size: 25px;
-  }
-  form{
-    height: 100%;
-    width: 100%;
-    .profile-string{
-      height: 100%;
-      width: 100%;
-      display: flex;
-      .left-page{
-        height: 100%;
-        width: 50vw;
-        display: flex;
-        flex-direction: column;
-        background-color: $fff;
-        .avatar-image{
-          height: 45vh;
-          width: 100%;
-          text-align: center;
-          line-height: 80vh;
-          .avatar_present_img{
-            height: 180px;
-            width: 180px;
-            border-radius: 50%;
-            object-fit: cover;
-          }
-        }
-        .input-file{
-          height: calc(100% - 45vh);
-          text-align: center;
-          font-size: 50px;
-          margin-top: 30px;
-          #post_img{
-            display: none;
-            cursor: pointer;
-          }
-          label{
-            cursor: pointer;
-          }
-        }
-      }
-      .right-page{
-        width: 50vw;
-        height: 100%;
-        background-color: blanchedalmond;
-        color: $fuschia;
-        padding: 5vh;
-        display: flex;
-        flex-direction: column;
-        .name{
-          padding-top: 30px;
-          height: 24vh;
-          .text-field{
-            padding: 10px;
-            height: 25px;
-            margin: 10px;
-            border-radius: 3px;
-            width: 180px;
-            border: 1px solid;
-            color: $fuschia;
-            background: #f5f6f7;
-            outline: none;
-          }
-        }
-        .profile{
-          height: 35vh;
-          .text-area{
-            padding: 5px;
-            height: 150px;
-            margin: 10px;
-            border-radius: 3px;
-            width: 350px;
-            border: 1px solid;
-            color: $fuschia;
-            background: #f5f6f7;
-            outline: none;
-          }
-        }
-        .actions{
-          display: flex;
-          text-align: center;
-          align-items: flex-end;
-          a{
-            text-decoration: none;
-            color: $fuschia;
-          }
-          .update{
-            .submit{
-              color: $fuschia;
-              height: 35px;
-              width: 60px;
-              font-size: 15px;
+@media screen and (min-width:1060px){
 
-            }
-          }
-          .back{
-            width: 50%;
-          }
-        }
+
+// ユーザー編集画面
+@media screen and (min-width:300px){
+  .user-edit{
+    .user-image{
+      margin: 30px;
+    }
+    .input-file{
+      margin-bottom: 20px;
+      text-align: center;
+      font-size: 30px;
+      #post_img{
+        display: none;
       }
+    }
+    .text-area__btn{
+      display: flex;
+      flex-direction: column;
+      margin: 0 auto;
+      width: 100px;
+    }
+  }
+}
+@media screen and (min-width:480px){
+  .user-edit{
+    .user-image{
+      margin: 80px;
     }
   }
 }
