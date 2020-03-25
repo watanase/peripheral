@@ -1,39 +1,40 @@
 .my-page
-  .show.user-edit
-    プロフィール編集
+  .show
     = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
       = render "devise/shared/error_messages", resource: resource
-      .user-left
-        .user-image.image-avatar
-          -if current_user.persisted? && current_user.avatar?
-            = image_tag current_user.avatar.to_s, class: "avatar"
-          -else
-            = image_tag 'no_image.png', class: "avatar"
-            = f.hidden_field :avatar_cache
-        .input-file
-          = f.file_field :avatar, id: "post_img"
-          %label{for: "post_img"}
-            %i.fas.fa-camera
-      .user-right
-        .text-area
-          .string-area
-            .heading
-              %h2= f.label :name
-              %span.count-name= @user.name.length
-              %span /10
-            - if @user.email == "test@example.com"
-              %p ゲストユーザーは名前を変更できません
+      .user-edit
+        .user-left
+          .edit-present プロフィール編集
+          .user-image.image-avatar
+            -if current_user.persisted? && current_user.avatar?
+              = image_tag current_user.avatar.to_s, class: "avatar"
             -else
-              = f.text_field :name,  class: "text-field", required: ""
-          .string-area
-            .heading
-              %h2= f.label :profile
-              - if @user.profile
-                %span.count-profile= @user.profile.length
-              - else
-                %span.count-profile 0
-              %span /100
-            = f.text_area :profile, class: "input-text"
-          .text-area__btn
-            = f.submit class: "btn"
-            = link_to "戻る", user_path(current_user), class: "btn"
+              = image_tag 'no_image.png', class: "avatar"
+              = f.hidden_field :avatar_cache
+          .input-file
+            = f.file_field :avatar, id: "post_img"
+            %label{for: "post_img"}
+              %i.fas.fa-camera
+        .user-right
+          .text-area
+            .string-area
+              .heading
+                %h2= f.label :name
+                %span.count-name= @user.name.length
+                %span /10
+              - if @user.email == "test@example.com"
+                %p ゲストユーザーは名前を変更できません
+              -else
+                = f.text_field :name,  class: "text-field", required: ""
+            .string-area
+              .heading
+                %h2= f.label :profile
+                - if @user.profile
+                  %span.count-profile= @user.profile.length
+                - else
+                  %span.count-profile 0
+                %span /100
+              = f.text_area :profile, class: "input-text"
+            .text-area__btn
+              = f.submit class: "btn"
+              = link_to "戻る", user_path(current_user), class: "btn"

@@ -1,7 +1,7 @@
 .my-page
   .show.user-jarnal
     .user-left
-      .user-image.image-avatar
+      .user-image
         -if @user.avatar.url
           = image_tag @user.avatar.url, class: "avatar"
         - else
@@ -20,28 +20,29 @@
           = link_to follows_user_path,class: "my-btn" do
             フォローリスト
     .user-right
-      .string__text.user-prifile
-        .string__text__title 
-          = @user.name
-        = simple_format(@user.profile)
-      .post-list
-        .post-header
-          %h2 最近の投稿
-          = link_to posts_user_path(@user), class: "list" do
-            %span 投稿一覧
-            %i.fas.fa-arrow-circle-right
-        .post
-          - if @posts.present?
-            - @posts.each do |post|
-              = link_to post_path(post), class: "line" do
-                .title
-                  = post.title
-                .date
-                  = post.created_at.to_s(:date)
-          - else
-            %p
-            投稿はまだありません
-      .maypage-edit
-        - if user_signed_in? && current_user.id == @user.id
-          = link_to edit_user_registration_path, class: "my-btn" do
-            プロフィールを編集
+      .string
+        .string__text.user-prifile
+          .string__text__title 
+            = @user.name
+          = simple_format(@user.profile)
+        .post-list
+          .post-header
+            %h2 最近の投稿
+            = link_to posts_user_path(@user), class: "list" do
+              %span 投稿一覧
+              %i.fas.fa-arrow-circle-right
+          .post
+            - if @posts.present?
+              - @posts.each do |post|
+                = link_to post_path(post), class: "line" do
+                  .title
+                    = post.title
+                  .date
+                    = post.created_at.to_s(:date)
+            - else
+              %p
+              投稿はまだありません
+        .maypage-edit
+          - if user_signed_in? && current_user.id == @user.id
+            = link_to edit_user_registration_path, class: "my-btn" do
+              プロフィールを編集

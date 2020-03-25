@@ -104,7 +104,7 @@
         margin: 18px;
       }
       .post-list{
-        width: 40vw;
+        width: 30vw;
       }
       .user-prifile{
         width: 40vw;
@@ -113,11 +113,31 @@
   }
 }
 @media screen and (min-width:1060px){
-
+  .my-page{
+    margin: 0 auto;
+    width: 1000px;
+    .user-left{
+      width: 50%;
+    }
+    .user-right{
+      width: 50%;
+      .string{
+        &__text{
+          width: 460px;
+        }
+      }
+    }
+  }
+}
 
 // ユーザー編集画面
 @media screen and (min-width:300px){
   .user-edit{
+    .edit-present{
+      font-size: 18px;
+      color: $fuschia;
+      margin: 10px;
+    }
     .user-image{
       margin: 30px;
     }
@@ -131,9 +151,7 @@
     }
     .text-area__btn{
       display: flex;
-      flex-direction: column;
-      margin: 0 auto;
-      width: 100px;
+      justify-content: space-around;
     }
   }
 }
@@ -141,6 +159,24 @@
   .user-edit{
     .user-image{
       margin: 80px;
+    }
+  }
+}
+@media screen and (min-width:1060px){
+  .user-edit{
+    display: flex;
+    .user-right{
+      padding: 20px;
+      .string-area{
+        margin: 10px;
+        .text-field, .input-text{
+          width: 400px;
+          margin: 10px;
+        }
+        .input-text{
+          height: 200px;
+        }
+      }
     }
   }
 }
