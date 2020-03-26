@@ -70,6 +70,8 @@
 }
 // ノートCSS
 .string__text{
+  color: $fuschia;
+  min-height: 200px;
   word-break: break-all;
   border-radius: 5px;
   position: relative;
@@ -84,7 +86,6 @@
     font-size: 1.15em;
     padding: 5px;
     background-image:asset-url("headerbord.jpg");
-    color: $fuschia;
     font-weight:bold;
     margin: -22px -8px 22px -8px;
   }
@@ -113,7 +114,7 @@
       width: 60vw;
     }
     .input-text{
-      min-height: 20vh;
+      min-height:200px;
     }
   }
   &__btn{

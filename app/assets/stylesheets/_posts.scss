@@ -408,7 +408,6 @@ body {
   margin: 0 30px;
   padding: 100px 0;
   .show{
-    height: 100%;
     border: dashed 2px $sandybrown;
     border-radius: 3px;
     box-shadow: 0 0 0 10px #fff6e6;
@@ -495,7 +494,6 @@ body {
 }
 @media screen and (min-width:480px){
   .post-card{
-    padding: 180px 0;
     .add-image{
       display: flex;
       flex-wrap: wrap;
@@ -510,11 +508,25 @@ body {
     }
   }
 }
+@media screen and (min-width:600px){
+  .post-width{
+    width: 580px;
+    .text-area{
+      .string-area{
+        .text-field, .input-text{
+          width: 500px;
+          margin: 10px;
+        }
+      }
+    }
+  }
+}
+
 // 投稿詳細画面
 @media screen and (min-width:300px){
   .details{
     .image{
-      margin: 10px 0;
+      margin: 20px 0;
       padding-bottom: 10px;
       border-bottom: dashed 2px $sandybrown;
       .view-image{
@@ -554,8 +566,9 @@ body {
         .user-author{
           position: absolute;
           top: 6px;
-          right: 0px;
+          left: 75px;
           .user-name{
+            font-weight: bold;
             margin: 5px 0;
             font-size: 16px;
           }
@@ -674,6 +687,17 @@ body {
       .date{
         padding: 3px;
       }
+    }
+  }
+}
+@media screen and (min-width:800px){
+  .post-show{
+    width: 770px;
+    .string__text{
+      width: 740px;
+    }
+    .comment-area{
+      width: 600px;
     }
   }
 }

@@ -94,7 +94,6 @@
 }
 @media screen and (min-width:800px){
   .my-page{
-    height: 100vh;
     .user-jarnal{
       height: 600px;
       display: flex;
@@ -111,32 +110,35 @@
         }
         .user-prifile{
           width: 40vw;
+          overflow: scroll;
+          max-height: 250px;
         }
       }
     }
   }
 }
-@media screen and (min-width:1060px){
+@media screen and (min-width:900px){
   .my-page{
     margin: 0 auto;
-    width: 1000px;
-    .user-left{
-      width: 50%;
-    }
-    .user-right{
-      width: 50%;
-      .string{
-        &__text{
-          width: 460px;
-        }
-      }
-      .post-list{
+    width: 800px;
+    .show.user-jarnal{
+      .user-left{
         width: 400px;
+      }
+      .user-right{
+        width: 400px;
+        .string{
+          &__text{
+            width: 350px;
+          }
+        }
+        .post-list{
+          width: 350px;
+        }
       }
     }
   }
 }
-
 // ユーザー編集画面
 @media screen and (min-width:300px){
   .user-registr{
@@ -171,18 +173,26 @@
   }
 }
 @media screen and (min-width:1060px){
-  .user-registr{
-    display: flex;
-    .user-right{
-      padding: 20px;
-      .string-area{
-        margin: 10px;
-        .text-field, .input-text{
-          width: 400px;
+  .my-edit{
+    width: 800px;
+    .user-registr{
+      display: flex;
+      .user-left{
+        width: 400px;
+      }
+      .user-right{
+        width: 400px;
+        padding: 20px;
+        .string-area{
           margin: 10px;
-        }
-        .input-text{
-          height: 200px;
+          .text-field, .input-text{
+            width: 400px;
+            margin: 10px;
+          }
+          .input-text{
+            height: 200px;
+            width: 320px;
+          }
         }
       }
     }
@@ -224,83 +234,66 @@
     }
   }
 }
-// お気に入り画面
-.favorite-list{
-  padding: 80px 100px;
-  width: 750px;
-  height: 100vh;
-  text-align: center;
-  margin: 0 auto;
-  background-color: $whitesmoke;
-  .favorite-header{
-    font-size: 30px;
-  }
-  .list{
-    margin-top: 50px;
-    a{
-      display: flex;
-      height: 45px;
-      text-decoration: none;
-      font-size: 16px;
-      border-bottom: 1.5px inset $fuschia;
+// フォロー、クリップ画面
+@media screen and (min-width:300px){
+  .my-check{
+    height: 100vh;
+    .my-jarnal{
+      overflow: scroll;
       color: $fuschia;
-      .src{
-        height: 40px;
-        width: 40px;
-        margin-top: 2px;
+      .my-header{
+        margin: 0 auto;
+        padding: 15px;
+        text-align: center;
+        border-bottom: solid 1px $sandybrown;
       }
-      .title{
-        line-height: 45px;
-        margin-left: 10px;
-      }
-      .user{
-        margin: 0 0 0 auto;
-        line-height: 45px;
+      .my-list{
+        .post{
+          display: flex;
+          border-bottom: 1px dashed $sandybrown;
+          align-items: center;
+          .image{
+            line-height: auto;
+            .src{
+              margin: 10px;
+              height: 40px;
+              width: 40px;
+              border-radius: 50%;
+              object-fit: cover;
+            }
+          }
+          .jeneral{
+            width: 100%;;
+            margin-left: 5px;
+            .main{
+              font-weight: bold;
+            }
+            .sub{
+              margin-left: 5px;
+            }
+            .profile{
+              margin-right: 10px;
+            }
+            .date{
+              text-align: right;
+              margin-right: 10px;
+            }
+          }
+        }
       }
     }
   }
 }
-// フォロー画面
-.follows-list{
-  padding: 80px 100px;
-  width: 60%;
-  height: 100vh;
-  text-align: center;
-  margin: 0 auto;
-  background-color: $whitesmoke;
-  .follows-header{
-    font-size: 30px;
-  }
-  .follows{
-    margin-top: 50px;
-    a{
-      display: flex;
-      height: 70px;
-      text-decoration: none;
-      font-size: 20px;
-      border-bottom: 1.5px inset #777;
-      color: $fuschia;
-      width: 330px;
-      margin: 0 auto;
-      .avatar{
-        margin-top: 5px;
-        height: 60px;
-        width: 60px;
-        border-radius: 50%;
-        object-fit: cover;
-      }
-      .user{
-        line-height: 80px;
-        margin-left: 30px;
-        margin: 0 0 0 auto;
-      }
-    }
+@media screen and (min-width:600px){
+  .my-jarnal{
+    width: 400px;
+    margin: 0 auto;
   }
 }
 // 新規登録,ログイン画面
 @media screen and (min-width:300px){
   .show{
-    margin: 70px 10px;
+    margin: 70px auto;
     .session{
       margin: 27px 0;
       a{
@@ -321,12 +314,12 @@
 }
 @media screen and (min-width:480px){
   .devise{
-    width: 60vw;
+    width: 400px;
     margin: 0 auto;
     .user-registr{
       .string-area{
         .width{
-          width: 40vw;
+          width: 300px;
         }
       }
     }

@@ -1,13 +1,13 @@
-.user-posts
-  .posts-header
-    投稿一覧
-  .post-list
-    - @user.posts.each do |post|
-      .post
-      = link_to post_path(post) do
-        .image
-          = image_tag post.images[0].src.url, class: "src"
-        .title
-          = post.title
-        .date
-          = post.created_at.to_s(:datetime)
+.post-card.my-check
+  .show.my-jarnal
+    .my-header 投稿一覧
+    .my-list
+      - @user.posts.each do |post|
+        = link_to post_path(post), class: "post" do
+          .image
+            = image_tag post.images[0].src.url, class: "src"
+          .jeneral
+            .title.main
+              = post.title
+            .date
+              = post.created_at.to_s(:datetime)
