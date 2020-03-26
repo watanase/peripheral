@@ -139,12 +139,6 @@
     }
   }
 }
-@media screen and (min-width:1000px){
-  .my-page{
-    height: 100%;
-  }
-}
-
 // ユーザー編集画面
 @media screen and (min-width:300px){
   .user-registr{
@@ -179,18 +173,26 @@
   }
 }
 @media screen and (min-width:1060px){
-  .user-registr{
-    display: flex;
-    .user-right{
-      padding: 20px;
-      .string-area{
-        margin: 10px;
-        .text-field, .input-text{
-          width: 400px;
+  .my-edit{
+    width: 800px;
+    .user-registr{
+      display: flex;
+      .user-left{
+        width: 400px;
+      }
+      .user-right{
+        width: 400px;
+        padding: 20px;
+        .string-area{
           margin: 10px;
-        }
-        .input-text{
-          height: 200px;
+          .text-field, .input-text{
+            width: 400px;
+            margin: 10px;
+          }
+          .input-text{
+            height: 200px;
+            width: 320px;
+          }
         }
       }
     }
