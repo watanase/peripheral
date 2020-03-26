@@ -39,11 +39,7 @@ class User < ApplicationRecord
   private
 
   def delete_whitespace
-    if self.name
-      self.name = name.rstrip
-    end
-    if self.profile
-      self.profile = profile.rstrip
-    end
+    self.name = name.rstrip if name
+    self.profile = profile.rstrip if profile
   end
 end
