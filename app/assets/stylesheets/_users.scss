@@ -293,7 +293,7 @@
 // 新規登録,ログイン画面
 @media screen and (min-width:300px){
   .show{
-    margin: 20px auto;
+    margin: 70px auto;
     .session{
       margin: 27px 0;
       a{
@@ -314,12 +314,12 @@
 }
 @media screen and (min-width:480px){
   .devise{
-    width: 60vw;
+    width: 400px;
     margin: 0 auto;
     .user-registr{
       .string-area{
         .width{
-          width: 40vw;
+          width: 300px;
         }
       }
     }

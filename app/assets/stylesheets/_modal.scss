@@ -7,6 +7,9 @@
   line-height: 50px;
   li{
     font-size: 18px;
+    i, .far{
+      display: inline-block;
+    }
     p{
       font-size: 15px;
       margin-left: 10px;
@@ -15,18 +18,26 @@
   }
 }
 /* モーダル コンテンツエリア */
-#modal-main {
-  font-size: 30px;
-  display: none;
-  width: 800px;
-  height: 520px;
-  padding: 20px;
-  background-image:asset-url("com.jpg");
-  color: black;
-  position:fixed;
-  z-index: 4;
-  border-radius: 5px;
+@media screen and (min-width:300px){
+  #modal-main {
+    font-size: 30px;
+    display: none;
+    width: 80vw;
+    height: 80vh;
+    padding: 20px;
+    background-image:asset-url("headerbord.jpg");
+    position:fixed;
+    z-index: 4;
+    border-radius: 5px;
+    overflow: scroll;
+  }
 }
+@media screen and (min-width:600px){
+  #modal-main{
+    height: 60vh;
+  }
+}
+
 /* モーダル 背景エリア */
 #modal-bg {
   display:none;
