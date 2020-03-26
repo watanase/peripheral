@@ -8,13 +8,13 @@ describe Post do
         expect(post).to be_valid
       end
 
-      it 'titleが20文字以内だと登録できる' do
+      it 'titleが20文字以下だと登録できる' do
         num = 'n' * 20
         post = build(:post, title: num)
         expect(post).to be_valid
       end
 
-      it 'contentが300文字以内だと登録できる' do
+      it 'contentが300文字以下だと登録できる' do
         num = 'n' * 300
         post = build(:post, content: num)
         expect(post).to be_valid

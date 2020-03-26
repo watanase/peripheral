@@ -46,7 +46,11 @@ class Post < ApplicationRecord
   private
 
   def delete_whitespace
-    self.title = title.rstrip
-    self.content = content.rstrip
+    if self.title
+      self.title = title.rstrip
+    end
+    if self.content
+      self.content = content.rstrip
+    end
   end
 end
