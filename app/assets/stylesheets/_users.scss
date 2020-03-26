@@ -132,11 +132,12 @@
 
 // ユーザー編集画面
 @media screen and (min-width:300px){
-  .user-edit{
-    .edit-present{
+  .user-registr{
+    .present{
       font-size: 18px;
       color: $fuschia;
-      margin: 10px;
+      text-align: center;
+      margin: 15px 0;
     }
     .user-image{
       margin: 30px;
@@ -156,14 +157,14 @@
   }
 }
 @media screen and (min-width:480px){
-  .user-edit{
+  .user-registr{
     .user-image{
       margin: 80px;
     }
   }
 }
 @media screen and (min-width:1060px){
-  .user-edit{
+  .user-registr{
     display: flex;
     .user-right{
       padding: 20px;
@@ -289,194 +290,46 @@
     }
   }
 }
-// 新規登録画面
-.signup{
-  padding-top: 50px;
-  display: flex;
-  height: calc(100vh - 30px);
-  position: relative;
-  img{
-    width: 100%;
-    object-fit: cover;
-  }
-  .right-page{
-    position: absolute;
-    left: 10vw;
-    top: 12vh;
-    background-color: $whitesmoke;
-    text-align: center;
-    border-radius: 15px;
-    a{
-      text-decoration: none;
-      color: $fuschia;
-    }
-    .format{
-      width: 500px;
-      height: 80vh;
-      font-size: 17px;
-      font-weight: bold;
-      overflow: auto;
-      h2{
-          font-size: 23px;
-          padding: 20px 0;
-          font-weight: bold;
-        }
-      .field-name{
-        height: 80px;
-        margin: 5px 80px;
-        line-height: 30px;
-        .title{
-          text-align: left;
-          margin: 5px 0 5px 10px;
-        }
-        .name{
-          width: 80%;
-          padding: 9px;
-          border-radius: 3px;
-          outline: none;
-          font-size: 15px;
-          border: none;
-        }
-      }
-      .field-email{
-        height: 85px;
-        margin: 5px 80px;
-        line-height: 30px;
-        .title{
-          text-align: left;
-          margin: 5px 0 5px 10px;
-        }
-        .email{
-          width: 80%;
-          padding: 9px;
-          border-radius: 3px;
-          outline: none;
-          font-size: 15px;
-          border: none;
-        }
-      }
-      .field-password{
-        height: 85px;
-        margin: 5px 80px;
-        line-height: 30px;
-        .title{
-          text-align: left;
-          margin: 5px 0 5px 10px;
-        }
-        .pass{
-          width: 80%;
-          padding: 9px;
-          border-radius: 3px;
-          outline: none;
-          font-size: 15px;
-          border: none;
-        }
-      }
-      .field-check{
-        height: 85px;
-        margin: 5px 80px;
-        line-height: 30px;
-        .title{
-          text-align: left;
-          margin: 5px 0 5px 10px;
-        }
-        .check{
-          width: 80%;
-          padding: 9px;
-          border-radius: 3px;
-          outline: none;
-          font-size: 15px;
-          border: none;
-        }
-      }
-      .signup-btn{
-        height: 100px;
+// 新規登録,ログイン画面
+@media screen and (min-width:300px){
+  .show{
+    margin: 70px 10px;
+    .session{
+      margin: 27px 0;
+      a{
         display: flex;
-        justify-content: space-around;
-        padding-top: 30px;
-        .render{
-          margin-top: 10px;
+        color: $fuschia;
+        i{
+          padding: 4px;
+        }
+      }
+    }
+    .guest{
+      text-align: center;
+      .comment-submit{
+        margin: 10px auto;
+      }
+    }
+  }
+}
+@media screen and (min-width:480px){
+  .devise{
+    width: 60vw;
+    margin: 0 auto;
+    .user-registr{
+      .string-area{
+        .width{
+          width: 40vw;
         }
       }
     }
   }
 }
-// ログイン画面
-.login{
-  padding-top: 50px;
-  display: flex;
-  height: calc(100vh - 30px);
-  position: relative;
-  img{
-    width: 100%;
-    object-fit: cover;
-  }
-  .left-page{
-    position: absolute;
-    left: 10vw;
-    top: 17vh;
-    background-color: $whitesmoke;
-    text-align: center;
-    border-radius: 15px;
-    a{
-      text-decoration: none;
-      color: $fuschia;
-    }
-    .format{
-      width: 500px;
-      height: 70vh;
-      font-size: 17px;
-      font-weight: bold;
-      overflow: auto;
-      h2{
-        font-size: 23px;
-        padding: 20px 0;
-        font-weight: bold;
-        margin: 30px 0;
-      }
-      .field-email{
-        height: 85px;
-        margin: 5px 80px;
-        line-height: 30px;
-        .title{
-          text-align: left;
-          margin: 5px 0 5px 10px;
-        }
-        .email{
-          width: 80%;
-          padding: 9px;
-          border-radius: 3px;
-          outline: none;
-          font-size: 15px;
-          border: none;
-        }
-      }
-      .field-password{
-        height: 85px;
-        margin: 5px 80px;
-        line-height: 30px;
-        .title{
-          text-align: left;
-          margin: 5px 0 5px 10px;
-        }
-        .pass{
-          width: 80%;
-          padding: 9px;
-          border-radius: 3px;
-          outline: none;
-          font-size: 15px;
-          border: none;
-        }
-      }
-      .signin-btn{
-        height: 100px;
-        display: flex;
-        justify-content: space-around;
-        margin: 20px 0;
-        .render{
-          margin-top: 10px;
-        }
-      }
+@media screen and (min-width:1060px){
+  .user-registr{
+    display: block;
+    .user-right{
+      width: 100%;
     }
   }
 }

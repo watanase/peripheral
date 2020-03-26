@@ -2,9 +2,9 @@
   .show
     = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
       = render "devise/shared/error_messages", resource: resource
-      .user-edit
+      .user-registr
         .user-left
-          .edit-present プロフィール編集
+          .present プロフィール編集
           .user-image.image-avatar
             -if current_user.persisted? && current_user.avatar?
               = image_tag current_user.avatar.to_s, class: "avatar"

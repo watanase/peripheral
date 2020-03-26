@@ -22,50 +22,6 @@
   margin: 10px;
   color: $whitesmoke;
 }
-// 新規登録ボタン
-.simple_square_btn8{
-	display: block;
-	position: relative;
-	width: 130px;
-	padding: 0.5em;
-	text-align: center;
-	text-decoration: none;
-	color: #1B1B1B;
-	background: #fff;
-  border-radius: 30px;
-	border:1px solid #1B1B1B;
-  backface-visibility: hidden;
-  outline: none;
-}
-.simple_square_btn8:hover{
-	cursor: pointer;
-	text-decoration: none;
-  animation: simple_square_btn8 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-}
-@-webkit-keyframes simple_square_btn8{
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(-5px);
-  }
-}
-@-moz-keyframes simple_square_btn8{
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(-5px);
-  }
-}
-@keyframes simple_square_btn8{
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(-5px);
-  }
-}
 // いいね、クリップボタン
 .like-hover:hover {
   cursor: pointer;
@@ -154,7 +110,7 @@
       border-radius: 5px;
       resize: vertical;
       outline: none;
-      width: 70vw;
+      width: 60vw;
     }
     .input-text{
       min-height: 20vh;
