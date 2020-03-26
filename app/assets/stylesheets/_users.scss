@@ -224,83 +224,66 @@
     }
   }
 }
-// お気に入り画面
-.favorite-list{
-  padding: 80px 100px;
-  width: 750px;
-  height: 100vh;
-  text-align: center;
-  margin: 0 auto;
-  background-color: $whitesmoke;
-  .favorite-header{
-    font-size: 30px;
-  }
-  .list{
-    margin-top: 50px;
-    a{
-      display: flex;
-      height: 45px;
-      text-decoration: none;
-      font-size: 16px;
-      border-bottom: 1.5px inset $fuschia;
+// フォロー、クリップ画面
+@media screen and (min-width:300px){
+  .my-check{
+    height: 100vh;
+    .my-jarnal{
+      overflow: scroll;
       color: $fuschia;
-      .src{
-        height: 40px;
-        width: 40px;
-        margin-top: 2px;
+      .my-header{
+        margin: 0 auto;
+        padding: 15px;
+        text-align: center;
+        border-bottom: solid 1px $sandybrown;
       }
-      .title{
-        line-height: 45px;
-        margin-left: 10px;
-      }
-      .user{
-        margin: 0 0 0 auto;
-        line-height: 45px;
+      .my-list{
+        .post{
+          display: flex;
+          border-bottom: 1px dashed $sandybrown;
+          align-items: center;
+          .image{
+            line-height: auto;
+            .src{
+              margin: 10px;
+              height: 40px;
+              width: 40px;
+              border-radius: 50%;
+              object-fit: cover;
+            }
+          }
+          .jeneral{
+            width: 100%;;
+            margin-left: 5px;
+            .main{
+              font-weight: bold;
+            }
+            .sub{
+              margin-left: 5px;
+            }
+            .profile{
+              margin-right: 10px;
+            }
+            .date{
+              text-align: right;
+              margin-right: 10px;
+            }
+          }
+        }
       }
     }
   }
 }
-// フォロー画面
-.follows-list{
-  padding: 80px 100px;
-  width: 60%;
-  height: 100vh;
-  text-align: center;
-  margin: 0 auto;
-  background-color: $whitesmoke;
-  .follows-header{
-    font-size: 30px;
-  }
-  .follows{
-    margin-top: 50px;
-    a{
-      display: flex;
-      height: 70px;
-      text-decoration: none;
-      font-size: 20px;
-      border-bottom: 1.5px inset #777;
-      color: $fuschia;
-      width: 330px;
-      margin: 0 auto;
-      .avatar{
-        margin-top: 5px;
-        height: 60px;
-        width: 60px;
-        border-radius: 50%;
-        object-fit: cover;
-      }
-      .user{
-        line-height: 80px;
-        margin-left: 30px;
-        margin: 0 0 0 auto;
-      }
-    }
+@media screen and (min-width:600px){
+  .my-jarnal{
+    width: 400px;
+    margin: 0 auto;
   }
 }
 // 新規登録,ログイン画面
 @media screen and (min-width:300px){
   .show{
-    margin: 70px 10px;
+    margin: 20px auto;
     .session{
       margin: 27px 0;
       a{
