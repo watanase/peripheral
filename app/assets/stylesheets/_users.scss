@@ -114,20 +114,24 @@
 }
 @media screen and (min-width:1060px){
   .my-page{
+    height: 100vh;
     margin: 0 auto;
     width: 1000px;
-    .user-left{
-      width: 50%;
-    }
-    .user-right{
-      width: 50%;
-      .string{
-        &__text{
-          width: 460px;
-        }
+    .show.user-jarnal{
+      height: 600px;
+      .user-left{
+        width: 50%;
       }
-      .post-list{
-        width: 400px;
+      .user-right{
+        width: 50%;
+        .string{
+          &__text{
+            width: 460px;
+          }
+        }
+        .post-list{
+          width: 400px;
+        }
       }
     }
   }
