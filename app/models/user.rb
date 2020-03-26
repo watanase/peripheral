@@ -34,4 +34,12 @@ class User < ApplicationRecord
 
   validates :name, length: { maximum: 10 }, presence: true
   validates :profile, length: { maximum: 100 }
+  before_validation :delete_whitespace
+
+  private
+
+  def delete_whitespace
+    self.name = name.rstrip if name
+    self.profile = profile.rstrip if profile
+  end
 end

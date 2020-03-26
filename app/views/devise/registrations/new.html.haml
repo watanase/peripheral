@@ -1,28 +1,24 @@
-.signup
-  = image_tag asset_path("background1.jpg")
-  .right-page
-    .format
-      %h2 新規登録
-      = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-        = render "devise/shared/error_messages", resource: resource
-        .field-name
-          .title
-            = f.label :name
-          = f.text_field :name, class: "name",  autofocus: true, autocomplete: "名前", placeholder: "１０文字以内"
-        .field-email
-          .title
-            = f.label :email
-          = f.email_field :email, class: "email", autocomplete: "Èメール"
-        .field-password
-          .title
-            = f.label :password
-          = f.password_field :password, class: "pass", autocomplete: "パスワードを入力", placeholder: "６桁以上"
-        .field-check
-          .title
-            = f.label :password_confirmation
-          = f.password_field :password_confirmation, class: "check", autocomplete: "new-password"
-        .signup-btn
-          .sign-up
-            = f.submit "新規登録", class: "simple_square_btn8"
-          .render
-            = render "devise/shared/links"
+.my-page.devise
+  .show
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = render "devise/shared/error_messages", resource: resource
+      .user-registr
+        .present 新規登録
+        .user-right
+          .text-area
+            .string-area
+              %h2= f.label :name
+              = f.text_field :name, class: "text-field width",  autofocus: true, autocomplete: "名前", placeholder: "１０文字以内"
+            .string-area
+              %h2= f.label :email
+              = f.email_field :email, class: "text-field width", autocomplete: "Èメール"
+            .string-area
+              %h2= f.label :password
+              = f.password_field :password, class: "text-field width", autocomplete: "パスワードを入力", placeholder: "６桁以上"
+            .string-area
+              %h2= f.label :password_confirmation
+              = f.password_field :password_confirmation, class: "text-field width", autocomplete: "new-password"
+            .text-area__btn
+              = f.submit "新規登録", class: "btn"
+              .session
+                = render "devise/shared/links"

@@ -1,45 +1,40 @@
-.profile-edit
-  .profile-header
-    プロフィール編集
-  = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-    = render "devise/shared/error_messages", resource: resource
-    .profile-string
-      .left-page
-        .avatar-image
-          -if current_user.persisted? && current_user.avatar?
-            = image_tag current_user.avatar.to_s, class: "avatar_present_img"
-          -else
-            = image_tag 'no_image.png', class: "avatar_present_img"
-            = f.hidden_field :avatar_cache
-        .input-file
-          = f.file_field :avatar, id: "post_img"
-          %label{for: "post_img"}
-            %i.fas.fa-camera
-      .right-page
-        .name
-          .field
-            = f.label :名前
-            %br/
-            - if @user.email == "test@example.com"
-              %p ゲストユーザーは名前を変更できません
+.my-page
+  .show
+    = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+      = render "devise/shared/error_messages", resource: resource
+      .user-registr
+        .user-left
+          .present プロフィール編集
+          .user-image.image-avatar
+            -if current_user.persisted? && current_user.avatar?
+              = image_tag current_user.avatar.to_s, class: "avatar"
             -else
-              = f.text_field :name,  class: "text-field"
-              %span.count-name= @user.name.length
-              %span /10
-        .profile
-          .field
-            = f.label :自己紹介
-            %br/
-            = f.text_area :profile, class: "text-area"
-            - if @user.profile
-              %span.count-profile= @user.profile.length
-            - else
-              %span.count-profile 0
-            %span /100
-        .actions
-          .update
-            = button_tag type: 'submit', class: "submit" do
-              保存
-          .back
-            = link_to user_path(current_user), class: "return" do
-              戻る
+              = image_tag 'no_image.png', class: "avatar"
+              = f.hidden_field :avatar_cache
+          .input-file
+            = f.file_field :avatar, id: "post_img"
+            %label{for: "post_img"}
+              %i.fas.fa-camera
+        .user-right
+          .text-area
+            .string-area
+              .heading
+                %h2= f.label :name
+                %span.count-name= @user.name.length
+                %span /10
+              - if @user.email == "test@example.com"
+                %p ゲストユーザーは名前を変更できません
+              -else
+                = f.text_field :name,  class: "text-field", required: ""
+            .string-area
+              .heading
+                %h2= f.label :profile
+                - if @user.profile
+                  %span.count-profile= @user.profile.length
+                - else
+                  %span.count-profile 0
+                %span /100
+              = f.text_area :profile, class: "input-text"
+            .text-area__btn
+              = f.submit class: "btn"
+              = link_to "戻る", user_path(current_user), class: "btn"

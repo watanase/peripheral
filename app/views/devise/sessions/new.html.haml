@@ -1,27 +1,26 @@
-.login
-  = image_tag asset_path("background1.jpg")
-  .left-page
-    .format
-      %h2 ログイン
-      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-        = render "devise/shared/error_messages", resource: resource
-        .field-email
-          .title
-            = f.label :email
-          = f.email_field :email, class: "email", autofocus: true, autocomplete: "Eメール"
-        .field-password
-          .title
-            = f.label :password
-          = f.password_field :password, class: "pass", autocomplete: "current-password"
-        .signin-btn
-          .sign-in
-            = f.submit "ログイン", class: "simple_square_btn8"
-          .render
-            = render "devise/shared/links"
-      .header__guest
-      - unless user_signed_in?
-        = form_for(User.new, as: :user, url: session_path(:user)) do |f|
-          .field
-            =f.hidden_field :email ,value: "test@example.com"
-            =f.hidden_field :password ,value: "testtest"
-            =f.submit "ゲストユーザーでログイン", class: "guest-btn"
+.my-page.devise
+  .show
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      = render "devise/shared/error_messages", resource: resource
+      .user-registr
+        .present ログイン
+        .user-right
+          .text-area
+            .string-area
+              %h2= f.label :email
+              = f.email_field :email, class: "text-field width", autofocus: true, autocomplete: "Eメール"
+          .text-area
+            .string-area
+              %h2= f.label :password
+              = f.password_field :password, class: "text-field width", autocomplete: "current-password"
+          .text-area__btn
+            = f.submit "ログイン", class: "btn"
+            .session
+              = render "devise/shared/links"
+          .text-area__btn
+          - unless user_signed_in?
+            = form_for(User.new, as: :user, url: session_path(:user)) do |f|
+              .guest
+                =f.hidden_field :email ,value: "test@example.com"
+                =f.hidden_field :password ,value: "testtest"
+                =f.submit "ゲストユーザーでログイン", class: "comment-submit"

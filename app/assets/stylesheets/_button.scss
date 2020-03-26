@@ -11,69 +11,16 @@
   padding: 8px;
   margin: 10px;
 }
-// 新規登録ボタン
-.simple_square_btn8{
-	display: block;
-	position: relative;
-	width: 130px;
-	padding: 0.5em;
-	text-align: center;
-	text-decoration: none;
-	color: #1B1B1B;
-	background: #fff;
-  border-radius: 30px;
-	border:1px solid #1B1B1B;
-  backface-visibility: hidden;
-  outline: none;
-}
-.simple_square_btn8:hover{
-	cursor: pointer;
-	text-decoration: none;
-  animation: simple_square_btn8 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-}
-@-webkit-keyframes simple_square_btn8{
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(-5px);
-  }
-}
-@-moz-keyframes simple_square_btn8{
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(-5px);
-  }
-}
-@keyframes simple_square_btn8{
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(-5px);
-  }
-}
-// 戻るボタン
-.submit{
-	display: block;
-	position: relative;
-	width: 130px;
-	padding: 0.5em;
-	text-align: center;
-	text-decoration: none;
-	color: #1B1B1B;
-	background: #fff;
-  border-radius: 35px;
-	border:1px solid #1B1B1B;
-  backface-visibility: hidden;
-  outline: none;
-}
-.submit:hover{
-	cursor: pointer;
-	text-decoration: none;
-  animation: simple_square_btn8 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+// マイページボタン
+.my-btn{
+  display: inline-block;
+  appearance: none;
+  background-color: $ffbf7f;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 8px;
+  margin: 10px;
+  color: $whitesmoke;
 }
 // いいね、クリップボタン
 .like-hover:hover {
@@ -119,5 +66,57 @@
     font-size: 20px;
     outline: 0;
     cursor: pointer;
+  }
+}
+// ノートCSS
+.string__text{
+  word-break: break-all;
+  border-radius: 5px;
+  position: relative;
+  margin: 10px auto;
+  box-shadow: 0 2px 3px rgba(0,0,0,.22);
+  padding: 22px 8px 22px 8px;
+  background-image:
+  linear-gradient(90deg, rgba(237, 119, 128, 0) 0%, rgba(237, 119, 128, 0) 50%, #fff6e6 0%, #fff6e6 100%), linear-gradient(180deg, rgba(237, 119, 128, 0) 95%, $fuschia 100%);
+  background-size: 8px 100%,100% 2em;
+  line-height: 2;
+  &__title{
+    font-size: 1.15em;
+    padding: 5px;
+    background-image:asset-url("headerbord.jpg");
+    color: $fuschia;
+    font-weight:bold;
+    margin: -22px -8px 22px -8px;
+  }
+}
+// インプットCSS
+.text-area{
+  font-size: 18px;
+  .string-area{
+    text-align: center;
+    .heading{
+      display: flex;
+      .count-name, .count-profile{
+        margin-left: 5px;
+      }
+      span{
+        padding: 2px;
+      }
+    }
+    .text-field, .input-text{
+      margin: 5px;
+      padding: 10px;
+      border: 2px solid $ffbf7f;
+      border-radius: 5px;
+      resize: vertical;
+      outline: none;
+      width: 60vw;
+    }
+    .input-text{
+      min-height: 20vh;
+    }
+  }
+  &__btn{
+    text-align: center;
   }
 }

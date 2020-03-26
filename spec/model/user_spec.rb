@@ -20,7 +20,7 @@ describe User do
         expect(user).to be_valid
       end
 
-      it 'profileが100文字以内だと登録できる' do
+      it 'profileが100文字以下だと登録できる' do
         num = 'n' * 100
         user = build(:user, profile: num)
         expect(user).to be_valid

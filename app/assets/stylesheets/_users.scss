@@ -1,208 +1,181 @@
-
-// ユーザー詳細画面
+// ユーザー画面共通
 .my-page{
-  padding: 15vh 10vw 8vh;
-  display: flex;
-  height: 100vh;
-  width: 80vw;
-  margin:  0 auto;
-  background-color: $whitesmoke;
-  a{
-    text-decoration: none;
-    color: $fuschia;
+  margin: 0 30px;
+  padding: 80px 0;
+   .show{
+    height: 100%;
+    border: dashed 2px $sandybrown;
+    border-radius: 3px;
+    box-shadow: 0 0 0 10px #fff6e6;
+    background: #fff6e6;
+    a{
+      text-decoration: none;
+    }
   }
+}
+// ユーザーマイページ
+@media screen and (min-width:300px){
   .user-left{
     height: 100%;
-    width: 50vw;
-    display: flex;
-    flex-direction: column;
-    background-color: $fff;
     .user-image{
-      height: 45vh;
-      width: 100%;
       text-align: center;
-      line-height: 80vh;
+      margin: 50px;
       .avatar{
-        height: 180px;
-        width: 180px;
+        height: 150px;
+        width: 150px;
         border-radius: 50%;
         object-fit: cover;
       }
     }
-    .follow-btn{
-      height: 10vh;
-      line-height: 6vh;
+    .link-list{
       text-align: center;
-    }
-    .link-btn{
-      display: flex;
-      height: calc(100% - 55vh);
-      line-height: 35vh;
-      .favorite{
-        width: 50%;
-        text-align: center;
-      }
-      .follow{
-        text-align: center;
-        width: 50%;
-      }
+      margin: 20px;
     }
   }
   .user-right{
-    width: 50vw;
-    height: 100%;
-    background-color: blanchedalmond;
+    background-image:asset-url("headerbord.jpg");
+    padding: 10px;
     color: $fuschia;
-    padding: 5vh;
-    .user-name{
-      height: 14vh;
-      display: flex;
-      justify-content: space-between;
-      padding: 20px;
-      line-height: 9vh;
-      .name{
-        font-size: 20px;
-      }
-    }
-    .user-profile{
-      height: 25vh;
-      padding: 20px;
-    }
     .post-list{
-      height: calc(100% - 39vh);
-      padding: 20px;
+      padding: 10px;
+      a{
+        color: $fuschia;
+      }
       .post-header{
         display: flex;
         justify-content: space-between;
-        span{
-          margin-right: 5px;
-        }
-        i{
-          padding-top: 3px;
+        .list{
+          padding: 3px;
+          i{
+            padding: 4px;
+          }
         }
       }
       h2{
         margin-bottom: 10px;
         font-size: 18px;
       }
+    }
+    .post-list{
+      margin: 0 auto;
+      width: 60vw;
       .line{
-        margin: 5px 5px;
-      }
-      a{
         display: flex;
+        padding: 3px;
+        margin: 5px 5px;
+        border-bottom: 1px solid $fuschia;
+        .title{
+          text-overflow: ellipsis;
+          overflow: hidden;
+          white-space: nowrap;
+        }
         .date{
-          margin: 0 0 0 auto;
+            margin: 0 0 0 auto;
+        }
+      }
+    }
+    .maypage-edit{
+      text-align: center;
+    }
+  }
+}
+@media screen and (min-width:480px){
+  .user-jarnal{
+    .image-avatar{
+      margin: 80px;
+    }
+    .user-right{
+      .string__text{
+        width: 80vw;
+        margin: 20px auto;
+      }
+    }
+  }
+}
+@media screen and (min-width:800px){
+  .user-jarnal{
+    display: flex;
+    .user-left, .user-right{
+      width: 50vw;
+      .user-image{
+        margin: 100px;
+      }
+      .my-btn{
+        margin: 18px;
+      }
+      .post-list{
+        width: 30vw;
+      }
+      .user-prifile{
+        width: 40vw;
+      }
+    }
+  }
+}
+@media screen and (min-width:1060px){
+  .my-page{
+    margin: 0 auto;
+    width: 1000px;
+    .user-left{
+      width: 50%;
+    }
+    .user-right{
+      width: 50%;
+      .string{
+        &__text{
+          width: 460px;
         }
       }
     }
   }
 }
-// ユーザー編集画面
-.profile-edit{
-  padding: 15vh 10vw 8vh;
-  height: 100vh;
-  width: 80vw;
-  margin:  0 auto;
-  background-color: $whitesmoke;
-  .profile-header{
-    font-size: 25px;
-  }
-  form{
-    height: 100%;
-    width: 100%;
-    .profile-string{
-      height: 100%;
-      width: 100%;
-      display: flex;
-      .left-page{
-        height: 100%;
-        width: 50vw;
-        display: flex;
-        flex-direction: column;
-        background-color: $fff;
-        .avatar-image{
-          height: 45vh;
-          width: 100%;
-          text-align: center;
-          line-height: 80vh;
-          .avatar_present_img{
-            height: 180px;
-            width: 180px;
-            border-radius: 50%;
-            object-fit: cover;
-          }
-        }
-        .input-file{
-          height: calc(100% - 45vh);
-          text-align: center;
-          font-size: 50px;
-          margin-top: 30px;
-          #post_img{
-            display: none;
-            cursor: pointer;
-          }
-          label{
-            cursor: pointer;
-          }
-        }
-      }
-      .right-page{
-        width: 50vw;
-        height: 100%;
-        background-color: blanchedalmond;
-        color: $fuschia;
-        padding: 5vh;
-        display: flex;
-        flex-direction: column;
-        .name{
-          padding-top: 30px;
-          height: 24vh;
-          .text-field{
-            padding: 10px;
-            height: 25px;
-            margin: 10px;
-            border-radius: 3px;
-            width: 180px;
-            border: 1px solid;
-            color: $fuschia;
-            background: #f5f6f7;
-            outline: none;
-          }
-        }
-        .profile{
-          height: 35vh;
-          .text-area{
-            padding: 5px;
-            height: 150px;
-            margin: 10px;
-            border-radius: 3px;
-            width: 350px;
-            border: 1px solid;
-            color: $fuschia;
-            background: #f5f6f7;
-            outline: none;
-          }
-        }
-        .actions{
-          display: flex;
-          text-align: center;
-          align-items: flex-end;
-          a{
-            text-decoration: none;
-            color: $fuschia;
-          }
-          .update{
-            .submit{
-              color: $fuschia;
-              height: 35px;
-              width: 60px;
-              font-size: 15px;
 
-            }
-          }
-          .back{
-            width: 50%;
-          }
+// ユーザー編集画面
+@media screen and (min-width:300px){
+  .user-registr{
+    .present{
+      font-size: 18px;
+      color: $fuschia;
+      text-align: center;
+      margin: 15px 0;
+    }
+    .user-image{
+      margin: 30px;
+    }
+    .input-file{
+      margin-bottom: 20px;
+      text-align: center;
+      font-size: 30px;
+      #post_img{
+        display: none;
+      }
+    }
+    .text-area__btn{
+      display: flex;
+      justify-content: space-around;
+    }
+  }
+}
+@media screen and (min-width:480px){
+  .user-registr{
+    .user-image{
+      margin: 80px;
+    }
+  }
+}
+@media screen and (min-width:1060px){
+  .user-registr{
+    display: flex;
+    .user-right{
+      padding: 20px;
+      .string-area{
+        margin: 10px;
+        .text-field, .input-text{
+          width: 400px;
+          margin: 10px;
+        }
+        .input-text{
+          height: 200px;
         }
       }
     }
@@ -317,194 +290,46 @@
     }
   }
 }
-// 新規登録画面
-.signup{
-  padding-top: 50px;
-  display: flex;
-  height: calc(100vh - 30px);
-  position: relative;
-  img{
-    width: 100%;
-    object-fit: cover;
-  }
-  .right-page{
-    position: absolute;
-    left: 10vw;
-    top: 12vh;
-    background-color: $whitesmoke;
-    text-align: center;
-    border-radius: 15px;
-    a{
-      text-decoration: none;
-      color: $fuschia;
-    }
-    .format{
-      width: 500px;
-      height: 80vh;
-      font-size: 17px;
-      font-weight: bold;
-      overflow: auto;
-      h2{
-          font-size: 23px;
-          padding: 20px 0;
-          font-weight: bold;
-        }
-      .field-name{
-        height: 80px;
-        margin: 5px 80px;
-        line-height: 30px;
-        .title{
-          text-align: left;
-          margin: 5px 0 5px 10px;
-        }
-        .name{
-          width: 80%;
-          padding: 9px;
-          border-radius: 3px;
-          outline: none;
-          font-size: 15px;
-          border: none;
-        }
-      }
-      .field-email{
-        height: 85px;
-        margin: 5px 80px;
-        line-height: 30px;
-        .title{
-          text-align: left;
-          margin: 5px 0 5px 10px;
-        }
-        .email{
-          width: 80%;
-          padding: 9px;
-          border-radius: 3px;
-          outline: none;
-          font-size: 15px;
-          border: none;
-        }
-      }
-      .field-password{
-        height: 85px;
-        margin: 5px 80px;
-        line-height: 30px;
-        .title{
-          text-align: left;
-          margin: 5px 0 5px 10px;
-        }
-        .pass{
-          width: 80%;
-          padding: 9px;
-          border-radius: 3px;
-          outline: none;
-          font-size: 15px;
-          border: none;
-        }
-      }
-      .field-check{
-        height: 85px;
-        margin: 5px 80px;
-        line-height: 30px;
-        .title{
-          text-align: left;
-          margin: 5px 0 5px 10px;
-        }
-        .check{
-          width: 80%;
-          padding: 9px;
-          border-radius: 3px;
-          outline: none;
-          font-size: 15px;
-          border: none;
-        }
-      }
-      .signup-btn{
-        height: 100px;
+// 新規登録,ログイン画面
+@media screen and (min-width:300px){
+  .show{
+    margin: 70px 10px;
+    .session{
+      margin: 27px 0;
+      a{
         display: flex;
-        justify-content: space-around;
-        padding-top: 30px;
-        .render{
-          margin-top: 10px;
+        color: $fuschia;
+        i{
+          padding: 4px;
+        }
+      }
+    }
+    .guest{
+      text-align: center;
+      .comment-submit{
+        margin: 10px auto;
+      }
+    }
+  }
+}
+@media screen and (min-width:480px){
+  .devise{
+    width: 60vw;
+    margin: 0 auto;
+    .user-registr{
+      .string-area{
+        .width{
+          width: 40vw;
         }
       }
     }
   }
 }
-// ログイン画面
-.login{
-  padding-top: 50px;
-  display: flex;
-  height: calc(100vh - 30px);
-  position: relative;
-  img{
-    width: 100%;
-    object-fit: cover;
-  }
-  .left-page{
-    position: absolute;
-    left: 10vw;
-    top: 17vh;
-    background-color: $whitesmoke;
-    text-align: center;
-    border-radius: 15px;
-    a{
-      text-decoration: none;
-      color: $fuschia;
-    }
-    .format{
-      width: 500px;
-      height: 70vh;
-      font-size: 17px;
-      font-weight: bold;
-      overflow: auto;
-      h2{
-        font-size: 23px;
-        padding: 20px 0;
-        font-weight: bold;
-        margin: 30px 0;
-      }
-      .field-email{
-        height: 85px;
-        margin: 5px 80px;
-        line-height: 30px;
-        .title{
-          text-align: left;
-          margin: 5px 0 5px 10px;
-        }
-        .email{
-          width: 80%;
-          padding: 9px;
-          border-radius: 3px;
-          outline: none;
-          font-size: 15px;
-          border: none;
-        }
-      }
-      .field-password{
-        height: 85px;
-        margin: 5px 80px;
-        line-height: 30px;
-        .title{
-          text-align: left;
-          margin: 5px 0 5px 10px;
-        }
-        .pass{
-          width: 80%;
-          padding: 9px;
-          border-radius: 3px;
-          outline: none;
-          font-size: 15px;
-          border: none;
-        }
-      }
-      .signin-btn{
-        height: 100px;
-        display: flex;
-        justify-content: space-around;
-        margin: 20px 0;
-        .render{
-          margin-top: 10px;
-        }
-      }
+@media screen and (min-width:1060px){
+  .user-registr{
+    display: block;
+    .user-right{
+      width: 100%;
     }
   }
 }
