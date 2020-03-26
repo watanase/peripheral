@@ -93,28 +93,30 @@
   }
 }
 @media screen and (min-width:800px){
-  .user-jarnal{
-    display: flex;
-    .user-left, .user-right{
-      width: 50vw;
-      .user-image{
-        margin: 100px;
-      }
-      .my-btn{
-        margin: 18px;
-      }
-      .post-list{
-        width: 30vw;
-      }
-      .user-prifile{
-        width: 40vw;
+  .my-page{
+    height: 100vh;
+    .user-jarnal{
+      display: flex;
+      .user-left, .user-right{
+        width: 50vw;
+        .user-image{
+          margin: 100px;
+        }
+        .my-btn{
+          margin: 18px;
+        }
+        .post-list{
+          width: 30vw;
+        }
+        .user-prifile{
+          width: 40vw;
+        }
       }
     }
   }
 }
 @media screen and (min-width:1060px){
   .my-page{
-    height: 100vh;
     margin: 0 auto;
     width: 1000px;
     .show.user-jarnal{
