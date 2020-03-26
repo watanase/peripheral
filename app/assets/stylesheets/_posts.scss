@@ -495,7 +495,6 @@ body {
 }
 @media screen and (min-width:480px){
   .post-card{
-    // padding: 180px 0;
     .add-image{
       display: flex;
       flex-wrap: wrap;
@@ -510,6 +509,20 @@ body {
     }
   }
 }
+@media screen and (min-width:600px){
+  .post-width{
+    width: 580px;
+    .text-area{
+      .string-area{
+        .text-field, .input-text{
+          width: 500px;
+          margin: 10px;
+        }
+      }
+    }
+  }
+}
+
 // 投稿詳細画面
 @media screen and (min-width:300px){
   .details{
