@@ -31,19 +31,6 @@ body {
     padding-left: 20px;
     font-weight: bold;
   }
-  &__guest{
-    .guest-btn{
-      border: none;
-      cursor: pointer;
-      padding: 12px;
-      outline: none;
-      background: none;
-    }
-    .guest-btn:hover{
-      background-color: $sandybrown;
-      color: $lemonchiffon;
-    }
-  }
 }
 @media screen and (min-width:300px){
   .menu{
@@ -301,7 +288,7 @@ body {
           table-layout: fixed;
           width: 80%;
           border-collapse: collapse;
-          background-color: $sandybrown;
+          background-image:asset-url("paper.jpg");
           td{
             padding: 10px;
             border: 1px solid $lemonchiffon;
@@ -351,7 +338,7 @@ body {
           display: inline-block;
           font-size: 20px;
           appearance: none;
-          background-color: $sandybrown;
+          background-color: $ffbf7f;
           color: $fff;
           border-radius: 4px;
           border: none;
@@ -365,7 +352,7 @@ body {
         margin-bottom: 20px;
       }
       table{
-        color: $lemonchiffon;
+        color: $fuschia;
         margin: 0 auto;
         padding: 10px;
         table-layout: fixed;
@@ -373,7 +360,7 @@ body {
         border-collapse: collapse;
         td{
           padding: 10px;
-          border: 1px solid $lemonchiffon;
+          border: 1px solid $fff6e6;
         }
         .id, .count{
           text-align: center;
