@@ -196,7 +196,7 @@ body {
   background-repeat: repeat;
   .post-list-box{
     padding: 50px 10px;
-    overflow: scroll;
+    overflow: overlay;
     display: flex;
     flex-wrap: wrap;
     min-height: 96vh;
