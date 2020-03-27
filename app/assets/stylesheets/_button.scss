@@ -121,6 +121,6 @@
     text-align: center;
   }
 }
-#modal-main::-webkit-scrollbar{
+#modal-main, .post-list-box, .user-prifile::-webkit-scrollbar{
   display: none;
 }
