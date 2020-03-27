@@ -90,6 +90,9 @@
     margin: -22px -8px 22px -8px;
   }
 }
+.string__text::-webkit-scrollbar{
+  display: none;
+}
 // インプットCSS
 .text-area{
   font-size: 18px;
