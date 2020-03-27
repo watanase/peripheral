@@ -239,7 +239,7 @@
   .my-check{
     height: 100vh;
     .my-jarnal{
-      overflow: scroll;
+      overflow: overlay;
       color: $fuschia;
       .my-header{
         margin: 0 auto;
