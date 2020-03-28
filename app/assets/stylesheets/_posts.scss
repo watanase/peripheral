@@ -337,7 +337,7 @@ body {
           border-radius: 4px;
           border: none;
           cursor: pointer;
-          padding: 18px;
+          padding: 8px 15px;
         }
       }
       h2{
@@ -346,6 +346,7 @@ body {
         margin-bottom: 20px;
       }
       table{
+        word-break: keep-all;
         color: $fuschia;
         margin: 0 auto;
         padding: 10px;
