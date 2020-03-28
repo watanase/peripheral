@@ -1,9 +1,10 @@
 // ユーザー画面共通
 .my-page{
-  margin: 0 30px;
-  padding: 80px 0;
+  height: -webkit-fill-available;
+  display: flex;
+  justify-content: center;
+  align-items: center;
    .show{
-    height: 100%;
     border: dashed 2px $sandybrown;
     border-radius: 3px;
     box-shadow: 0 0 0 10px #fff6e6;
@@ -292,7 +293,7 @@
 // 新規登録,ログイン画面
 @media screen and (min-width:300px){
   .show{
-    margin: 70px auto;
+    margin: 20px auto;
     .session{
       margin: 27px 0;
       a{
