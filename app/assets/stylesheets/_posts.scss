@@ -276,7 +276,7 @@ body {
         margin: 20px;
         }
         .table{
-          overflow: scroll;
+          overflow: overlay;
           height: 65vh;
           table{
             margin: 0 auto;
@@ -299,9 +299,6 @@ body {
             white-space: normal;
             text-overflow: ellipsis;;
           }
-        }
-        .table::-webkit-scrollbar{
-          display: none;
         }
       }
     }
