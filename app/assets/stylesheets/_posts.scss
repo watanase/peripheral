@@ -320,7 +320,6 @@ body {
       position: fixed;
       right: 0;
       margin: 0 auto;
-      overflow: scroll;
       a{
         text-decoration: none;
       }
@@ -345,29 +344,33 @@ body {
         text-align: center;
         margin-bottom: 20px;
       }
-      table{
-        word-break: keep-all;
-        color: $fuschia;
-        margin: 0 auto;
-        padding: 10px;
-        table-layout: fixed;
-        width: 80%;
-        border-collapse: collapse;
-        td{
+      .table{
+        overflow: scroll;
+        height: 65vh;
+        table{
+          // word-break: keep-all;
+          color: $fuschia;
+          margin: 0 auto;
           padding: 10px;
-          border: 1px solid $fff6e6;
+          table-layout: fixed;
+          // width: 80%;
+          border-collapse: collapse;
+          td{
+            padding: 10px;
+            border: 1px solid $fff6e6;
+          }
+          .id, .count{
+            text-align: center;
+            width: 30px;
+          }
+          .title{
+            width: 120px;
+            overflow: hidden;
+            white-space: normal;
+            text-overflow: ellipsis;;
+          }
         }
-        .id, .count{
-          text-align: center;
-          width: 30px;
-        }
-        .title{
-          width: 120px;
-          overflow: hidden;
-          white-space: normal;
-          text-overflow: ellipsis;;
-       }
-     }
+      }
     }
   }
 }

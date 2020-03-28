@@ -7,9 +7,10 @@
           新規投稿
   .ranking
     %h2 いいねランキング
-    - @all_ranks.each_with_index do |post, i|
-      = link_to post_path(post.id) do
-        %table
-          %td.id= i + 1
-          %td.title= post.title
-          %td.count= post.likes.count
+    .table
+      - @all_ranks.each_with_index do |post, i|
+        = link_to post_path(post.id) do
+          %table
+            %td.id= i + 1
+            %td.title= post.title
+            %td.count= post.likes.count
