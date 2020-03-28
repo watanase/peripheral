@@ -275,26 +275,33 @@ body {
         text-align: center;
         margin: 20px;
         }
-        table{
-          margin: 0 auto;
-          padding: 10px;
-          table-layout: fixed;
-          width: 80%;
-          border-collapse: collapse;
-          background-image:asset-url("paper.jpg");
-          td{
+        .table{
+          overflow: scroll;
+          height: 65vh;
+          table{
+            margin: 0 auto;
             padding: 10px;
-            border: 1px solid $lemonchiffon;
+            table-layout: fixed;
+            width: 80%;
+            border-collapse: collapse;
+            background-image:asset-url("paper.jpg");
+            td{
+              padding: 10px;
+              border: 1px solid $lemonchiffon;
+            }
+            .id, .count{
+              text-align: center;
+              width: 30px;
+            }
+          .title{
+            width: 120px;
+            overflow: hidden;
+            white-space: normal;
+            text-overflow: ellipsis;;
           }
-          .id, .count{
-            text-align: center;
-            width: 30px;
-          }
-        .title{
-          width: 120px;
-          overflow: hidden;
-          white-space: normal;
-          text-overflow: ellipsis;;
+        }
+        .table::-webkit-scrollbar{
+          display: none;
         }
       }
     }
@@ -344,31 +351,25 @@ body {
         text-align: center;
         margin-bottom: 20px;
       }
-      .table{
-        overflow: scroll;
-        height: 65vh;
-        table{
-          // word-break: keep-all;
-          color: $fuschia;
-          margin: 0 auto;
+      table{
+        color: $fuschia;
+        margin: 0 auto;
+        padding: 10px;
+        table-layout: fixed;
+        border-collapse: collapse;
+        td{
           padding: 10px;
-          table-layout: fixed;
-          // width: 80%;
-          border-collapse: collapse;
-          td{
-            padding: 10px;
-            border: 1px solid $fff6e6;
-          }
-          .id, .count{
-            text-align: center;
-            width: 30px;
-          }
-          .title{
-            width: 120px;
-            overflow: hidden;
-            white-space: normal;
-            text-overflow: ellipsis;;
-          }
+          border: 1px solid $fff6e6;
+        }
+        .id, .count{
+          text-align: center;
+          width: 30px;
+        }
+        .title{
+          width: 120px;
+          overflow: hidden;
+          white-space: normal;
+          text-overflow: ellipsis;;
         }
       }
     }
