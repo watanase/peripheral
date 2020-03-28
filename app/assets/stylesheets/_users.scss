@@ -1,7 +1,7 @@
 // ユーザー画面共通
 .my-page{
   margin: 0 30px;
-  padding: 30% 0;
+  padding: 10% 0;
    .show{
     height: 100%;
     border: dashed 2px $sandybrown;
@@ -325,9 +325,6 @@
   }
 }
 @media screen and (min-width:1060px){
-  .post-card{
-    height: -webkit-fill-available;
-  }
   .devise{
     display: block;
     padding: 100px 0;
