@@ -17,9 +17,9 @@
             = f.submit "ログイン", class: "btn"
             .session
               = render "devise/shared/links"
-  .text-area__btn
-    = form_for(User.new, as: :user, url: session_path(:user)) do |f|
-      .guest
-        =f.hidden_field :email ,value: "test@example.com"
-        =f.hidden_field :password ,value: "testtest"
-        =f.submit "ゲストユーザーでログイン", class: "comment-submit"
+    .text-area__btn
+      = form_for(User.new, as: :user, url: session_path(:user)) do |f|
+        .guest
+          =f.hidden_field :email ,value: "test@example.com"
+          =f.hidden_field :password ,value: "testtest"
+          =f.submit "ゲストユーザーでログイン", class: "comment-submit"

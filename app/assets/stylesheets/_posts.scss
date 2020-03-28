@@ -383,8 +383,11 @@ body {
 }
 // 投稿共通
 .post-card{
-  margin: 0 30px;
-  padding: 100px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  height: -webkit-fill-available;
   .show{
     border: dashed 2px $sandybrown;
     border-radius: 3px;
