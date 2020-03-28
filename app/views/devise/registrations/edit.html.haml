@@ -25,7 +25,7 @@
               - if @user.email == "test@example.com"
                 %p ゲストユーザーは名前を変更できません
               -else
-                = f.text_field :name,  class: "text-field", required: ""
+                = f.text_field :name,  class: "text-field", required: "", maxlength: "10"
             .string-area
               .heading
                 %h2= f.label :profile
@@ -34,7 +34,7 @@
                 - else
                   %span.count-profile 0
                 %span /100
-              = f.text_area :profile, class: "input-text"
+              = f.text_area :profile, class: "input-text", maxlength: "100"
             .text-area__btn
               = f.submit class: "btn"
               = link_to "戻る", user_path(current_user), class: "btn"

@@ -39,7 +39,7 @@
           - else
             %span.count-name 0
           %span / 20
-        = f.text_field :title, class: "text-field", placeholder: "タイトルを入力", required: ""
+        = f.text_field :title, class: "text-field", placeholder: "タイトルを入力", required: "", maxlength: "20"
       .string-area
         .heading
           %h2= f.label :content
@@ -48,7 +48,7 @@
           - else
             %span.count-profile 0
           %span /300
-        = f.text_area :content, class: "input-text", placeholder: "説明文を入力", required: ""
+        = f.text_area :content, class: "input-text", placeholder: "説明文を入力", required: "", maxlength: "300"
       .text-area__btn
         = f.submit class: "btn"
 - if @post.persisted?
