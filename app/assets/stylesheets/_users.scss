@@ -1,9 +1,9 @@
 // ユーザー画面共通
 .my-page{
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
+  margin: 0 30px;
+  padding: 30% 0;
    .show{
+    height: 100%;
     border: dashed 2px $sandybrown;
     border-radius: 3px;
     box-shadow: 0 0 0 10px #fff6e6;
@@ -292,7 +292,7 @@
 // 新規登録,ログイン画面
 @media screen and (min-width:300px){
   .show{
-    margin: 20px auto;
+    margin: 70px auto;
     .session{
       margin: 27px 0;
       a{
@@ -325,12 +325,14 @@
   }
 }
 @media screen and (min-width:1060px){
+  .post-card{
+    height: -webkit-fill-available;
+  }
   .devise{
     display: block;
     padding: 100px 0;
     .user-right{
       width: 100%;
-      // height: 330px;
     }
   }
 }

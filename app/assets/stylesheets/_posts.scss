@@ -6,6 +6,7 @@ body {
   margin: 0;
   background-image:asset-url("headerbord.jpg");
   background-repeat: repeat;
+  background-size: cover;
   font-family: 'Noto Sans Japanese',
   'Source Sans Pro', Helvetica , Arial,
   '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
@@ -387,7 +388,6 @@ body {
   justify-content: center;
   align-items: center;
   padding: 40px;
-  height: -webkit-fill-available;
   .show{
     border: dashed 2px $sandybrown;
     border-radius: 3px;
