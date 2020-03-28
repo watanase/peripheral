@@ -10,6 +10,9 @@ body {
   font-family: 'Noto Sans Japanese',
   'Source Sans Pro', Helvetica , Arial,
   '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  a, input{
+    outline: none;
+  }
 }
 // ヘッダー項目
 .header{
@@ -133,7 +136,9 @@ body {
         display: inline-block;
       }
       .drop-menu{
-        display: none;
+        position: absolute;
+        right: 0;
+        background-image:asset-url("headerbord.jpg");
       }
     }
   }
@@ -154,18 +159,6 @@ body {
       line-height: 50px;
       .nav-icon{
         display: flex;
-        // 保留
-        // .nav-mypage{
-        //   width: 143px;
-        //   text-align: center;
-          .drop-menu{
-            background-image:asset-url("headerbord.jpg");
-            display: none;
-            .post{
-              padding: 16px 39px 14px 40px;
-            }
-          }
-        // }
         .link-btn{
           padding: 16px 15px 14px 16px;
         }

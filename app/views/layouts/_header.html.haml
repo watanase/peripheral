@@ -32,12 +32,9 @@
               %i.fas.fa-user
               %span マイページ
             %ul.drop-menu
-              %li
-                = link_to "投稿一覧", posts_user_path(current_user), class: "link-btn post"
-              %li
-                = link_to "フォローリスト", follows_user_path(current_user), class: "link-btn"
-              %li
-                = link_to "クリップリスト", favorite_user_path(current_user), class: "link-btn"
+              %span= link_to "投稿一覧", posts_user_path(current_user), class: "link-btn post"
+              %span= link_to "フォローリスト", follows_user_path(current_user), class: "link-btn"
+              %span= link_to "クリップリスト", favorite_user_path(current_user), class: "link-btn"
           %li.nav-logout
             = link_to destroy_user_session_path, method: :delete, class: "link-btn" do
               %i.fa.fa-user-minus
