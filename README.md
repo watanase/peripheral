@@ -2,7 +2,8 @@
 https://postscard.com/
 非ログイン状態の場合は記事の閲覧のみ可能です。ログインすると記事投稿やコメントが可能になります。<br>
 画面上部のログインからログインページに遷移していただき、「ゲストユーザーでログインする」をクリックすると会員登録せずにログインできます。
-[![Image from Gyazo](https://gyazo.com/b23d0cf197c5d7052717017948a81b75)]
+[![Image from Gyazo](https://i.gyazo.com/b23d0cf197c5d7052717017948a81b75.png)]
+(https://gyazo.com/b23d0cf197c5d7052717017948a81b75)
 
 # 言語・使用技術
 
