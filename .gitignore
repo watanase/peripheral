@@ -27,3 +27,4 @@
 /config/master.key
 public/uploads/*
 config/secrets.yml
+.DS_Store
