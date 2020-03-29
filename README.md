@@ -30,6 +30,9 @@ https://postscard.com/<br>
 - Capistrano3
 - RSpec
 
+#### AWS構成図
+![Uploading Untitled Diagram (1).png…]()
+
 # 実装機能
 - ユーザー機能
   - deviseを使用
