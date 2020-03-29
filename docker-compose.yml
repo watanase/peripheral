@@ -11,16 +11,13 @@ services:
       - "4306:3306"
 
   app:
-    environment:
-      - AWS_ACCESS_KEY_ID
-      - AWS_SECRET_ACCESS_KEY
-    tty: true          #コンテナ上でbinding.pryするために必要
-    stdin_open: true   #コンテナ上でbinding.pryするために必要
+    tty: true
+    stdin_open: true
     build: .
     command: bundle exec rails s -p 3000 -b '0.0.0.0'
     volumes:
-      - .:/app    #ローカルのディレクトリをコンテナ上にマウント
-      - bundle:/usr/local/bundle    #bundle installした後buildし直さなくてよくなる
+      - .:/app
+      - bundle:/usr/local/bundle
     ports:
       - "3000:3000"
     links:
