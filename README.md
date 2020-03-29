@@ -31,7 +31,7 @@ https://postscard.com/<br>
 - RSpec
 
 #### AWS構成図
-![Uploading Untitled Diagram (1).png…]()
+![](https://i.gyazo.com/494392afe85abe46f40ad78f3ae24552.png)
 
 # 実装機能
 - ユーザー機能
