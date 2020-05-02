@@ -3,6 +3,7 @@ FactoryBot.define do
     title       { 'hello!' }
     content     { 'yell' }
     images      { [FactoryBot.build(:image, post: nil)] }
+    user
   end
 
   factory :post_no_image, class: Post do
