@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, except: %i[index new create search]
-  # before_action :move_to_index, only: %i[new create destroy]
+  before_action :move_to_index, only: %i[new create destroy]
   def index
     @posts = Post.includes(:images).order(
       id: 'DESC'
