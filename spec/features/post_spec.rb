@@ -14,14 +14,14 @@ feature 'post', type: :feature do
     expect(current_path).to eq root_path
     expect(page).to have_content('新規投稿')
 
-    expect {
+    expect do
       click_link('新規投稿')
       expect(current_path).to eq new_post_path
       find('input[type="file"]').click
-      attach_file "src", "#{Rails.root}/app/assets/images/paper.jpg"
+      attach_file 'src', Rails.root.join('app/assets/images/paper.jpg')
       fill_in 'title', with: 'フィーチャスペックのテスト'
       fill_in 'content', with: 'フィーチャスペックのテスト'
       find('input[type="submit"]').click
-    }.to change(Post, :count).by(1)
+    end.to change(Post, :count).by(1)
   end
 end
