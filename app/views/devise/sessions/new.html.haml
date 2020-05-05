@@ -14,7 +14,7 @@
               %h2= f.label :password
               = f.password_field :password, class: "text-field width", autocomplete: "current-password"
           .text-area__btn
-            = f.submit "ログイン", class: "btn"
+            = f.submit "ログインする", class: "btn"
             .session
               = render "devise/shared/links"
     .text-area__btn
@@ -22,4 +22,4 @@
         .guest
           =f.hidden_field :email ,value: "test@example.com"
           =f.hidden_field :password ,value: "testtest"
-          =f.submit "ゲストユーザーでログイン", class: "comment-submit"
+          =f.submit "ゲストユーザーで利用する", class: "comment-submit"
