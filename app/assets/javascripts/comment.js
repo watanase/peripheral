@@ -35,7 +35,7 @@ $(function () {
         $('.comment-submit').prop('disabled', false);
       })
       .fail(function () {
-        alert("エラーが発生しました");
+        // alert("エラーが発生しました");
       })
   })
 })
