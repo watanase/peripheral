@@ -35,7 +35,7 @@ $(function () {
         $('.comment-submit').prop('disabled', false);
       })
       .fail(function () {
-        alert("エラーが発生しました。リロードしてください。コメントはログインしていないと投稿できません。");
+        alert("エラーが発生しました");
       })
   })
 })
